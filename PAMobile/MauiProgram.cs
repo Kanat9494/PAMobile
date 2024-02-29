@@ -18,8 +18,14 @@ namespace PAMobile
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<FingerPrintConfirmPage>();
+            builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<PinPage>();
+            builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

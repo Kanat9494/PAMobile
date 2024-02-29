@@ -21,6 +21,23 @@ global using CommunityToolkit.Mvvm.Input;
 global using System.Web;
 global using PAMobile.ViewModels.Details;
 global using Plugin.Fingerprint.Abstractions;
+global using PAMobile.Views.CustomControls;
+global using PAMobile.ViewModels;
+global using Microsoft.Maui.Controls.Shapes;
+global using CommunityToolkit.Maui.Behaviors;
+global using CommunityToolkit.Maui.Core;
+global using CommunityToolkit.Maui.Views;
+global using PAMobile.Views.Details;
+global using PAMobile.Views;
+global using PAMobile.ViewModels.References;
+global using PAMobile.Views.References;
+
+
+
+
+
+
+
 
 
 

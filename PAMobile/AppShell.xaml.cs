@@ -1,10 +1,17 @@
-﻿namespace PAMobile
+﻿namespace PAMobile;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        RegisterRoutingPages();
+    }
+
+    private void RegisterRoutingPages()
+    {
+        Routing.RegisterRoute("PinPage", typeof(PinPage));
+        Routing.RegisterRoute("SetupPinCodePage", typeof(SetupPinCodePage));
     }
 }
