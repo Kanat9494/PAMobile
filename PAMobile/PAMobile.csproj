@@ -24,7 +24,7 @@
 		<ApplicationTitle>PAMobile</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.pamobile</ApplicationId>
+		<ApplicationId>com.salymf.pamobile</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
