@@ -1,0 +1,50 @@
+﻿namespace PAMobile.ViewModels;
+
+internal class GuideViewModel : BaseViewModel
+{
+    public GuideViewModel()
+    {
+        IsLoanTutor = false;
+        IsDepositTutor = false;
+        Task.Run(async () =>
+        {
+            //await Task.Delay(1000);
+            _accesToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            _userName = await SecureStorage.Default.GetAsync("UserName");
+
+            await InitializeTutors();
+        });
+    }
+
+    string _accesToken;
+    string _userName;
+
+    private Tutor _currentTutor;
+    public Tutor CurrentTutor
+    {
+        get => _currentTutor;
+        set => SetProperty(ref _currentTutor, value);
+    }
+    private bool _isLoanTutor;
+    public bool IsLoanTutor
+    {
+        get => _isLoanTutor;
+        set => SetProperty(ref _isLoanTutor, value);
+    }
+    private bool _isDepositTutor;
+    public bool IsDepositTutor
+    {
+        get => _isDepositTutor;
+        set => SetProperty(ref _isDepositTutor, value);
+    }
+
+    private async Task InitializeTutors()
+    {
+        CurrentTutor = await ContentService.Instance(_accesToken).GetItemAsync2<Tutor>($"api/ILogin/GetTutors?clientITIN={_userName}");
+
+        if (CurrentTutor.Fio1 != null && CurrentTutor.Fio2 != null)
+            IsLoanTutor = true;
+        if (CurrentTutor.Fio3 != null && CurrentTutor.Fio4 != null)
+            IsDepositTutor = true;
+    }
+}

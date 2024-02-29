@@ -10,7 +10,33 @@
 
     <ShellContent
         Title="Home"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="MainPage" 
+        Shell.NavBarIsVisible="False"/>
+
+    <TabBar
+    >
+        <ShellContent
+        Icon="home_icon.png"
+        Title="Главная"
         ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />
+        Route="HomePage"
+        Shell.NavBarIsVisible="True"
+        />
+
+        <!--<ShellContent
+        Title="Чаты"
+        Icon="chats_icon.png"
+        ContentTemplate="{DataTemplate views:ChatsPage}"
+        Shell.NavBarIsVisible="False"/>-->
+
+        <ShellContent
+        Title="Аккаунт"
+        Icon="account_icon.png"
+        ContentTemplate="{DataTemplate views:AccountPage}"
+        Shell.NavBarIsVisible="False"
+        Route="AccountPage"
+        />
+    </TabBar>
 
 </Shell>

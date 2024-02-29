@@ -9,6 +9,29 @@ global using PAMobile.Models.DTOs.Requests;
 global using PAMobile.Models;
 global using PAMobile.Services;
 global using Plugin.LocalNotification;
+global using System.ComponentModel;
+global using System.Runtime.CompilerServices;
+global using System.Collections.ObjectModel;
+global using PAMobile.Utils;
+global using System.Windows.Input;
+global using System.Diagnostics;
+global using CommunityToolkit.Maui;
+global using CommunityToolkit.Maui.Markup;
+global using CommunityToolkit.Mvvm.Input;
+global using System.Web;
+global using PAMobile.ViewModels.Details;
+global using Plugin.Fingerprint.Abstractions;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
