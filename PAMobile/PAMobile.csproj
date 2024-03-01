@@ -92,4 +92,9 @@
 	<ItemGroup>
 	  <Folder Include="ViewModels\CustomControls\" />
 	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Resources\Themes\DefaultTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 </Project>
