@@ -42,10 +42,6 @@
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
-	  <CodesignKey>Apple Development: Created via API (56R7W9S7G6)</CodesignKey>
-	  <CodesignProvision>VS: com.salymf.pamobile Development</CodesignProvision>
-	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.png" color="#cc0000" Resize="false" BaseSize="10,10" />
