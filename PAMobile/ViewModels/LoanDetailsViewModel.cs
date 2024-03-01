@@ -6,6 +6,8 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
     public LoanDetailsViewModel()
     {
         ExtractLabel = true;
+        GraphicLabel = true;
+        MbankLabel = true;
         GetLoanGraphicCommand = new AsyncRelayCommand(OnGetLoansGraphic);
         GetLoanDebtCommand = new AsyncRelayCommand(OnGetLoanDebt);
         BackCommand = new AsyncRelayCommand(OnBack);
@@ -111,6 +113,18 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         get => _extractLabel;
         set => SetProperty(ref _extractLabel, value);
     }
+    private bool _graphicLabel;
+    public bool GraphicLabel
+    {
+        get => _graphicLabel;
+        set => SetProperty(ref _graphicLabel, value);
+    }
+    private bool _mbankLabel;
+    public bool MbankLabel
+    {
+        get => _mbankLabel;
+        set => SetProperty(ref _mbankLabel, value);
+    }
 
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -163,6 +177,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
 
         //await FileHelper.SaveFileAsync(excelBytes);
         IsLoadingGraphic = true;
+        GraphicLabel = false;
 
         var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Loans/GetLoanGraphicXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
 
@@ -191,6 +206,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         }
 
         IsLoadingGraphic = false;
+        GraphicLabel = true;
     }
 
     private async Task OnGetExtract()
@@ -244,6 +260,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
     private async Task OnOpenMBank()
     {
         IsLoadingSum = true;
+        MbankLabel = false;
         try
         {
             //OpenOtherApp openOtherApp = new OpenOtherApp();
@@ -254,6 +271,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
                 + LoanPositionalNumber + "&amount=" + paymentSum.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
             await Launcher.Default.OpenAsync(url);
             IsLoadingSum = false;
+            MbankLabel = true;
         }
         catch (Exception ex)
         {

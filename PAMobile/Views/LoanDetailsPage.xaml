@@ -60,6 +60,37 @@
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetExtractCommand}"/>
                 </Border.GestureRecognizers>
             </Border>
+
+            <Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
+                FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
+                <VerticalStackLayout VerticalOptions="Center">
+                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingGraphic}" IsVisible="{Binding IsLoadingGraphic}"
+                        />
+
+                    <Label Text="График погашения" IsVisible="{Binding GraphicLabel}" FontSize="16"
+                        FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanGraphicCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
+                <VerticalStackLayout VerticalOptions="Center">
+                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
+                        />
+
+                    <Label Text="Оплатить через MBank" IsVisible="{Binding MbankLabel}" FontSize="16"
+                        FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
