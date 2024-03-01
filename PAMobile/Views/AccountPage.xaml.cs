@@ -7,9 +7,10 @@ public partial class AccountPage : ContentPage
 	{
 		InitializeComponent();
 
-		GenerateUI();
+		//GenerateUI();
+		versionText.Text = $"Версия {AppInfo.VersionString}";
 
-		BindingContext = _viewModel = new AccountViewModel();
+        BindingContext = _viewModel = new AccountViewModel();
 	}
 
 	AccountViewModel _viewModel;

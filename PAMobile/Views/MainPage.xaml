@@ -47,7 +47,7 @@
 
             <toolkit:Expander>
                 <toolkit:Expander.Header>
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill"
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" BackgroundColor="White"
                     Padding="15" Margin="10, 20, 10, 0">
                         <StackLayout Orientation="Horizontal">
                             <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Заявления" FontSize="20" FontAttributes="Bold"
@@ -64,7 +64,7 @@
                 <StackLayout Margin="10">
                     <toolkit:Expander>
                         <toolkit:Expander.Header>
-                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10" BackgroundColor="White">
                                 <Label Text="Кредит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
                             </Border>
                         </toolkit:Expander.Header>
@@ -105,7 +105,7 @@
 
                     <toolkit:Expander>
                         <toolkit:Expander.Header>
-                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10" BackgroundColor="White">
                                 <Label Text="Депозит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
                             </Border>
                         </toolkit:Expander.Header>
@@ -141,7 +141,7 @@
                 </StackLayout>
             </toolkit:Expander>
 
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill"
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" BackgroundColor="White"
                 Padding="15" Margin="10, 20, 10, 0">
                 <StackLayout Orientation="Horizontal">
                     <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Справочник" FontSize="20" FontAttributes="Bold"
