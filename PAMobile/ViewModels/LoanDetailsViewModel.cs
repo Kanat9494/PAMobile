@@ -5,6 +5,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
 {
     public LoanDetailsViewModel()
     {
+        ExtractLabel = true;
         GetLoanGraphicCommand = new AsyncRelayCommand(OnGetLoansGraphic);
         GetLoanDebtCommand = new AsyncRelayCommand(OnGetLoanDebt);
         BackCommand = new AsyncRelayCommand(OnBack);
@@ -104,6 +105,12 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         get => _isLoadingExtract;
         set => SetProperty(ref _isLoadingExtract, value);
     }
+    private bool _extractLabel;
+    public bool ExtractLabel
+    {
+        get => _extractLabel;
+        set => SetProperty(ref _extractLabel, value);
+    }
 
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -189,11 +196,9 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
     private async Task OnGetExtract()
     {
         IsLoadingExtract = true;
+        ExtractLabel = false;
         //await Task.Delay(1500);
         //await Shell.Current.GoToAsync($"{nameof(LoanExtractPage)}?{nameof(LoanExtractViewModel.LoanPositionalNumber)}={LoanPositionalNumber}");
-
-        var excelBytes = await ContentService.Instance(_accessToken).GetItemAsync2<byte[]>($"api/Loans/GetLoanStatementXlsx?loanPositionalNumber={LoanPositionalNumber}");
-
 
         var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Loans/GetLoanStatementXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
 
@@ -222,6 +227,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         }
 
         IsLoadingExtract = false;
+        ExtractLabel = true;
     }
 
     async Task OnGetLoanDebt()

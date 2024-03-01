@@ -6,13 +6,12 @@ internal class FileHelper
     {
 
         var fileName = "uploaded_file_" + DateTime.UtcNow.ToString("ddMMM_hhmmss") + extension;
-        string filePath = "";
 
         var fileFullPath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
 
         await File.WriteAllBytesAsync(fileFullPath, fileData);
 
-        string mainDir = FileSystem.Current.AppDataDirectory;
+        //string mainDir = FileSystem.Current.AppDataDirectory;
         return fileFullPath;
 
     }

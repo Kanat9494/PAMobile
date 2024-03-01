@@ -17,7 +17,48 @@
             <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="14, 10, 14, 10" Padding="10">
                 <VerticalStackLayout>
                     <Label Text="Информация по кредиту" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
+                    
+                    <Label Text="Код погашения" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanPositionalNumber}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Сумма выданного кредита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanSum, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0" />
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Валюта по кредиту" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanCurrency}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0" />
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Процентная ставка (за год)" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanPercent}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Срок по кредиту" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanTerm, StringFormat='{0} месяцев'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Дата выдачи кредита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanStartDate}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+
+                    <Label Text="Дата окончания кредита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label Text="{Binding LoanEndDate}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
                 </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
+                <StackLayout>
+                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingExtract}" IsVisible="{Binding IsLoadingExtract}"
+                        />
+
+                    <Label Text="Выписка" IsVisible="{Binding ExtractLabel}" FontSize="16"
+                        FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetExtractCommand}"/>
+                </Border.GestureRecognizers>
             </Border>
         </VerticalStackLayout>
     </ScrollView>
