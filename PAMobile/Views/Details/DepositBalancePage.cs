@@ -4,8 +4,8 @@ namespace PAMobile.Views.Details;
 
 public class DepositBalancePage : ContentPage
 {
-    public DepositBalancePage()
-    {
+	public DepositBalancePage()
+	{
         Shell.SetTabBarIsVisible(this, false);
         //Shell.SetNavBarIsVisible(this, false);
         Title = "Остаток депозита";
@@ -22,7 +22,7 @@ public class DepositBalancePage : ContentPage
         GenerateUIAsync();
 
         BindingContext = _viewModel = new DepositBalanceViewModel();
-    }
+	}
 
     StackLayout contentSL;
     DepositBalanceViewModel _viewModel;

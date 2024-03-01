@@ -1,16 +1,16 @@
 namespace PAMobile.Views;
 
-[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class DepositDetailsPage : ContentPage
+public partial class DocumentsPage : ContentPage
 {
-	public DepositDetailsPage()
+	public DocumentsPage()
 	{
 		InitializeComponent();
+
 
         LocalNotificationCenter.Current.NotificationActionTapped +=
             Current_NotificationActionTapped;
 
-        BindingContext = new DepositDetailsViewModel();
+        BindingContext = new DocumentsViewModel();
 	}
 
 

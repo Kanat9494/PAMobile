@@ -1,5 +1,8 @@
+using Plugin.Fingerprint.Abstractions;
+
 namespace PAMobile.Views;
 
+[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class LoginPage : ContentPage
 {
 	public LoginPage(IFingerprint fingerPrint)
@@ -21,9 +24,11 @@ public partial class LoginPage : ContentPage
 
     private LoginViewModel _viewModel;
 
+
+
     protected override async void OnNavigatedTo(NavigatedToEventArgs e)
     {
-        base.OnNavigatedTo(e);
+		base.OnNavigatedTo(e);
 
         _viewModel.IsTechnicalWorks = true;
 
@@ -56,25 +61,25 @@ public partial class LoginPage : ContentPage
 
 
     private async Task<bool> CheckTechnicalWorks()
-    {
-        using (var httpClient = new HttpClient())
-        {
+	{
+		using (var httpClient = new HttpClient())
+		{
             httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            try
-            {
+			try
+			{
                 var response = await httpClient.GetStringAsync(httpClient.BaseAddress + "api/TechnicalWorks/CheckTechnicalWorks");
                 bool result = JsonConvert.DeserializeObject<bool>(response);
 
                 return result;
             }
-            catch
-            {
-                return true;
-            }
+			catch
+			{
+				return true;
+			}
         }
-    }
+	}
 
 
     private void OnShowPassword(object sender, TappedEventArgs args)

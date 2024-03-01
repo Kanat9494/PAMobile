@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.GuidePage"
+             Title="Справочник"
+             Shell.TabBarIsVisible="False">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout IsVisible="{Binding IsLoanTutor}">
+                <Label Text="По кредитам:" FontSize="17" Margin="10"/>
+                <Label Text="Куратор:" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Fio1}" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Tel1}" FontSize="17" Margin="10"/>
+                <Label Text="Руководитель:" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Fio2}" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Tel2}" FontSize="17" Margin="10"/>
+                <BoxView HeightRequest="1" BackgroundColor="{x:StaticResource Gray100}" Margin="10"/>
+
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsDepositTutor}">
+                <Label Text="По депозитам:" FontSize="17" Margin="10"/>
+                <Label Text="Куратор:" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Fio3}" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Tel3}" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Fio4}" FontSize="17" Margin="10"/>
+                <Label Text="{Binding CurrentTutor.Tel4}" FontSize="17" Margin="10"/>
+
+
+                <BoxView HeightRequest="1" BackgroundColor="{x:StaticResource Gray100}" Margin="10"/>
+            </StackLayout>
+            <Label Text="Справочная:" FontSize="17" Margin="10"/>
+            <Label Text="996555781556" FontSize="17" Margin="10"/>
+            <Label Text="996777781556" FontSize="17" Margin="10"/>
+            <Label Text="996700781556" FontSize="17" Margin="10"/>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

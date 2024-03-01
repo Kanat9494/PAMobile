@@ -2,8 +2,8 @@ namespace PAMobile.Views.Details;
 
 public class DepositStatementPage : ContentPage
 {
-    public DepositStatementPage()
-    {
+	public DepositStatementPage()
+	{
         Shell.SetTabBarIsVisible(this, false);
         Shell.SetNavBarIsVisible(this, false);
         //Title = "Выписка по депозиту";
@@ -24,9 +24,9 @@ public class DepositStatementPage : ContentPage
             Current_NotificationActionTapped;
 
         BindingContext = _viewModel = new DepositStatementViewModel();
-    }
+	}
 
-    DepositStatementViewModel _viewModel;
+	DepositStatementViewModel _viewModel;
     StackLayout contentSL;
 
 
@@ -56,7 +56,7 @@ public class DepositStatementPage : ContentPage
 
             contentSL.Add(interestsStatementBtn);
 
-
+            
         });
     }
 

@@ -1,12 +1,12 @@
-п»їnamespace PAMobile.Views.Details;
+namespace PAMobile.Views.Details;
 
 public class LoanDebtPage : ContentPage
 {
-    public LoanDebtPage()
-    {
+	public LoanDebtPage()
+	{
         Shell.SetTabBarIsVisible(this, false);
         //Shell.SetNavBarIsVisible(this, false);
-        Title = "РћСЃС‚Р°С‚РѕРє РєСЂРµРґРёС‚Р°";
+        Title = "Остаток кредита";
 
         contentSL = new StackLayout
         {
@@ -22,10 +22,10 @@ public class LoanDebtPage : ContentPage
         BindingContext = _viewModel = new LoanDebtViewModel();
     }
 
-    LoanDebtViewModel _viewModel;
-    StackLayout contentSL;
+	LoanDebtViewModel _viewModel;
+	StackLayout contentSL;
 
-
+	
 
 
 
@@ -36,21 +36,21 @@ public class LoanDebtPage : ContentPage
             contentSL.Add(new Label
             {
                 HorizontalOptions = LayoutOptions.Start
-            }.Text("Р’СЃРµРіРѕ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚СЊ РїРѕ РєСЂРµРґРёС‚Сѓ").Font(bold: true, size: 18).Margins(10, 10, 10, 10));
+            }.Text("Всего задолженность по кредиту").Font(bold: true, size: 18).Margins(10, 10, 10, 10));
 
-            CreateLabel<string>("РћСЃРЅРѕРІРЅР°СЏ СЃСѓРјРјР°", "CurrentLoanTotalDebt.LoanBalance");
-            CreateLabel<string>("РџСЂРѕС†РµРЅС‚С‹", "CurrentLoanTotalDebt.Percent");
-            CreateLabel<string>("РЁС‚СЂР°С„С‹", "CurrentLoanTotalDebt.Fine");
-            CreateLabel<string>("РС‚РѕРіРѕ", "CurrentLoanTotalDebt.Summa");
+            CreateLabel<string>("Основная сумма", "CurrentLoanTotalDebt.LoanBalance");
+            CreateLabel<string>("Проценты", "CurrentLoanTotalDebt.Percent");
+            CreateLabel<string>("Штрафы", "CurrentLoanTotalDebt.Fine");
+            CreateLabel<string>("Итого", "CurrentLoanTotalDebt.Summa");
 
             contentSL.Add(new Label
             {
                 HorizontalOptions = LayoutOptions.Start
-            }.Text("РџСЂРѕСЃСЂРѕС‡РµРЅРЅР°СЏ Р·Р°РґРѕР»Р¶РµРЅРЅРѕСЃС‚СЊ РїРѕ РєСЂРµРґРёС‚Сѓ").Font(bold: true, size: 18).Margins(10, 30, 10, 10));
-            CreateLabel<string>("РћСЃРЅРѕРІРЅР°СЏ СЃСѓРјРјР°", "CurrentLoanOverdueDebt.Ostatok");
-            CreateLabel<string>("РџСЂРѕС†РµРЅС‚С‹", "CurrentLoanOverdueDebt.ProcPercent");
-            CreateLabel<string>("РЁС‚СЂР°С„С‹", "CurrentLoanOverdueDebt.Fine");
-            CreateLabel<string>("РС‚РѕРіРѕ", "CurrentLoanOverdueDebt.Summa");
+            }.Text("Просроченная задолженность по кредиту").Font(bold: true, size: 18).Margins(10, 30, 10, 10));
+            CreateLabel<string>("Основная сумма", "CurrentLoanOverdueDebt.Ostatok");
+            CreateLabel<string>("Проценты", "CurrentLoanOverdueDebt.ProcPercent");
+            CreateLabel<string>("Штрафы", "CurrentLoanOverdueDebt.Fine");
+            CreateLabel<string>("Итого", "CurrentLoanOverdueDebt.Summa");
         });
     }
 

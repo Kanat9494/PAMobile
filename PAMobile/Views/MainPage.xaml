@@ -4,8 +4,9 @@
              x:Class="PAMobile.Views.MainPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-             Title="Салым Финанс"
-             >
+             Title="Салым Финанс">
+    
+    
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource Red40}"/>
     </ContentPage.Behaviors>
@@ -30,30 +31,30 @@
                 </Grid.RowDefinitions>
 
                 <Button Text="Кредиты" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="17" FontAttributes="Bold"
-                HeightRequest="50" Margin="0, 0, 10, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
-                Path=LoansCommand}"/>
+                    HeightRequest="50" Margin="0, 0, 10, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                    Path=LoansCommand}"/>
 
                 <Button Text="Депозиты" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="17" FontAttributes="Bold"
-                HeightRequest="50" Margin="10, 0, 0, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
-                Path=DepositsCommand}"/>
+                    HeightRequest="50" Margin="10, 0, 0, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                    Path=DepositsCommand}"/>
 
                 <Button Text="Онлайн кредит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="17" FontAttributes="Bold"
-                HeightRequest="50" Margin="0, 0, 10, 0" Grid.Row="1" Command="{Binding OnlineLoansCommand}"/>
+                    HeightRequest="50" Margin="0, 0, 10, 0" Grid.Row="1" Command="{Binding OnlineLoansCommand}"/>
 
                 <Button Text="Онлайн депозит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="17" FontAttributes="Bold"
-                HeightRequest="50" Margin="10, 0, 0, 0" Grid.Row="1" Command="{Binding OnlineDepositCommand}"/>
+                    HeightRequest="50" Margin="10, 0, 0, 0" Grid.Row="1" Command="{Binding OnlineDepositCommand}"/>
             </Grid>
 
-            <toolkit:Expander >
+            <toolkit:Expander>
                 <toolkit:Expander.Header>
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" BackgroundColor="White"
-                Padding="15" Margin="10, 20, 10, 0">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill"
+                    Padding="15" Margin="10, 20, 10, 0">
                         <StackLayout Orientation="Horizontal">
                             <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Заявления" FontSize="20" FontAttributes="Bold"
-                        FontFamily="OpenSansRegular"/>
+                            FontFamily="OpenSansRegular"/>
 
                             <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 35"
-                        BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
+                            BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
                                 <Image Source="next_icon.png" Aspect="AspectFill" />
                             </Border>
                         </StackLayout>
@@ -63,7 +64,7 @@
                 <StackLayout Margin="10">
                     <toolkit:Expander>
                         <toolkit:Expander.Header>
-                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10" BackgroundColor="White">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
                                 <Label Text="Кредит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
                             </Border>
                         </toolkit:Expander.Header>
@@ -72,31 +73,31 @@
                             <Label Text="На изменение условий кредитного договора" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="1"/>
+                                    CommandParameter="1"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На получение информации по кредиту" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="2"/>
+                                    CommandParameter="2"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На выдачу транша" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="3"/>
+                                    CommandParameter="3"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На выдачу документа по залогу" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="4"/>
+                                    CommandParameter="4"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На выплату переплаты" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="5"/>
+                                    CommandParameter="5"/>
                                 </Label.GestureRecognizers>
                             </Label>
                         </VerticalStackLayout>
@@ -104,7 +105,7 @@
 
                     <toolkit:Expander>
                         <toolkit:Expander.Header>
-                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10" BackgroundColor="White">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
                                 <Label Text="Депозит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
                             </Border>
                         </toolkit:Expander.Header>
@@ -113,25 +114,25 @@
                             <Label Text="На выдачу части депозита" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="6"/>
+                                    CommandParameter="6"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На перечисление депозита и %" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                CommandParameter="7"/>
+                                    CommandParameter="7"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="На расторжение договора" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                    CommandParameter="8"/>
+                                        CommandParameter="8"/>
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label Text="О происхождении денежных средств" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ReferenceDefinitionCommand}"
-                                    CommandParameter="9"/>
+                                        CommandParameter="9"/>
                                 </Label.GestureRecognizers>
                             </Label>
 
@@ -140,14 +141,14 @@
                 </StackLayout>
             </toolkit:Expander>
 
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" BackgroundColor="White"
-            Padding="15" Margin="10, 20, 10, 0">
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill"
+                Padding="15" Margin="10, 20, 10, 0">
                 <StackLayout Orientation="Horizontal">
                     <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Справочник" FontSize="20" FontAttributes="Bold"
-                    FontFamily="OpenSansRegular"/>
+                        FontFamily="OpenSansRegular"/>
 
                     <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 35"
-                    BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
+                        BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
                         <Image Source="next_icon.png" Aspect="AspectFill" />
                     </Border>
                 </StackLayout>

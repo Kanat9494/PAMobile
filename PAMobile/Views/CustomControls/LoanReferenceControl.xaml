@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.CustomControls.LoanReferenceControl"
+             xmlns:controls="clr-namespace:PAMobile.Views.CustomControls"
+             x:Name="this">
+    <StackLayout>
+        <Label Text="{Binding ReferencePageTitle}" FontSize="17" FontAttributes="Bold" Margin="10"/>
+        
+        <Picker Title="{Binding PickerTitle, FallbackValue='Выберите кредит'}" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
+            ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
+
+        <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"/>
+
+        <StackLayout IsVisible="{Binding IsNext}">
+            <Label Text="{Binding ChoseTerms}" FontSize="17" Margin="10, 30, 10, 0"/>
+
+            <CollectionView ItemsSource="{Binding LoanTerms}" Margin="10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" FontSize="16" Margin="10, 5, 10, 0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type controls:LoanReferenceControl}}, Path=SelectLoanTermCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

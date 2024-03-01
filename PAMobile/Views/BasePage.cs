@@ -1,8 +1,8 @@
-﻿namespace PAMobile.Views;
+namespace PAMobile.Views;
 
 public abstract class BasePage : ContentPage
 {
-    public abstract void Build();
+	public abstract void Build();
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {

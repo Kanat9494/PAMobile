@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.AccountPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="AccountPage">
     <RefreshView
-    IsRefreshing="{Binding IsRefreshing}"
-    Command="{Binding RefreshAccountInfo}">
+        IsRefreshing="{Binding IsRefreshing}"
+        Command="{Binding RefreshAccountInfo}">
         <ScrollView
-    BackgroundColor="{x:StaticResource White95}">
+        BackgroundColor="{x:StaticResource White95}">
             <StackLayout x:Name="contentSL">
                 <Grid
-            Margin="10, 30, 10, 0">
+                Margin="10, 30, 10, 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="50"/>
@@ -21,46 +22,46 @@
                     </Grid.ColumnDefinitions>
 
                     <Label
-                Text="Добро пожаловать"
-                Grid.Row="0"
-                TextColor="{x:StaticResource Gray900}"
-                LineBreakMode="TailTruncation"
-                VerticalOptions="Center"
-                FontSize="16"
-                FontFamily="RegularFont"/>
+                    Text="Добро пожаловать"
+                    Grid.Row="0"
+                    TextColor="{x:StaticResource Gray900}"
+                    LineBreakMode="TailTruncation"
+                    VerticalOptions="Center"
+                    FontSize="16"
+                    FontFamily="RegularFont"/>
 
                     <Label
-                Text="{Binding UserFullName}"
-                Grid.Row="1"
-                TextColor="{x:StaticResource Black}"
-                LineBreakMode="TailTruncation"
-                FontSize="20"
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                FontFamily="RegularFont"/>
+                    Text="{Binding UserFullName}"
+                    Grid.Row="1"
+                    TextColor="{x:StaticResource Black}"
+                    LineBreakMode="TailTruncation"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    FontFamily="RegularFont"/>
 
                     <!--<Border
-                Grid.Column="1"
-                Grid.RowSpan="2"
-                StrokeShape="RoundRectangle 10"
-                    StrokeThickness="0">
-                    <Image
-                    Source="{Binding ProfileImg}"
-                    Aspect="Fill"/>
-                </Border>-->
+                    Grid.Column="1"
+                    Grid.RowSpan="2"
+                    StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0">
+                        <Image
+                        Source="{Binding ProfileImg}"
+                        Aspect="Fill"/>
+                    </Border>-->
                 </Grid>
 
 
                 <ActivityIndicator
-                Color="{x:StaticResource Green45}"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}"
-                HeightRequest="50"
-                WidthRequest="50"/>
+                    Color="{x:StaticResource Green45}"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    HeightRequest="50"
+                    WidthRequest="50"/>
 
 
 
-
+                
             </StackLayout>
         </ScrollView>
     </RefreshView>

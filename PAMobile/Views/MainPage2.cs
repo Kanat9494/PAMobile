@@ -1,101 +1,101 @@
-п»їnamespace PAMobile.Views;
+namespace PAMobile.Views;
 
 public class MainPage2 : ContentPage
 {
-    public MainPage2()
-    {
-        var statusBarBehavior = new StatusBarBehavior()
-        {
-            StatusBarColor = Color.FromArgb("#ffad33"),
-            StatusBarStyle = StatusBarStyle.DarkContent
-        };
+	public MainPage2()
+	{
+		var statusBarBehavior = new StatusBarBehavior()
+		{
+			StatusBarColor = Color.FromArgb("#ffad33"),
+			StatusBarStyle = StatusBarStyle.DarkContent
+		};
 
-        Label loanInfoLbl = new Label().Text("РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РєСЂРµРґРёС‚Р°Рј").Font(size: 20, bold: true, family: "OpenSansRegular")
-            .Margins(10, 20, 10, 0);
-        loanInfoLbl.GestureRecognizers.Add(new TapGestureRecognizer()
-            .Bind(TapGestureRecognizer.CommandProperty, static (MainViewModel vm) => vm.ReferenceDefinitionCommand)
-            .Bind(TapGestureRecognizer.CommandParameterProperty, static (MainViewModel vm) => vm.LoanInfoDefinition));
+		Label loanInfoLbl = new Label().Text("Информация по кредитам").Font(size: 20, bold: true, family: "OpenSansRegular")
+			.Margins(10, 20, 10, 0);
+		loanInfoLbl.GestureRecognizers.Add(new TapGestureRecognizer()
+			.Bind(TapGestureRecognizer.CommandProperty, static (MainViewModel vm) => vm.ReferenceDefinitionCommand)
+			.Bind(TapGestureRecognizer.CommandParameterProperty, static (MainViewModel vm) => vm.LoanInfoDefinition));
 
-        Behaviors.Add(statusBarBehavior);
+		Behaviors.Add(statusBarBehavior);
 
-        Content = new ScrollView
-        {
-            Content = new StackLayout
-            {
-                Background = Color.FromArgb("#f2f2f2"),
-                Children =
-                {
+		Content = new ScrollView
+		{
+			Content = new StackLayout
+			{
+				Background = Color.FromArgb("#f2f2f2"),
+				Children =
+				{
                     loanInfoLbl,
-                    new Label().Text("РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РґРµРїРѕР·РёС‚Р°Рј").Font(size: 20, bold: true, family: "OpenSansRegular")
-                    .Margins(10, 10, 10, 0),
-                    new Expander
-                    {
-						//Header = new Label().Text("Р—Р°СЏРІР»РµРЅРёСЏ").Font(bold: true, size: 18),
+					new Label().Text("Информация по депозитам").Font(size: 20, bold: true, family: "OpenSansRegular")
+					.Margins(10, 10, 10, 0),
+					new Expander
+					{
+						//Header = new Label().Text("Заявления").Font(bold: true, size: 18),
 						Header = new Border
-                        {
-                            StrokeThickness = 0,
-                            StrokeShape = new RoundRectangle
-                            {
-                                CornerRadius = new CornerRadius(10),
-                                HorizontalOptions = LayoutOptions.Fill
-                            },
+						{
+							StrokeThickness = 0,
+							StrokeShape = new RoundRectangle
+							{
+								CornerRadius = new CornerRadius(10),
+								HorizontalOptions = LayoutOptions.Fill
+							},
 
-                            Content = new StackLayout
-                            {
-                                Orientation = StackOrientation.Horizontal,
+							Content = new StackLayout
+							{
+								Orientation = StackOrientation.Horizontal,
 
-                                Children =
-                                {
-                                    new Label()
-                                    {
-                                        VerticalOptions = LayoutOptions.Center,
-                                        HorizontalOptions = LayoutOptions.Start,
-                                    }.Text("Р—Р°СЏРІР»РµРЅРёСЏ").Font(size: 20, bold: true, family: "OpenSansRegular"),
-                                    new Border()
-                                    {
-                                        HorizontalOptions = LayoutOptions.EndAndExpand,
-                                        StrokeThickness = 0,
-                                        StrokeShape = new RoundRectangle
-                                        {
-                                            CornerRadius = new CornerRadius(35),
-                                        },
-                                        Background = Color.FromArgb("#f2f2f2"),
-                                        Content = new Image().Source("next_icon.png").Aspect(Aspect.AspectFill),
-                                    }.Height(35).Width(35).Padding(10),
-                                }
-                            }
-                        }.Padding(15).Margins(10, 20, 10, 0),
+								Children =
+								{
+									new Label()
+									{
+										VerticalOptions = LayoutOptions.Center,
+										HorizontalOptions = LayoutOptions.Start,
+									}.Text("Заявления").Font(size: 20, bold: true, family: "OpenSansRegular"),
+									new Border()
+									{
+										HorizontalOptions = LayoutOptions.EndAndExpand,
+										StrokeThickness = 0,
+										StrokeShape = new RoundRectangle
+										{
+											CornerRadius = new CornerRadius(35),
+										},
+										Background = Color.FromArgb("#f2f2f2"),
+										Content = new Image().Source("next_icon.png").Aspect(Aspect.AspectFill),
+									}.Height(35).Width(35).Padding(10),
+								}
+							}
+						}.Padding(15).Margins(10, 20, 10, 0),
 
-                        Content = new VerticalStackLayout
-                        {
-                            new Expander
-                            {
-                                Header = new Border
-                                {
-                                    StrokeThickness = 0,
-                                    StrokeShape = new RoundRectangle
-                                    {
-                                        CornerRadius = new CornerRadius(10),
-                                        HorizontalOptions = LayoutOptions.Fill
-                                    },
-                                    Content = new Label()
-                                    {
-                                        VerticalOptions = LayoutOptions.Center,
-                                        HorizontalOptions = LayoutOptions.Start,
-                                    }.Text("РљСЂРµРґРёС‚").Font(size: 20, bold: true, family: "OpenSansRegular"),
-                                }.Padding(15).Margins(10, 5, 10, 10),
-                                Content = new VerticalStackLayout
-                                {
-                                    new Label().Text("РќР° РёР·РјРµРЅРµРЅРёРµ СѓСЃР»РѕРІРёР№ РєСЂРµРґРёС‚РЅРѕРіРѕ РґРѕРіРѕРІРѕСЂР°")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РџРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РєСЂРµРґРёС‚Сѓ")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РќР° РІС‹РґР°С‡Сѓ С‚СЂР°РЅС€Р°")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РќР° РІС‹РґР°С‡Сѓ РґРѕРєСѓРјРµРЅС‚Р° РїРѕ Р·Р°Р»РѕРіСѓ")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РќР° РІС‹РїР»Р°С‚Сѓ РїРµСЂРµРїР»Р°С‚С‹")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+						Content = new VerticalStackLayout
+						{
+							new Expander
+							{
+								Header = new Border
+								{
+									StrokeThickness = 0,
+									StrokeShape = new RoundRectangle
+									{
+										CornerRadius = new CornerRadius(10),
+										HorizontalOptions = LayoutOptions.Fill
+									},
+									Content = new Label()
+									{
+										VerticalOptions = LayoutOptions.Center,
+										HorizontalOptions = LayoutOptions.Start,
+									}.Text("Кредит").Font(size: 20, bold: true, family: "OpenSansRegular"),
+								}.Padding(15).Margins(10, 5, 10, 10),
+								Content = new VerticalStackLayout
+								{
+									new Label().Text("На изменение условий кредитного договора")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("Получение информации по кредиту")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("На выдачу транша")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("На выдачу документа по залогу")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("На выплату переплаты")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
                                 }.Margins(10)
                             }.Margins(0, 0, 10, 0),
                             new Expander
@@ -112,26 +112,26 @@ public class MainPage2 : ContentPage
                                     {
                                         VerticalOptions = LayoutOptions.Center,
                                         HorizontalOptions = LayoutOptions.Start,
-                                    }.Text("Р”РµРїРѕР·РёС‚").Font(size: 20, bold: true, family: "OpenSansRegular"),
+                                    }.Text("Депозит").Font(size: 20, bold: true, family: "OpenSansRegular"),
                                 }.Padding(15).Margins(10, 5, 10, 10),
                                 Content = new VerticalStackLayout
                                 {
-                                    new Label().Text("РќР° РІС‹РґР°С‡Сѓ С‡Р°СЃС‚Рё РґРµРїРѕР·РёС‚Р°")
+                                    new Label().Text("На выдачу части депозита")
                                     .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РќР° РїРµСЂРµС‡РёСЃР»РµРЅРёРµ РґРµРїРѕР·РёС‚Р° Рё %")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("РќР° СЂР°СЃС‚РѕСЂР¶РµРЅРёРµ РґРѕРіРѕРІРѕСЂР°")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10),
-                                    new Label().Text("Рћ РїСЂРѕРёСЃС…РѕР¶РґРµРЅРёРё РґРµРЅРµР¶РЅС‹С… СЃСЂРµРґСЃС‚РІ")
-                                    .Font(bold: true, size: 17).Margins(10, 0, 10, 10)
+									new Label().Text("На перечисление депозита и %")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("На расторжение договора")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10),
+									new Label().Text("О происхождении денежных средств")
+									.Font(bold: true, size: 17).Margins(10, 0, 10, 10)
                                 }.Margins(10) //VerticalStackLayout
                             }.Margins(0, 0, 10, 0),//Expander
                         }.Margins(10),//VerticalStackLayout
 					},//Expander
 				}
-            }
-        };
+			}
+		};
 
-        BindingContext = new MainViewModel();
-    }
+		BindingContext = new MainViewModel();
+	}
 }

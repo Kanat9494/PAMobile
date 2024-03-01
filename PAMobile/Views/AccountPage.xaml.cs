@@ -1,90 +1,91 @@
 namespace PAMobile.Views;
 
+[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class AccountPage : ContentPage
 {
 	public AccountPage()
-    {
-        InitializeComponent();
-        GenerateUI();
+	{
+		InitializeComponent();
 
-        BindingContext = _viewModel = new AccountViewModel();
-    }
+		GenerateUI();
 
-    AccountViewModel _viewModel;
+		BindingContext = _viewModel = new AccountViewModel();
+	}
 
-    private void GenerateUI()
-    {
-        App.Current.Dispatcher.Dispatch(() =>
-        {
-            //contentSL.Add(new Border
-            //{
-            //	StrokeShape = new RoundRectangle
-            //	{
-            //		CornerRadius = new CornerRadius(10, 10, 10, 10)
-            //	},
-            //	StrokeThickness = 0,
-            //	Content = new StackLayout
-            //	{
-            //		Orientation = StackOrientation.Horizontal,
-            //		Children =
-            //		{
-            //			new Label
-            //			{
-            //				VerticalOptions = LayoutOptions.Center,
+	AccountViewModel _viewModel;
 
-            //			}.Text("Настройки").Font(size: 20, bold: true, family: "RegularFont"),
+	private void GenerateUI()
+	{
+		App.Current.Dispatcher.Dispatch(() =>
+		{
+			//contentSL.Add(new Border
+			//{
+			//	StrokeShape = new RoundRectangle
+			//	{
+			//		CornerRadius = new CornerRadius(10, 10, 10, 10)
+			//	},
+			//	StrokeThickness = 0,
+			//	Content = new StackLayout
+			//	{
+			//		Orientation = StackOrientation.Horizontal,
+			//		Children =
+			//		{
+			//			new Label
+			//			{
+			//				VerticalOptions = LayoutOptions.Center,
 
-            //			new Border
-            //			{
-            //				HorizontalOptions = LayoutOptions.EndAndExpand,
-            //				StrokeThickness = 0,
-            //				BackgroundColor = Color.FromArgb("#f2f2f2"),
-            //				StrokeShape = new RoundRectangle
-            //				{
-            //					CornerRadius = new CornerRadius(40, 40, 40, 40)
-            //				},
-            //				Content = new Image().Source("next_icon.png")
-            //			}.Height(40).Width(40).Paddings(10, 10, 10, 10),
-            //		}
-            //	}
-            //}.Paddings(25, 25, 25, 25).Margins(10, 20, 10, 0).Bind(Border.IsVisibleProperty, static (AccountViewModel vm) => !vm.IsBusy));
+			//			}.Text("Настройки").Font(size: 20, bold: true, family: "RegularFont"),
 
-            var border = new Border
-            {
-                BackgroundColor = Colors.White,
-                StrokeShape = new RoundRectangle
-                {
-                    CornerRadius = new CornerRadius(10, 10, 10, 10)
-                },
-                StrokeThickness = 0,
-                Content = new StackLayout
-                {
-                    Orientation = StackOrientation.Horizontal,
-                    Children =
-                    {
-                        new Label
-                        {
-                            VerticalOptions = LayoutOptions.Center,
+			//			new Border
+			//			{
+			//				HorizontalOptions = LayoutOptions.EndAndExpand,
+			//				StrokeThickness = 0,
+			//				BackgroundColor = Color.FromArgb("#f2f2f2"),
+			//				StrokeShape = new RoundRectangle
+			//				{
+			//					CornerRadius = new CornerRadius(40, 40, 40, 40)
+			//				},
+			//				Content = new Image().Source("next_icon.png")
+			//			}.Height(40).Width(40).Paddings(10, 10, 10, 10),
+			//		}
+			//	}
+			//}.Paddings(25, 25, 25, 25).Margins(10, 20, 10, 0).Bind(Border.IsVisibleProperty, static (AccountViewModel vm) => !vm.IsBusy));
 
-                        }.Text("Курсы валют").Font(size: 20, bold: true, family: "RegularFont"),
+			var border = new Border
+			{
+				StrokeShape = new RoundRectangle
+				{
+					CornerRadius = new CornerRadius(10, 10, 10, 10)
+				},
+				StrokeThickness = 0,
+				Content = new StackLayout
+				{
+					Orientation = StackOrientation.Horizontal,
+					Children =
+					{
+						new Label
+						{
+							VerticalOptions = LayoutOptions.Center,
 
-                        new Border
-                        {
-                            HorizontalOptions = LayoutOptions.EndAndExpand,
-                            StrokeThickness = 0,
-                            BackgroundColor = Color.FromArgb("#f2f2f2"),
-                            StrokeShape = new RoundRectangle
-                            {
-                                CornerRadius = new CornerRadius(40, 40, 40, 40)
-                            },
-                            Content = new Image().Source("next_icon.png")
-                        }.Height(40).Width(40).Paddings(10, 10, 10, 10),
-                    }
-                }
-            }.Paddings(25, 25, 25, 25).Margins(10, 20, 10, 0).Bind(Border.IsVisibleProperty, static (AccountViewModel vm) => !vm.IsBusy);
-            var gestureRecognizer = new TapGestureRecognizer();
-            gestureRecognizer.SetBinding(TapGestureRecognizer.CommandProperty, new Binding("ExchangeRatesCommand"));
-            border.GestureRecognizers.Add(gestureRecognizer);
+						}.Text("Курсы валют").Font(size: 20, bold: true, family: "RegularFont"),
+
+						new Border
+						{
+							HorizontalOptions = LayoutOptions.EndAndExpand,
+							StrokeThickness = 0,
+							BackgroundColor = Color.FromArgb("#f2f2f2"),
+							StrokeShape = new RoundRectangle
+							{
+								CornerRadius = new CornerRadius(40, 40, 40, 40)
+							},
+							Content = new Image().Source("next_icon.png")
+						}.Height(40).Width(40).Paddings(10, 10, 10, 10),
+					}
+				}
+			}.Paddings(25, 25, 25, 25).Margins(10, 20, 10, 0).Bind(Border.IsVisibleProperty, static (AccountViewModel vm) => !vm.IsBusy);
+			var gestureRecognizer = new TapGestureRecognizer();
+			gestureRecognizer.SetBinding(TapGestureRecognizer.CommandProperty, new Binding("ExchangeRatesCommand"));
+			border.GestureRecognizers.Add(gestureRecognizer);
             contentSL.Add(border);
 
             //var exitBorder2 = new Border
@@ -127,14 +128,12 @@ public partial class AccountPage : ContentPage
             //contentSL.Add(exitBorder2);
 
             var exitBorder = new Border
-            {
-                StrokeShape = new RoundRectangle
-                {
-                    CornerRadius = new CornerRadius(10, 10, 10, 10)
-                },
-                StrokeThickness = 0,
-                BackgroundColor = Colors.White,
-
+			{
+				StrokeShape = new RoundRectangle
+				{
+					CornerRadius = new CornerRadius(10, 10, 10, 10)
+				},
+				StrokeThickness = 0,
                 Content = new StackLayout
                 {
                     Orientation = StackOrientation.Horizontal,
@@ -161,23 +160,23 @@ public partial class AccountPage : ContentPage
                 }
             }.Paddings(25, 25, 25, 25).Margins(10, 20, 10, 0).Bind(Border.IsVisibleProperty, static (AccountViewModel vm) => !vm.IsBusy);
 
-            var gestureRecognizer2 = new TapGestureRecognizer();
-            gestureRecognizer2.SetBinding(TapGestureRecognizer.CommandProperty, new Binding("ExitCommand", source: _viewModel));
-            exitBorder.GestureRecognizers.Add(gestureRecognizer2);
+			var gestureRecognizer2 = new TapGestureRecognizer();
+			gestureRecognizer2.SetBinding(TapGestureRecognizer.CommandProperty, new Binding("ExitCommand", source: _viewModel));
+			exitBorder.GestureRecognizers.Add(gestureRecognizer2);
 
-            contentSL.Add(exitBorder);
+			contentSL.Add(exitBorder);
 
 
-
+            
 
 
 
             contentSL.Add(new Label
-            {
-                HorizontalOptions = LayoutOptions.Center,
-                TextColor = Color.FromArgb("#999999"),
-                Text = $"Версия {AppInfo.VersionString}"
-            }.Margins(0, 20, 0, 0).Font(family: "RegularFont", size: 16, bold: true)); //Версия до 100
-        });
-    }
+			{
+				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.FromArgb("#999999"),
+				Text = $"Версия {AppInfo.VersionString}"
+			}.Margins(0, 20, 0, 0).Font(family: "RegularFont", size: 16, bold: true)); //Версия до 100
+		});
+	}
 }

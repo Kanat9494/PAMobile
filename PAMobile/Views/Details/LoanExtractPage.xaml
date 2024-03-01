@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.Details.LoanExtractPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <StackLayout>
+        <!--<dxg:DataGridView ItemsSource="{Binding LoanStatements}" Margin="0, 0, 0, 10">
+            <dxg:TextColumn FieldName="{Binding PayDate}" Caption="Дата погашения" MinWidth="130" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding PayBasicSum}" Caption="По основной сумме" MinWidth="170" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding PayPercentSum}" Caption="По процентам" MinWidth="150" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding PayFineSum}" Caption="По штрафам" MinWidth="150" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding TotalPaySum}" Caption="Итого" MinWidth="150" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding OverdueRemBasicSum}" Caption="По основной сумме" MinWidth="170" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding OverdueRemPercentSum}" Caption="По процентам" MinWidth="170" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding TotalLoanBasicSum}" Caption="По основной сумме" MinWidth="170" VerticalContentAlignment="Center"/>
+            <dxg:TextColumn FieldName="{Binding TotalLoandPerSum}" Caption="По процентам" MinWidth="170" VerticalContentAlignment="Center"/>
+
+
+        </dxg:DataGridView>-->
+    </StackLayout>
+</ContentPage>

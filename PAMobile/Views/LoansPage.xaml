@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.LoansPage"
+             xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
+             xmlns:viewModel="clr-namespace:PAMobile.ViewModels"
+             Title="LoansPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+    <StackLayout BackgroundColor="{x:StaticResource White95}" x:Name="mainContent">
+        <Label Text="Кредиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
+               FontSize="22" FontAttributes="Bold"/>
+
+        <ActivityIndicator Color="{x:StaticResource Green45}" Margin="0, 20, 0, 0"
+            IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+
+        <CollectionView ItemsSource="{Binding Loans}" Margin="10" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:LoanResponse">
+                    <Border Background="White" HeightRequest="120" StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="0, 10, 0, 0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="50*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="Номер договора" FontSize="16" FontAttributes="Bold"
+                                Margin="10, 10, 0, 0"/>
+
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding DG_NOM}" FontSize="16" FontAttributes="Bold"
+                                Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="Сумма кредита" FontSize="16" FontAttributes="Bold"
+                                Margin="10, 10, 0, 0"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding DG_SUM, StringFormat='{0:N2}'}" FontSize="16" FontAttributes="Bold"
+                                Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Валюта кредита" FontSize="16" FontAttributes="Bold"
+                                Margin="10, 10, 0, 0"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding DG_KODV}" FontSize="16" FontAttributes="Bold"
+                                Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                        </Grid>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:LoansViewModel}}, Path=LoanCommand}" 
+                                                  CommandParameter="{Binding DG_POZN}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

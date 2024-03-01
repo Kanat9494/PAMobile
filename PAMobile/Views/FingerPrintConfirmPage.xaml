@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.FingerPrintConfirmPage"
+             Title="Подтверждение биометрики"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             Shell.BackgroundColor="{x:StaticResource Orange60}">
+    <VerticalStackLayout>
+        <ActivityIndicator
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            HeightRequest="70"
+            Color="{x:StaticResource Green45}"
+            WidthRequest="70"
+            />
+        
+        <Label 
+                Text="Войдите для продолжения" 
+                HorizontalOptions="Center" 
+                FontSize="Subtitle"
+                VerticalOptions="Center"
+                FontFamily="RegularFont"/>
+
+        <Border
+                Stroke="{x:StaticResource Orange60}"
+                StrokeShape="RoundRectangle 10, 10, 10, 10"
+                Padding="0"
+                BackgroundColor="Transparent"
+                Margin="5"
+                >
+            <StackLayout 
+                    Orientation="Horizontal"
+                    >
+                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30"
+                            Padding="0" Margin="5 ">
+                    <Image Source="user_icon.png" Aspect="AspectFill"
+                            Margin="0"/>
+                </Frame>
+                <customControls:CustomEntry 
+                        Text="{Binding UserName}" 
+                        Placeholder="Введите логин" 
+                        TextColor="Black" 
+                        FontAttributes="Bold"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="0,0,20,0"/>
+            </StackLayout>
+        </Border>
+
+        <Border
+                Stroke="{x:StaticResource Orange60}"
+                StrokeShape="RoundRectangle 10, 10, 10, 10"
+                Padding="0"
+                BackgroundColor="Transparent"
+                Margin="5">
+            <StackLayout 
+                    Orientation="Horizontal"
+                    >
+                <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30"
+                            Padding="0" Margin="5 ">
+                    <Image 
+                            Source="password_icon.png" Aspect="AspectFill"
+                            Margin="0"/>
+                </Frame>
+                <customControls:CustomEntry 
+                        IsPassword="true"
+                        Text="{Binding Password}" 
+                        Placeholder="Введите пароль" 
+                        TextColor="Black" 
+                        FontAttributes="Bold"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="FillAndExpand" 
+                        Margin="0,0,20,0"/>
+            </StackLayout>
+        </Border>
+
+        <Button Text="Войти" BackgroundColor="{x:StaticResource Orange60}" TextColor="White" FontAttributes="Bold" CornerRadius="10"
+                WidthRequest="200" Margin="0,15,0,0" 
+                Command="{Binding ConfirmFingerPrintCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

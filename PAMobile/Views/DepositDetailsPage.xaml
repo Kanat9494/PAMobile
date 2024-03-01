@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.DepositDetailsPage"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-            Title="DepositDetailsPage"
-            xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
-
-            Shell.TabBarIsVisible="False"
-            Shell.NavBarIsVisible="False">
+             Title="DepositDetailsPage"
+             xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
+             
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
     <ScrollView VerticalScrollBarVisibility="Never">
         <StackLayout Background="{x:StaticResource Red50}">
             <Image HeightRequest="30" WidthRequest="30" Source="white_back_icon.png" HorizontalOptions="Start" Margin="5, 20, 0, 20">
@@ -41,7 +41,7 @@
                     <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.V_SIMV}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
-
+                    
                     <Label Text="Дата открытия" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
                     <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.DepositDate, StringFormat='{0:d}'}"/>

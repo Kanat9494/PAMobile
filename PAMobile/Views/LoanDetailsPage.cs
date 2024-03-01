@@ -2,10 +2,10 @@ namespace PAMobile.Views;
 
 public class LoanDetailsPage : ContentPage
 {
-    public LoanDetailsPage()
-    {
+	public LoanDetailsPage()
+	{
         Shell.SetTabBarIsVisible(this, false);
-        Shell.SetNavBarIsVisible(this, false);
+		Shell.SetNavBarIsVisible(this, false);
         var image = new Image
         {
             HeightRequest = 30,
@@ -13,11 +13,11 @@ public class LoanDetailsPage : ContentPage
             Source = "white_back_icon.png"
         }.Start().Margins(5, 20, 0, 20);
 
-        var tapGesture = new TapGestureRecognizer().Bind(TapGestureRecognizer.CommandProperty, static (LoanDetailsViewModel vm) =>
+        var tapGesture = new TapGestureRecognizer().Bind(TapGestureRecognizer.CommandProperty, static (LoanDetailsViewModel vm) => 
         vm.BackCommand);
         image.GestureRecognizers.Add(tapGesture);
 
-        TapGestureRecognizer gestureRecognizer = new TapGestureRecognizer().Bind(TapGestureRecognizer.CommandProperty, static (LoanDetailsViewModel vm) =>
+        TapGestureRecognizer gestureRecognizer = new TapGestureRecognizer().Bind(TapGestureRecognizer.CommandProperty, static (LoanDetailsViewModel vm) => 
             vm.OpenMBankCommand);
 
         var openMBankBorder = new Border
@@ -32,7 +32,7 @@ public class LoanDetailsPage : ContentPage
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
-                Children =
+                            Children =
                 {
                     new ActivityIndicator
                                 {
@@ -48,7 +48,7 @@ public class LoanDetailsPage : ContentPage
                                     VerticalOptions = LayoutOptions.Center,
                                 }.Bind(Label.IsVisibleProperty, static (LoanDetailsViewModel vm) => !vm.IsLoadingSum).Font(size: 16, bold: true),
                 }
-            }
+                        }
         }.Height(50).Margins(10, 10, 10, 10);
         openMBankBorder.GestureRecognizers.Add(gestureRecognizer);
         var extractBorder = new Border
@@ -115,7 +115,7 @@ public class LoanDetailsPage : ContentPage
                 }
             }
         }.Height(50).Margins(10, 10, 10, 10);
-
+        
         TapGestureRecognizer graphicRecognizer = new TapGestureRecognizer().Bind(TapGestureRecognizer.CommandProperty, static (LoanDetailsViewModel vm) =>
             vm.GetLoanGraphicCommand);
 
@@ -190,19 +190,19 @@ public class LoanDetailsPage : ContentPage
 
                     graphicBorder,
 
-
+                    
                     openMBankBorder,
 
                 }
             }//StackLayout
-        };//ScrollView
+		};//ScrollView
 
 
         LocalNotificationCenter.Current.NotificationActionTapped +=
             Current_NotificationActionTapped;
 
         BindingContext = new LoanDetailsViewModel();
-    }
+	}
 
     private async void Current_NotificationActionTapped(Plugin.LocalNotification.EventArgs.NotificationActionEventArgs args)
     {
