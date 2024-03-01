@@ -12,11 +12,11 @@
     </ContentPage.Behaviors>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="doc_icon.png" Command="{Binding GetDocumentsCommand}"/>
+        <ToolbarItem IconImageSource="contract.png" Command="{Binding GetDocumentsCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView VerticalScrollBarVisibility="Never">
-        <StackLayout BackgroundColor="{x:StaticResource White95}">
+        <StackLayout >
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>
