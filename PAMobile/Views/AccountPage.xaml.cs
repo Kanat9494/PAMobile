@@ -51,6 +51,7 @@ public partial class AccountPage : ContentPage
 
             var border = new Border
             {
+                BackgroundColor = Colors.White,
                 StrokeShape = new RoundRectangle
                 {
                     CornerRadius = new CornerRadius(10, 10, 10, 10)
@@ -132,6 +133,8 @@ public partial class AccountPage : ContentPage
                     CornerRadius = new CornerRadius(10, 10, 10, 10)
                 },
                 StrokeThickness = 0,
+                BackgroundColor = Colors.White,
+
                 Content = new StackLayout
                 {
                     Orientation = StackOrientation.Horizontal,

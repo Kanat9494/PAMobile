@@ -31,6 +31,14 @@ global using PAMobile.Views.Details;
 global using PAMobile.Views;
 global using PAMobile.ViewModels.References;
 global using PAMobile.Views.References;
+global using PAMobile.Views.OnlineLoans;
+global using PAMobile.Views.OnlineDeposits;
+global using PAMobile.ViewModels.OnlineLoans;
+global using PAMobile.ViewModels.OnlineDeposits;
+
+
+
+
 
 
 

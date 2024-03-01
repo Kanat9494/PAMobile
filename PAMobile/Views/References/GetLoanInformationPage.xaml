@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PAMobile.Views.References.ChangeLoanTermsPage"
-             xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
+             x:Class="PAMobile.Views.References.GetLoanInformationPage"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels.References"
-             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="ChangeLoanTermsPage">
+             Title="GetLoanInformationPage">
     <ScrollView>
         <StackLayout>
-            <!--<customControls:LoanReferenceControl Loans="{Binding Loans}" SelectedLoan="{Binding SelectedLoan}"
-                SelectLoanTermCommand="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ChangeLoanTermsViewModel}}, Path=SelectLoanTermCommand}"/>-->
             <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
                 Color="{x:StaticResource Red35}"/>
-            <Label Text="Заявление на изменение условий кредитного договора" FontSize="17" FontAttributes="Bold" Margin="10"/>
+            <Label Text="Заявление на получение информации по кредиту" FontSize="17" FontAttributes="Bold" Margin="10"/>
             <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
                 ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
             <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"/>
             <StackLayout IsVisible="{Binding IsNext}">
-                <Label Text="Выберите условия" FontSize="17" Margin="10, 30, 10, 0"/>
+                <Label Text="Выберите условия:" FontSize="17" Margin="10, 30, 10, 0"/>
 
                 <CollectionView ItemsSource="{Binding LoanTerms}" Margin="10" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Label Text="{Binding .}" FontSize="16" Margin="10, 5, 10, 0">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ChangeLoanTermsViewModel}},  Path=SelectLoanTermCommand}"
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:GetLoanInformationViewModel}},  Path=SelectLoanTermCommand}"
                                         CommandParameter="{Binding .}"/>
                                 </Label.GestureRecognizers>
                             </Label>
@@ -37,7 +33,7 @@
                 <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0"/>
 
                 <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12"/>
-                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"/>
+                <Button Text="Отправить" Command="{Binding SendReferenceCommandCustom}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

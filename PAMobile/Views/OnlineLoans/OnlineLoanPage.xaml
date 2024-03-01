@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.OnlineLoans.OnlineLoanPage"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             Title="OnlineLoanPage">
+    <ScrollView CompressedLayout.IsHeadless="True">
+        <Grid CompressedLayout.IsHeadless="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout CompressedLayout.IsHeadless="True" Grid.Row="0">
+                <Label Text="Сумма кредита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+                <Frame Margin="10, 20, 10, 10" BorderColor="{x:StaticResource White90}" CornerRadius="10" Padding="0">
+                    <!--<customControls:CustomEntry Text="{Binding LoanSum, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
+                        Keyboard="Numeric"/>-->
+                    <!--<Entry Keyboard="Numeric" Margin="20, 0, 0, 0"/>-->
+                    <customControls:CustomEntry Keyboard="Numeric" Margin="20, 0, 0, 0" FontSize="18" Placeholder="Введите сумму" 
+                        Text="{Binding LoanSum}"/>
+                </Frame>
+                <Label Text="Мин: 1 000 сом. Макс: 200 000 сом" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
+                    FontSize="12"/>
+                <!--<Slider Maximum="200000" Minimum="0" ValueChanged="OnSliderLoanSumValueChanged" ThumbColor="{x:StaticResource Red50}" x:Name="sliderLS"/>-->
+
+                <Label Text="Срок кредита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+                <Frame Margin="10, 20, 10, 10" BorderColor="{x:StaticResource White90}" CornerRadius="10" Padding="0">
+                    <!--<customControls:CustomEntry Text="{Binding LoanTerm, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
+                        Keyboard="Numeric"/>-->
+                    <customControls:CustomEntry Text="{Binding LoanTerm}" FontSize="18" Placeholder="Введите срок" Margin="20, 0, 0, 0"
+                                                Keyboard="Numeric"/>
+                </Frame>
+                <Label Text="Мин: 1 месяц. Макс: 36 месяцев" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
+                    FontSize="12"/>
+
+                <!--<Slider Maximum="360" Minimum="0" ValueChanged="OnSliderLoanTermValueChanged" x:Name="sliderLT" ThumbColor="{x:StaticResource Red50}"/>-->
+
+                <Frame Margin="10" Padding="0" BorderColor="{x:StaticResource White90}" CornerRadius="10">
+                    <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.WhatsAppNumber}" FontSize="18" Placeholder="Номер ватсап" Margin="20, 0, 0, 0"
+                                                Keyboard="Numeric"/>
+                </Frame>
+                <Label Text="Номер должен начинаться с 996" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
+    FontSize="12"/>
+
+                <Label Text="Фото паспорта с лицевой стороны" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+                <Button Text="Открыть камеру" Command="{Binding OpenCameraForFrontPassport}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" 
+                    Margin="20, 10, 20, 0"/>
+                <Image Source="{Binding FrontPassportPhotoPath}" Margin="10"/>
+
+                <Label Text="Фото паспорта с обратной стороны" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+                <Button Text="Открыть камеру" Command="{Binding OpenCameraForBackPassport}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" 
+                    Margin="20, 10, 20, 0"/>
+                <Image Source="{Binding BackPassportPhotoPath}" Margin="10"/>
+
+                <Label Text="Селфи" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+                <Button Text="Сделать селфи" Command="{Binding OpenCameraForSelfie}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" 
+                    Margin="20, 10, 20, 0"/>
+                <Image Source="{Binding SelfiePhotoPath}" Margin="10"/>
+
+                <Picker ItemsSource="{Binding PaymentMethods}" Title="Выберите способ получения кредита" ItemDisplayBinding="{Binding CardName}" Margin="10"
+                    SelectedItem="{Binding SelectedPaymentMethod}"/>
+                <Frame Margin="10" Padding="0" BorderColor="{x:StaticResource White90}" CornerRadius="10">
+                    <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.CardNumber}" FontSize="18" Placeholder="Номер карты или эл. кошелька" Margin="20, 0, 0, 0"
+                        Keyboard="Numeric"/>
+                </Frame>
+
+                <Button Text="Отправить" Command="{Binding SendOnlineLoanDatas}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" 
+                    Margin="20, 10, 20, 25"/>
+            </StackLayout>
+
+            <Frame Padding="0" CornerRadius="10" BorderColor="Transparent" x:Name="clientWaitFrame" Grid.RowSpan="1" IsVisible="{Binding IsLoading}" 
+                VerticalOptions="End" Margin="20, 0, 20, 10">
+                <StackLayout>
+                    <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}" Color="{x:StaticResource Green45}" Margin="10"
+                        HeightRequest="50" WidthRequest="50"/>
+                    <Label Text="Подождите, ваши данные обрабатываются... Это займет некоторое время" TextColor="{x:StaticResource White}" Margin="10"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

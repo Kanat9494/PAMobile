@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.OnlineLoans.OLDetailsPage"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             Title="OLDetailsPage">
+    <StackLayout>
+        <Label Text="Сумма кредита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+        <Frame Margin="10, 20, 10, 10" BorderColor="{x:StaticResource White90}" CornerRadius="10" Padding="0">
+            <!--<customControls:CustomEntry Text="{Binding LoanSum, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
+                Keyboard="Numeric"/>-->
+            <!--<Entry Keyboard="Numeric" Margin="20, 0, 0, 0"/>-->
+            <customControls:CustomEntry Keyboard="Numeric" Margin="20, 0, 0, 0" FontSize="18" Placeholder="Введите сумму" 
+                Text="{Binding LoanSum, StringFormat='{0:F2}'}"/>
+        </Frame>
+        <!--<Slider Maximum="200000" Minimum="0" ValueChanged="OnSliderLoanSumValueChanged" ThumbColor="{x:StaticResource Red50}" x:Name="sliderLS"/>-->
+        
+        <Label Text="Срок кредита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+        <Frame Margin="10, 20, 10, 10" BorderColor="{x:StaticResource White90}" CornerRadius="10" Padding="0">
+            <!--<customControls:CustomEntry Text="{Binding LoanTerm, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
+                Keyboard="Numeric"/>-->
+            <customControls:CustomEntry Text="{Binding LoanTerm, StringFormat='{0:F2}'}" FontSize="18" Placeholder="Введите срок" Margin="20, 0, 0, 0"/>
+        </Frame>
+        <!--<Slider Maximum="360" Minimum="0" ValueChanged="OnSliderLoanTermValueChanged" x:Name="sliderLT" ThumbColor="{x:StaticResource Red50}"/>-->
+
+        <Label Text="Фото паспорта с лицевой стороны" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+        <Button Text="Открыть камеру" Command="{Binding OpenCameraForFrontPassport}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" Margin="20, 10, 20, 0"/>
+        <Image x:Name="TestImg" Source="{Binding FrontPassportPhotoPath}"/>
+
+        <!--<Label Text="Фото паспорта с обратной стороны" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+        <Button Text="Открыть камеру" Clicked="TakePassport_Clicked" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" Margin="20, 10, 20, 0"/>
+        <Image x:Name="TestImg" Source="{Binding FrontPassportPhotoPath}"/>
+
+        <Label Text="Селфи" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
+        <Button Text="Сделать селфи" Clicked="TakePassport_Clicked" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" Margin="20, 10, 20, 0"/>
+        <Image x:Name="TestImg" Source="{Binding FrontPassportPhotoPath}"/>-->
+    </StackLayout>
+</ContentPage> 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.References.DepositOriginOFPage"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             
+             Title="DepositOriginOFPage">
+    <ScrollView>
+        <StackLayout>
+            <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+        Color="{x:StaticResource Red50}"/>
+            <Label Text="Информация о происхождении денежных средств" FontSize="17" FontAttributes="Bold" Margin="10" />
+            <Picker Title="Выберите депозит" ItemsSource="{Binding Deposits}" SelectedItem="{Binding SelectedDeposit}"
+        ItemDisplayBinding="{Binding DV_NOM}" Margin="15, 15, 10, 0"/>
+
+
+            <StackLayout IsVisible="{Binding IsNext}" Margin="10, 30, 10, 0">
+                <Label Text="Выберите происхождение денежных средств" FontSize="17" FontAttributes="Bold"/>
+                <Picker Title="Выберите происхождение" ItemsSource="{Binding OriginsOfFunds}" SelectedItem="{Binding SelectedOriginOfFunds}"
+                    ItemDisplayBinding="{Binding .}" Margin="5"/>
+
+
+            </StackLayout>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" IsVisible="{Binding IsOtherOrigin}">
+                <customControls:CustomEntry Placeholder="Укажите происхождение денежных средств" Margin="10, 0, 0, 0" Text="{Binding OriginOfFunds}"
+                    />
+            </Border>
+
+            <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" Command="{Binding NextCommand}" VerticalOptions="Center"
+                Margin="20, 20, 20, 0"/>
+
+
+
+            <StackLayout IsVisible="{Binding IsReferenceText}">
+                <Label Text="Информация о происхождении денежных средств" FontSize="16" Margin="10, 15, 10, 0" FontAttributes="Bold"/>
+                <Label Text="{Binding ReferenceText}" FontSize="16" Margin="10, 15, 10, 0"/>
+                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" Margin="10, 15, 10, 0" BackgroundColor="{x:StaticResource Red50}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

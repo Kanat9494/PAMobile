@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:PAMobile"
     xmlns:views="clr-namespace:PAMobile.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="PAMobile">
+    Title="PAMobile"
+    Shell.BackgroundColor="{x:StaticResource Red50}">
 
     <ShellContent
         Title="Home"

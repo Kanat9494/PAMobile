@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.References.GetLoanOverPaymentPage"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             Title="GetLoanOverPaymentPage">
+    <ScrollView>
+        <StackLayout>
+            <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+                Color="{x:StaticResource Red35}"/>
+            <Label Text="Заявление на выплату переплаты" FontSize="17" FontAttributes="Bold" Margin="10"/>
+            <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
+                ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
+
+            <Picker Title="Выберите вид платежа" Margin="10" IsVisible="{Binding IsWallet}" ItemsSource="{Binding Wallets}"
+                SelectedItem="{Binding SelectedWallet}"/>
+
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="0" Margin="10, 10, 10, 0" Background="{x:StaticResource White95}"
+                IsVisible="{Binding IsSum}">
+                <customControls:CustomEntry Margin="10, 0, 0, 0" Placeholder="Введите номер кошелька" Text="{Binding WalletNumber}"/>
+            </Border>
+            <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextLoanOverPaymentCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"/>
+
+            <StackLayout IsVisible="{Binding IsReference}">
+                <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0"/>
+
+                <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12"/>
+                <Button Text="Отправить" Command="{Binding CustomSendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -19,7 +19,7 @@ namespace PAMobile
                 });
 
             builder.Services.AddSingleton<LoginPage>();
-            builder.Services.AddSingleton<FingerPrintConfirmPage>();
+            //builder.Services.AddSingleton<FingerPrintConfirmPage>();
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<PinPage>();
             builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
