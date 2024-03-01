@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.LoanDetailsPage"
+             Title=""
+             Shell.NavBarIsVisible="False"
+             xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
+             Shell.TabBarIsVisible="False">
+    <ScrollView VerticalScrollBarVisibility="Never" Background="#ff0000">
+        <VerticalStackLayout>
+            <Image Source="white_back_icon.png" Margin="5, 20, 0, 20" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=BackCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="14, 10, 14, 10" Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Информация по кредиту" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
