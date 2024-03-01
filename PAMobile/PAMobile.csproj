@@ -101,10 +101,4 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup>
-		<None Update="Platforms\iOS\Entitlements.plist">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
 </Project>
