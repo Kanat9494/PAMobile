@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.DepositsPage"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              xmlns:viewModel="clr-namespace:PAMobile.ViewModels"
-             Title="DepositsPage"
+             Title=""
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False">
     <StackLayout BackgroundColor="{x:StaticResource White95}">

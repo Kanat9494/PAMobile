@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.OnlineLoans.OLDetailsPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="OLDetailsPage">
+             Title="Онлайн кредит">
     <StackLayout>
         <Label Text="Сумма кредита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
         <Frame Margin="10, 20, 10, 10" BorderColor="{x:StaticResource White90}" CornerRadius="10" Padding="0">

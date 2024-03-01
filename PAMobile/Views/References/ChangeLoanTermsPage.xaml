@@ -5,7 +5,7 @@
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels.References"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="ChangeLoanTermsPage">
+             Title="">
     <ScrollView>
         <StackLayout>
             <!--<customControls:LoanReferenceControl Loans="{Binding Loans}" SelectedLoan="{Binding SelectedLoan}"

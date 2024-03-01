@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.OnlineLoans.OnlineLoanPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="OnlineLoanPage">
+             Title="Онлайн кредит">
     <ScrollView CompressedLayout.IsHeadless="True">
         <Grid CompressedLayout.IsHeadless="True">
             <Grid.RowDefinitions>

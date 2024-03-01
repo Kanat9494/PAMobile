@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.DepositDetailsPage"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-             Title="DepositDetailsPage"
+             Title=""
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              
              Shell.TabBarIsVisible="False"

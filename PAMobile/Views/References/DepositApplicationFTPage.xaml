@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.References.DepositApplicationFTPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="DepositApplicationFTPage">
+             Title="">
     <ScrollView>
         <StackLayout>
             <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"

@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.References.GetLoanTranchePage"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels.References"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             Title="GetLoanTranchePage">
+             Title="">
     <ScrollView>
         <StackLayout>
             <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"

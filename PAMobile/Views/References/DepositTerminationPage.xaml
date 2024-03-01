@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.References.DepositTerminationPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              
-             Title="DepositTerminationPage">
+             Title="">
     <ScrollView>
         <StackLayout>
             <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
