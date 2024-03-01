@@ -18,7 +18,7 @@
     <TabBar
     >
         <ShellContent
-        Icon="home_icon.png"
+        Icon="resized_home_icon.png"
         Title="Главная"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="HomePage"
@@ -33,7 +33,7 @@
 
         <ShellContent
         Title="Аккаунт"
-        Icon="account_icon.png"
+        Icon="resized_account_icon.png"
         ContentTemplate="{DataTemplate views:AccountPage}"
         Shell.NavBarIsVisible="False"
         Route="AccountPage"

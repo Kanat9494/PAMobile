@@ -82,6 +82,8 @@
 	  <None Remove="Resources\Images\next_icon.png" />
 	  <None Remove="Resources\Images\password_icon.png" />
 	  <None Remove="Resources\Images\photo_icon.png" />
+	  <None Remove="Resources\Images\resized_home_icon.png" />
+	  <None Remove="Resources\Images\resized_user_icon.png" />
 	  <None Remove="Resources\Images\security.png" />
 	  <None Remove="Resources\Images\send_icon.png" />
 	  <None Remove="Resources\Images\show_icon.png" />

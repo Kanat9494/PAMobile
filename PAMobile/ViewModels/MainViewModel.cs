@@ -52,46 +52,46 @@ internal class MainViewModel : BaseViewModel
         {
             case "1":
                 //await Task.Delay(1000);
-                await App.Current.MainPage.Navigation.PushModalAsync(new ChangeLoanTermsPage());
+                await App.Current.MainPage.Navigation.PushAsync(new ChangeLoanTermsPage());
                 break;
             case "2":
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new GetLoanInformationPage()); 
+                await App.Current.MainPage.Navigation.PushAsync(new GetLoanInformationPage()); 
                 break;
             case "3":
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new GetLoanTranchePage());
+                await App.Current.MainPage.Navigation.PushAsync(new GetLoanTranchePage());
                 break;
             case "4":
 
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new GetLoanDocumentsPage());
+                await App.Current.MainPage.Navigation.PushAsync(new GetLoanDocumentsPage());
                 break;
             case "5":
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new GetLoanOverPaymentPage());
+                await App.Current.MainPage.Navigation.PushAsync(new GetLoanOverPaymentPage());
                 break;
             case "6":
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new DepositPartWithdrawalPage());
+                await App.Current.MainPage.Navigation.PushAsync(new DepositPartWithdrawalPage());
                 break;
             case "7":
                 //await Task.Delay(1000);
 
-                await App.Current.MainPage.Navigation.PushModalAsync(new DepositApplicationFTPage());
+                await App.Current.MainPage.Navigation.PushAsync(new DepositApplicationFTPage());
                 break;
             case "8":
                 //await Task.Delay(1000);
-                await App.Current.MainPage.Navigation.PushModalAsync(new DepositTerminationPage());
+                await App.Current.MainPage.Navigation.PushAsync(new DepositTerminationPage());
                 break;
             case "9":
                 //await Task.Delay(1000);
-                await App.Current.MainPage.Navigation.PushModalAsync(new DepositOriginOFPage());
+                await App.Current.MainPage.Navigation.PushAsync(new DepositOriginOFPage());
                 break;
             default:
                 break;
@@ -103,13 +103,13 @@ internal class MainViewModel : BaseViewModel
     async Task OnOnlineLoans()
     {
         //await Task.Delay(1500);
-        await App.Current.MainPage.Navigation.PushModalAsync(new OnlineLoanPage());
+        await App.Current.MainPage.Navigation.PushAsync(new OnlineLoanPage());
     }
 
     async Task OnOnlineDeposits()
     {
         //await Task.Delay(1500);
-        await App.Current.MainPage.Navigation.PushModalAsync(new OnlineDepositPage());
+        await App.Current.MainPage.Navigation.PushAsync(new OnlineDepositPage());
     }
 
     private async Task OnGetDocuments()

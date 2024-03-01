@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.LoginPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              Title="LoginPage">
-    <Grid IsVisible="{Binding IsTechnicalWorks}">
+    <Grid IsVisible="{Binding IsTechnicalWorks}" Margin="0, -5, 0, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="220"/>
             <RowDefinition Height="*"/>
@@ -52,7 +52,7 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30"
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="40"
                             Padding="0" Margin="5 ">
                         <Image Source="user_icon.png" Aspect="AspectFill"
                             Margin="0"/>
@@ -77,7 +77,7 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30"
+                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="40"
                             Padding="0" Margin="5 ">
                         <Image 
                             Source="password_icon.png" Aspect="AspectFill"
