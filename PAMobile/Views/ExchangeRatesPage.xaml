@@ -70,7 +70,6 @@
                                 Text="{Binding V_SIMV}"
                                 FontSize="15"
                                 FontAttributes="Bold" 
-                                TextColor="{x:StaticResource Black}"
                                 HorizontalOptions="Center"
                                 Grid.Column="0"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="1"/>
@@ -78,7 +77,6 @@
                                 Text="{Binding KV_CURS_POK}"
                                 FontSize="15"
                                 FontAttributes="Bold" 
-                                TextColor="{x:StaticResource Black}"
                                 HorizontalOptions="Center" Grid.Column="2"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="3"/>
 
@@ -86,7 +84,6 @@
                                 Text="{Binding KV_CURS_PROD}"
                                 FontSize="15"
                                 FontAttributes="Bold" 
-                                TextColor="{x:StaticResource Black}"
                                 HorizontalOptions="Center" Grid.Column="4"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="5"/>
 
@@ -94,7 +91,6 @@
                                 Text="{Binding KURS_NBKR}"
                                 FontSize="15"
                                 FontAttributes="Bold" 
-                                TextColor="{x:StaticResource Black}"
                                 HorizontalOptions="Center" Grid.Column="6"/>
 
                         </Grid>
