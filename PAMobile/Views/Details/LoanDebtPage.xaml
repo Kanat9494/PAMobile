@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.Details.LoanDebtPage"
+             Title="Остаток кредита"
+             Shell.TabBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Всего задолженность по кредиту" FontAttributes="Bold" FontSize="18" Margin="10" HorizontalOptions="Start"/>
+
+            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanTotalDebt.LoanBalance, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanTotalDebt.Percent, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanTotalDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanTotalDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Просроченная задолженность по кредиту" FontAttributes="Bold" FontSize="18" Margin="10, 30, 10, 10"/>
+
+            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanOverdueDebt.Ostatok, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanOverdueDebt.ProcPercent, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanOverdueDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+
+            <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5"/>
+            <Label Text="{Binding CurrentLoanOverdueDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
