@@ -61,8 +61,15 @@
                 </Border.GestureRecognizers>
             </Border>
 
-            <Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
-                FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>
+            <!--<Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
+                FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>-->
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
+                <Label Text="Остаток кредита" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanDebtCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
 
             <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
                 <VerticalStackLayout VerticalOptions="Center">

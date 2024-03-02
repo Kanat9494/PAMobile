@@ -1,20 +1,21 @@
-﻿namespace PAMobile.ViewModels.Details;
+﻿using System;
 
-[QueryProperty(nameof(LoanPositionalNumber), "LoanPositionalNumber")]
-internal class LoanDebtViewModel : BaseViewModel
+namespace PAMobile.ViewModels.Details;
+
+internal class LoanDebtViewModel : BaseViewModel, IQueryAttributable
 {
     public LoanDebtViewModel()
     {
         IsBusy = true;
 
-        Task.Run(async () =>
-        {
-            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
-            await InitializeLoanDebt();
-        }).GetAwaiter().OnCompleted(() =>
-        {
-            IsBusy = false;
-        });
+        //Task.Run(async () =>
+        //{
+        //    _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+        //    await InitializeLoanDebt();
+        //}).GetAwaiter().OnCompleted(() =>
+        //{
+        //    IsBusy = false;
+        //});
 
     }
 
@@ -54,4 +55,16 @@ internal class LoanDebtViewModel : BaseViewModel
             $"GetLoanOverdueDebt?loanPositionalNumber={LoanPositionalNumber}");
 
     }
+
+    #region Query params
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        //ChatId = int.Parse(HttpUtility.UrlDecode(query["ChatId"]?.ToString() ?? "1"));
+        LoanPositionalNumber = query["LoanPositionalNumber"] as string;
+        Task.Run(async () =>
+        {
+            await InitializeLoanDebt();
+        });
+    }
+    #endregion
 }
