@@ -74,12 +74,12 @@
                     </Border.GestureRecognizers>
                 </Border>
 
-                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                <!--<Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
                     <StackLayout Orientation="Horizontal">
                         <Label VerticalOptions="Center" Text="Выйти" FontSize="20" FontAttributes="Bold" FontFamily="RegularFont"/>
 
                         <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" BackgroundColor="#f2f2f2" StrokeShape="RoundRectangle 40" HeightRequest="40"
-            WidthRequest="40" Padding="10">
+                            WidthRequest="40" Padding="10">
                             <Image Source="next_icon.png" />
                         </Border>
                     </StackLayout>
@@ -87,7 +87,7 @@
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=ExitCommand}"/>
                     </Border.GestureRecognizers>
-                </Border>
+                </Border>-->
 
                 <Label Text="Версия 1.0.2" Margin="0, 20, 0, 0" FontFamily="RegularFont" FontSize="16" FontAttributes="Bold" x:Name="versionText" TextColor="#999999"
                     HorizontalOptions="Center"/>
