@@ -17,7 +17,7 @@ internal class PinCodeViewModel : BaseViewModel
         };
 
         DialCommand = new AsyncRelayCommand<string>(OnDial);
-        UseFingerPrintCommand = new AsyncRelayCommand(OnUseFingerPrint);
+        UseFingerPrintCommand = new AsyncRelayCommand(OnExit);
         ClearPinCodeCommand = new RelayCommand(OnClearPinCode);
         _fingerPrint = fingerPrint;
     }
@@ -191,5 +191,13 @@ internal class PinCodeViewModel : BaseViewModel
 
             NotifyPinNumberDeleted(PinCode.Count + 1);
         }
+    }
+
+    private async Task OnExit()
+    {
+        SecureStorage.Default.RemoveAll();
+        Preferences.Default.Clear();
+
+        await Shell.Current.GoToAsync("//MainPage");
     }
 }

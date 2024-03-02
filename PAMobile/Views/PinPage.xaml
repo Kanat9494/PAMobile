@@ -98,7 +98,7 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
                 <Border HeightRequest="60" WidthRequest="60" StrokeShape="RoundRectangle 55" >
-                    <Image Source="security.png" Aspect="AspectFill"/>
+                    <Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFingerPrintCommand}"
                             />
