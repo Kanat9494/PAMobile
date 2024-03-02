@@ -20,18 +20,18 @@
                 <Label Text="Укажите предварительную сумму для получения" FontSize="13" Margin="10, 15, 10, 0"/>
 
                 <Label Text="БИК" FontSize="13" Margin="10, 15, 10, 0"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0">
+                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
                     <customControls:CustomEntry Placeholder="Введите БИК" Margin="10, 0, 0, 0" Text="{Binding SelectedBICAccount.bmfo}"
                     IsEnabled="False"/>
                 </Border>
 
                 <Label Text="Рассчетный счет" FontSize="13" Margin="10, 15, 10, 0"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0">
+                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
                     <customControls:CustomEntry Placeholder="Введите расчетный счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding PaymentAccount}"/>
                 </Border>
 
                 <Label Text="№ карт.счет (лицевой счет)" FontSize="13" Margin="10, 15, 10, 0"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0">
+                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
                     <customControls:CustomEntry Placeholder="Введите карт. счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding CardNumber}"/>
                 </Border>
 

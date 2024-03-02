@@ -15,7 +15,7 @@
             <Picker Title="Выберите вид платежа" Margin="10" IsVisible="{Binding IsWallet}" ItemsSource="{Binding Wallets}"
                 SelectedItem="{Binding SelectedWallet}"/>
 
-            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="0" Margin="10, 10, 10, 0" Background="{x:StaticResource White95}"
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="0" Margin="10, 10, 10, 0" HeightRequest="50"
                 IsVisible="{Binding IsSum}">
                 <customControls:CustomEntry Margin="10, 0, 0, 0" Placeholder="Введите номер кошелька" Text="{Binding WalletNumber}"/>
             </Border>

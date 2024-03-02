@@ -13,7 +13,7 @@
             <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
                 ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
             <Label Text="Укажите сумму транша для получения" TextColor="{x:StaticResource Gray400}" Margin="10, 20, 10, 0"/>
-            <Border BackgroundColor="{x:StaticResource White95}" StrokeShape="RoundRectangle 10" Padding="5" StrokeThickness="0" Margin="10, 5, 10, 0">
+            <Border HeightRequest="50" StrokeShape="RoundRectangle 10" Padding="5" StrokeThickness="0" Margin="10, 5, 10, 0">
                 <customControls:CustomEntry Placeholder="Введите сумму" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding LoanTrancheSum}"/>
             </Border>
             <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextTrancheCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"/>

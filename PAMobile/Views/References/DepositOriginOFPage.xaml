@@ -22,7 +22,7 @@
 
             </StackLayout>
 
-            <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" IsVisible="{Binding IsOtherOrigin}">
+            <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" IsVisible="{Binding IsOtherOrigin}" HeightRequest="50">
                 <customControls:CustomEntry Placeholder="Укажите происхождение денежных средств" Margin="10, 0, 0, 0" Text="{Binding OriginOfFunds}"
                     />
             </Border>
