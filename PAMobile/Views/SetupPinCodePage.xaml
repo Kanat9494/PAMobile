@@ -15,13 +15,13 @@
         <Label Text="Придумайте пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="OpenSansSemibold"/>
 
         <VerticalStackLayout Grid.Row="1">
-            <Border Background="{x:StaticResource White90}" Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
+            <Border Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
                 WidthRequest="130">
                 <customControls:CustomEntry Margin="5, 5, 0, 0" Keyboard="Numeric" VerticalOptions="Center" HorizontalOptions="End"
                     MaxLength="4" WidthRequest="130" FontSize="45" FontAttributes="Bold" IsPassword="True" CharacterSpacing="5" Text="{Binding Pin1}"/>
             </Border>
 
-            <Border Background="{x:StaticResource White90}" Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
+            <Border Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
                 WidthRequest="130">
                 <customControls:CustomEntry Margin="5, 5, 0, 0" Keyboard="Numeric" VerticalOptions="Center"
                     MaxLength="4" WidthRequest="130" FontSize="45" IsPassword="True" CharacterSpacing="5" Text="{Binding Pin2}" FontAttributes="Bold"/>
