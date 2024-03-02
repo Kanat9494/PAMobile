@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Details.LoanDebtPage"
              Title="Остаток кредита"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="Всего задолженность по кредиту" FontAttributes="Bold" FontSize="18" Margin="10" HorizontalOptions="Start"/>
