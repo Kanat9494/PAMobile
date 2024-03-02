@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.Details.DepositBalancePage"
              Title="Остаток депозита"
              Shell.TabBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="Остаток по депозиту" FontAttributes="Bold" FontSize="18" Margin="10"/>
