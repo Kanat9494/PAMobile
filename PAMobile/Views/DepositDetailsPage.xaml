@@ -8,15 +8,15 @@
              
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
-    <ScrollView VerticalScrollBarVisibility="Never">
-        <StackLayout Background="{x:StaticResource Red50}">
+    <ScrollView VerticalScrollBarVisibility="Never" Background="{x:StaticResource Red50}">
+        <StackLayout >
             <Image HeightRequest="30" WidthRequest="30" Source="white_back_icon.png" HorizontalOptions="Start" Margin="5, 20, 0, 20">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding BackCommand}"/>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Border Margin="14, 10, 14, 10" Padding="10" BackgroundColor="{x:StaticResource White}" StrokeShape="RoundRectangle 10"
+            <Border Margin="14, 10, 14, 10" Padding="10" StrokeShape="RoundRectangle 10"
                 VerticalOptions="Fill" StrokeThickness="0">
                 <StackLayout>
                     <Label Text="Информация по депозиту" TextColor="{x:StaticResource Black}" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular"
