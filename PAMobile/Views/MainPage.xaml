@@ -4,19 +4,30 @@
              x:Class="PAMobile.Views.MainPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-             Title="Салым Финанс">
+             Title="Салым Финанс"
+             Shell.NavBarIsVisible="False">
     
     
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource Red40}"/>
     </ContentPage.Behaviors>
 
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="contract.png" Command="{Binding GetDocumentsCommand}"/>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
 
     <ScrollView VerticalScrollBarVisibility="Never">
         <StackLayout >
+            <StackLayout BackgroundColor="#ff0000" HeightRequest="60" Orientation="Horizontal">
+                <Label Text="Салым Финанс" TextColor="White" VerticalOptions="Center" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
+                    Margin="10, 0, 0, 0"/>
+
+                <Image Source="contract.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GetDocumentsCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>
