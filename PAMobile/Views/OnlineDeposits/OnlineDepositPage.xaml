@@ -15,7 +15,7 @@
                     Margin="10" SelectedItem="{Binding SelectedCurrency}"/>
                 <StackLayout IsVisible="{Binding IsCurrency}">
                     <Label Text="Сумма депозита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
                         <!--<customControls:CustomEntry Text="{Binding LoanSum, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
     Keyboard="Numeric"/>-->
                         <!--<Entry Keyboard="Numeric" Margin="20, 0, 0, 0"/>-->
@@ -28,7 +28,7 @@
                     <!--<Slider Maximum="200000" Minimum="0" ValueChanged="OnSliderLoanSumValueChanged" ThumbColor="{x:StaticResource Red50}" x:Name="sliderLS"/>-->
 
                     <Label Text="Срок депозита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
                         <!--<customControls:CustomEntry Text="{Binding LoanTerm, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
     Keyboard="Numeric"/>-->
                         <customControls:CustomEntry Text="{Binding LoanTerm}" FontSize="18" Placeholder="Введите срок" Margin="20, 0, 0, 0"
@@ -39,7 +39,7 @@
                     
                     <!--<Slider Maximum="360" Minimum="0" ValueChanged="OnSliderLoanTermValueChanged" x:Name="sliderLT" ThumbColor="{x:StaticResource Red50}"/>-->
 
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
                         <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.WhatsAppNumber}" FontSize="18" Placeholder="Номер ватсап" Margin="20, 0, 0, 0"
                             Keyboard="Numeric"/>
                     </Border>
