@@ -18,55 +18,55 @@
 
             <Border Margin="14, 10, 14, 10" Padding="10" StrokeShape="RoundRectangle 10"
                 VerticalOptions="Fill" StrokeThickness="0">
-                <StackLayout>
-                    <Label Text="Информация по депозиту" TextColor="{x:StaticResource Black}" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular"
+                <VerticalStackLayout>
+                    <Label Text="Информация по депозиту" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular"
                         Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
 
-                    <Label Text="Код депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Код депозита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.DV_POZN}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Вид депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Вид депозита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.VK_NAME}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="№ договора" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="№ договора" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.DV_NOM}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Валюта депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Валюта депозита" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.V_SIMV}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
                     
-                    <Label Text="Дата открытия" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Дата открытия" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.DepositDate, StringFormat='{0:d}'}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Дата окончания" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Дата окончания" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.Date2, StringFormat='{0:d}'}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Срок" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="Срок" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.DV_SROK}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="% ставка (за год)" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+                    <Label Text="% ставка (за год)" FontSize="12" Margin="5, 15, 10, 5"/>
+                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"
                         Text="{Binding DepositInfo.VK_STAVVKL, StringFormat='{0:F2} %'}"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
-                </StackLayout>
+                </VerticalStackLayout>
             </Border>
 
             <Border Margin="14, 10, 14, 20" Padding="10" StrokeShape="RoundRectangle 10"
                 VerticalOptions="Fill" StrokeThickness="0">
-                <StackLayout>
+                <VerticalStackLayout>
                     <!--<Label Text="Основная сумма депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
                     <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
                         Text="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DepositDetailsViewModel}}, Path=BalanceOTPA, StringFormat='{0:F2}'}"/>
@@ -84,7 +84,7 @@
 
 
 
-                </StackLayout>
+                </VerticalStackLayout>
             </Border>
 
 
@@ -109,11 +109,11 @@
                                     <ColumnDefinition Width="30*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="Справка" FontSize="16" HorizontalOptions="Center"
-                        Grid.Column="0" TextColor="Black" HeightRequest="40"/>
+                        Grid.Column="0" HeightRequest="40"/>
                                 <Label Text="Статус" FontSize="16" HorizontalOptions="CenterAndExpand"
-    Grid.Column="1" TextColor="Black" HeightRequest="40" VerticalOptions="CenterAndExpand"/>
+    Grid.Column="1" HeightRequest="40" VerticalOptions="CenterAndExpand"/>
                                 <Label Text="" FontSize="16" HorizontalOptions="Center"
-    Grid.Column="2" TextColor="Black" HeightRequest="40"/>
+    Grid.Column="2" HeightRequest="40"/>
                             </Grid>
                         </CollectionView.Header>
                         <CollectionView.ItemTemplate>
@@ -128,7 +128,7 @@
                                     <Label Text="{Binding TextTypeDoc}" FontSize="16" HorizontalOptions="Center"
                     Grid.Column="0" TextColor="Black"/>
                                     <Label Text="{Binding TextStatus}" FontSize="16" HorizontalOptions="Center"
-Grid.Column="1" TextColor="Black"/>
+Grid.Column="1"/>
                                     <Button Text="Получить" FontSize="16" HorizontalOptions="Center"
 Grid.Column="2" TextColor="White" Background="Green" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DepositDetailsViewModel}}, Path=GetDigitalDocument}" CommandParameter="{Binding .}"/>
                                 </Grid>
