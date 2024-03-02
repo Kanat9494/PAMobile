@@ -26,7 +26,6 @@
                     <Label
                     Text="Добро пожаловать"
                     Grid.Row="0"
-                    TextColor="{x:StaticResource Gray900}"
                     LineBreakMode="TailTruncation"
                     VerticalOptions="Center"
                     FontSize="16"
@@ -35,7 +34,6 @@
                     <Label
                     Text="{Binding UserFullName}"
                     Grid.Row="1"
-                    TextColor="{x:StaticResource Black}"
                     LineBreakMode="TailTruncation"
                     FontSize="20"
                     FontAttributes="Bold"

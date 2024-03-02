@@ -7,7 +7,7 @@
              Title=""
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False">
-    <StackLayout BackgroundColor="{x:StaticResource White95}">
+    <StackLayout >
         <Label Text="Депозиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
                FontSize="22" FontAttributes="Bold"/>
 
@@ -18,7 +18,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:DepositResponse">
                     <ContentView>
-                        <Border Background="White" HeightRequest="120" StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="0, 10, 0, 0">
+                        <Border HeightRequest="120" StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="0, 10, 0, 0">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="40"/>
