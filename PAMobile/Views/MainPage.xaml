@@ -17,12 +17,12 @@
     </ContentPage.ToolbarItems>-->
 
     <ScrollView VerticalScrollBarVisibility="Never">
-        <StackLayout Margin="0, 0, -10, 0">
-            <StackLayout BackgroundColor="#ff0000" HeightRequest="70" Orientation="Horizontal">
+        <StackLayout >
+            <StackLayout BackgroundColor="#ff0000" HeightRequest="70" Orientation="Horizontal" Margin="0, 0, -10, 0">
                 <Label Text="Салым Финанс" TextColor="White" VerticalOptions="Center" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
                     Margin="10, 0, 0, 0"/>
 
-                <Image Source="contract.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" >
+                <Image Source="doc_icon.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GetDocumentsCommand}"/>
                     </Image.GestureRecognizers>
