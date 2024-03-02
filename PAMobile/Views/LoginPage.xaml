@@ -52,11 +52,11 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="40"
+                    <Border BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" StrokeShape="RoundRectangle 40" 
                             Padding="0" Margin="5 ">
                         <Image Source="user_icon.png" Aspect="AspectFill"
                             Margin="0"/>
-                    </Frame>
+                    </Border>
                     <customControls:CustomEntry 
                         Text="{Binding UserName}" 
                         Placeholder="Введите логин" 
@@ -77,12 +77,12 @@
                 <StackLayout 
                     Orientation="Horizontal"
                     >
-                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="40"
+                    <Border BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" StrokeShape="RoundRectangle 40"
                             Padding="0" Margin="5 ">
                         <Image 
                             Source="password_icon.png" Aspect="AspectFill"
                             Margin="0"/>
-                    </Frame>
+                    </Border>
                     <customControls:CustomEntry 
                         x:Name="passwordEntry"
                         Text="{Binding Password}" 
