@@ -34,7 +34,7 @@
 
                 <!--<Slider Maximum="360" Minimum="0" ValueChanged="OnSliderLoanTermValueChanged" x:Name="sliderLT" ThumbColor="{x:StaticResource Red50}"/>-->
 
-                <Border Margin="10" Padding="0" StrokeShape="RoundRectangle">
+                <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0">
                     <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.WhatsAppNumber}" FontSize="18" Placeholder="Номер ватсап" Margin="20, 0, 0, 0"
                                                 Keyboard="Numeric"/>
                 </Border>
@@ -58,7 +58,7 @@
 
                 <Picker ItemsSource="{Binding PaymentMethods}" Title="Выберите способ получения кредита" ItemDisplayBinding="{Binding CardName}" Margin="10"
                     SelectedItem="{Binding SelectedPaymentMethod}"/>
-                <Border Margin="10" Padding="0" StrokeShape="RoundRectangle 10">
+                <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0">
                     <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.CardNumber}" FontSize="18" Placeholder="Номер карты или эл. кошелька" Margin="20, 0, 0, 0"
                         Keyboard="Numeric"/>
                 </Border>
