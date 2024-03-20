@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>Salym Finance</ApplicationTitle>
+		<ApplicationTitle>SalymFinance</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.salymf.pamobile</ApplicationId>
