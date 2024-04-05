@@ -35,23 +35,23 @@ public partial class LoginPage : ContentPage
         //var isTechnicalWorks = await CheckTechnicalWorks();
         var isTechnicalWorks = false;
 
-        //if (!isTechnicalWorks)
-        //{
-        //    _viewModel.IsTechnicalWorks = true;
-        //    string isPinCodeSetted = "";
-        //    Task.Run(async () =>
-        //    {
-        //        isPinCodeSetted = await SecureStorage.Default.GetAsync("pinCodeState") ?? "0";
-        //    }).Wait();
+        if (!isTechnicalWorks)
+        {
+            _viewModel.IsTechnicalWorks = true;
+            string isPinCodeSetted = "";
+            Task.Run(async () =>
+            {
+                isPinCodeSetted = await SecureStorage.Default.GetAsync("pinCodeState") ?? "0";
+            }).Wait();
 
-        //    if (isPinCodeSetted.Equals("1"))
-        //    {
-        //        await Shell.Current.GoToAsync("PinPage");
-        //    }
-        //    //var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
-        //    //if (isUsingBiometrics)
-        //    //    await _viewModel.FingerPrintLoginAsync();
-        //}
+            if (isPinCodeSetted.Equals("1"))
+            {
+                await Shell.Current.GoToAsync("PinPage");
+            }
+            //var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
+            //if (isUsingBiometrics)
+            //    await _viewModel.FingerPrintLoginAsync();
+        }
         //else
         //{
         //    await Shell.Current.GoToAsync("TechnicalWorksPage");

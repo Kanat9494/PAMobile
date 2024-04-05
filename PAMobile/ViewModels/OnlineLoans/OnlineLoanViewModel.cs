@@ -17,6 +17,8 @@ internal class OnlineLoanViewModel : BaseViewModel
         });
 
         PaymentMethods = ContentProvider.GeneratePaymentMethods();
+        OfferCommand = new AsyncRelayCommand(OnOffer);
+        PrivacyPolicyCommand = new AsyncRelayCommand(OnPrivacyPolicy);
     }
 
     private string _accessToken;
@@ -30,6 +32,8 @@ internal class OnlineLoanViewModel : BaseViewModel
     public ICommand OpenCameraForBackPassport { get; }
     public ICommand OpenCameraForSelfie { get; }
     public ICommand SendOnlineLoanDatas { get; }
+    public ICommand OfferCommand { get; }
+    public ICommand PrivacyPolicyCommand { get; }
 
 
 
@@ -90,6 +94,18 @@ internal class OnlineLoanViewModel : BaseViewModel
     {
         get => _selfiePhotoPath;
         set => SetProperty(ref _selfiePhotoPath, value);
+    }
+    private bool _isOffer;
+    public bool IsOffer
+    {
+        get => _isOffer;
+        set => SetProperty(ref _isOffer, value);
+    }
+    private bool _isPrivacyPolicy;
+    public bool IsPrivacyPolicy
+    {
+        get => _isPrivacyPolicy;
+        set => SetProperty(ref _isPrivacyPolicy, value);
     }
 
     internal void OnSliderLoanSumValueChanged(ValueChangedEventArgs args)
@@ -212,6 +228,32 @@ internal class OnlineLoanViewModel : BaseViewModel
         }
     }
 
+    private async Task OnOffer()
+    {
+        try
+        {
+            Uri uri = new Uri("https://ui.salymfinance.kg/docs/loans/public_offer.pdf");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch
+        {
+
+        }
+    }
+
+    private async Task OnPrivacyPolicy()
+    {
+        try
+        {
+            Uri uri = new Uri("https://ui.salymfinance.kg/docs/loans/privacy_policy.pdf");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch
+        {
+
+        }
+    }
+
     private async Task OnSendOnlineLoanDatas()
     {
         IsLoading = true;
@@ -234,6 +276,7 @@ internal class OnlineLoanViewModel : BaseViewModel
         }
         else if (CurrentOnlineLoan.LoanAmount < 1000 || CurrentOnlineLoan.LoanAmount > 200000)
         {
+            
             await Shell.Current.DisplayAlert("", "Минимальная сумма кредита 1 000 сом, максимальная сумма кредита 200 000 сом", "Ок");
             IsLoading = false;
             return;
@@ -243,6 +286,12 @@ internal class OnlineLoanViewModel : BaseViewModel
         //CurrentOnlineLoan.SelfieData = null;
         CurrentOnlineLoan.PaymentType = SelectedPaymentMethod.CardName;
         CurrentOnlineLoan.PaymentId = SelectedPaymentMethod.PaymentId;
+
+        if (!IsOffer || !IsPrivacyPolicy)
+        {
+            IsLoading = false;
+            return;
+        }
 
         //var response = await ContentService.Instance(_accessToken).PostItemAsync<OnlineLoan>(CurrentOnlineLoan, "api/Online/AddOnlineLoan");
         var response = await ContentService.Instance(_accessToken).PostStreamAsync(CurrentOnlineLoan, "api/Online/AddOnlineLoan");

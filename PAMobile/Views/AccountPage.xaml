@@ -89,7 +89,7 @@
                     </Border.GestureRecognizers>
                 </Border>-->
 
-                <Label Text="Версия 1.0.2" Margin="0, 20, 0, 0" FontFamily="RegularFont" FontSize="16" FontAttributes="Bold" x:Name="versionText" TextColor="#999999"
+                <Label Text="Версия 1.0.8" Margin="0, 20, 0, 0" FontFamily="RegularFont" FontSize="16" FontAttributes="Bold" x:Name="versionText" TextColor="#999999"
                     HorizontalOptions="Center"/>
 
             </StackLayout>

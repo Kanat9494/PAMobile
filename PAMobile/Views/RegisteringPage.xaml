@@ -37,7 +37,7 @@
             </Border>
             <StackLayout Orientation="Horizontal" IsVisible="{Binding IsCode}">
                 <CheckBox IsChecked="{Binding IsOffer}"/>
-                <Label Text="Я согласен и принимаю Оферут" VerticalOptions="Center">
+                <Label Text="Я согласен и принимаю Оферту" VerticalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OfferCommand}"/>
                     </Label.GestureRecognizers>

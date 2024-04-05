@@ -21,6 +21,8 @@ internal class OnlineDepositViewModel : BaseViewModel
         });
 
         PaymentMethods = ContentProvider.GeneratePaymentMethods();
+        OfferCommand = new AsyncRelayCommand(OnOffer);
+        PrivacyPolicyCommand = new AsyncRelayCommand(OnPrivacyPolicy);
     }
 
     private string _accessToken;
@@ -35,6 +37,8 @@ internal class OnlineDepositViewModel : BaseViewModel
     public ICommand OpenCameraForBackPassport { get; }
     public ICommand OpenCameraForSelfie { get; }
     public ICommand SendOnlineLoanDatas { get; }
+    public ICommand OfferCommand { get; }
+    public ICommand PrivacyPolicyCommand { get; }
 
 
 
@@ -107,6 +111,18 @@ internal class OnlineDepositViewModel : BaseViewModel
     {
         get => _selfiePhotoPath;
         set => SetProperty(ref _selfiePhotoPath, value);
+    }
+    private bool _isOffer;
+    public bool IsOffer
+    {
+        get => _isOffer;
+        set => SetProperty(ref _isOffer, value);
+    }
+    private bool _isPrivacyPolicy;
+    public bool IsPrivacyPolicy
+    {
+        get => _isPrivacyPolicy;
+        set => SetProperty(ref _isPrivacyPolicy, value);
     }
 
     internal void OnSliderLoanSumValueChanged(ValueChangedEventArgs args)
@@ -228,6 +244,32 @@ internal class OnlineDepositViewModel : BaseViewModel
         }
     }
 
+    private async Task OnOffer()
+    {
+        try
+        {
+            Uri uri = new Uri("https://ui.salymfinance.kg/docs/deposits/public_offer.pdf");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch
+        {
+
+        }
+    }
+
+    private async Task OnPrivacyPolicy()
+    {
+        try
+        {
+            Uri uri = new Uri("https://ui.salymfinance.kg/docs/deposits/privacy_policy.pdf");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch
+        {
+
+        }
+    }
+
     private async Task OnSendOnlineLoanDatas()
     {
         IsLoading = true;
@@ -254,6 +296,12 @@ internal class OnlineDepositViewModel : BaseViewModel
 
         CurrentOnlineLoan.PaymentType = SelectedCurrency;
         CurrentOnlineLoan.PaymentId = 0;
+
+        if (!IsOffer || !IsPrivacyPolicy)
+        {
+            IsLoading = false;
+            return;
+        }
 
         //var response = await ContentService.Instance(_accessToken).PostItemAsync<OnlineLoan>(CurrentOnlineLoan, "api/Online/AddOnlineDeposit");
         var response = await ContentService.Instance(_accessToken).PostStreamAsync(CurrentOnlineLoan, "api/Online/AddOnlineDeposit");

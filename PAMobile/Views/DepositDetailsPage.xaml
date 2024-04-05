@@ -80,7 +80,13 @@
                     <Button BackgroundColor="{x:StaticResource Red50}" Text="Остаток" Margin="10" Command="{Binding GetDepositBalance}"/>
                     <Button BackgroundColor="{x:StaticResource Red50}" Text="Выписка" Margin="10" Command="{Binding GetDepositStatement}"/>
                     <Button BackgroundColor="{x:StaticResource Red50}" Text="Справка" Margin="10" Command="{Binding SendRequestForReference}"/>
-                    <Button BackgroundColor="{x:StaticResource Red50}" Text="Пополнить через MBank" Margin="10" Command="{Binding OpenMBankCommand}"/>
+                    <!--<Button BackgroundColor="{x:StaticResource Red50}" Text="Пополнить через MBank" Margin="10" Command="{Binding OpenMBankCommand}"/>-->
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="60" Margin="10" BackgroundColor="#FABF00">
+                        <Image Source="mbank_logo_w.png" WidthRequest="155" HeightRequest="40"/>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
 
 
 

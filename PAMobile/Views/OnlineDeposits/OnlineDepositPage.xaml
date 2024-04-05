@@ -15,11 +15,12 @@
                     Margin="10" SelectedItem="{Binding SelectedCurrency}"/>
                 <StackLayout IsVisible="{Binding IsCurrency}">
                     <Label Text="Сумма депозита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="50">
                         <!--<customControls:CustomEntry Text="{Binding LoanSum, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
     Keyboard="Numeric"/>-->
                         <!--<Entry Keyboard="Numeric" Margin="20, 0, 0, 0"/>-->
                         <customControls:CustomEntry Keyboard="Numeric" Margin="20, 0, 0, 0" FontSize="18" Placeholder="Введите сумму" 
+                            VerticalOptions="Center"
     Text="{Binding LoanSum}"/>
                     </Border>
                     <Label Text="Мин: 1 000 сом. Макс: 200 000 сом" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
@@ -28,10 +29,10 @@
                     <!--<Slider Maximum="200000" Minimum="0" ValueChanged="OnSliderLoanSumValueChanged" ThumbColor="{x:StaticResource Red50}" x:Name="sliderLS"/>-->
 
                     <Label Text="Срок депозита:" Margin="10, 10, 10, 0" FontSize="18" FontAttributes="Bold"/>
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="50">
                         <!--<customControls:CustomEntry Text="{Binding LoanTerm, StringFormat='{0:F2}'}" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"
     Keyboard="Numeric"/>-->
-                        <customControls:CustomEntry Text="{Binding LoanTerm}" FontSize="18" Placeholder="Введите срок" Margin="20, 0, 0, 0"
+                        <customControls:CustomEntry Text="{Binding LoanTerm}" FontSize="18" Placeholder="Введите срок" Margin="20, 0, 0, 0" VerticalOptions="Center"
                             Keyboard="Numeric"/>
                     </Border>
                     <Label Text="Мин: 3 месяца. Макс: 36 месяцев" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
@@ -39,9 +40,9 @@
                     
                     <!--<Slider Maximum="360" Minimum="0" ValueChanged="OnSliderLoanTermValueChanged" x:Name="sliderLT" ThumbColor="{x:StaticResource Red50}"/>-->
 
-                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="40">
+                    <Border Margin="10, 20, 10, 10" StrokeShape="RoundRectangle 10" Padding="0" HeightRequest="50">
                         <customControls:CustomEntry Text="{Binding CurrentOnlineLoan.WhatsAppNumber}" FontSize="18" Placeholder="Номер ватсап" Margin="20, 0, 0, 0"
-                            Keyboard="Numeric"/>
+                            Keyboard="Numeric" VerticalOptions="Center"/>
                     </Border>
                     <Label Text="Номер должен начинаться с 996" TextColor="{x:StaticResource Red45}" Margin="10, 0, 0, 0"
 FontSize="12"/>
@@ -61,7 +62,33 @@ Margin="20, 10, 20, 0"/>
 Margin="20, 10, 20, 0"/>
                     <Image Source="{Binding SelfiePhotoPath}" Margin="10"/>
 
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="85*"/>
 
+                        </Grid.ColumnDefinitions>
+                        <CheckBox IsChecked="{Binding IsOffer}"/>
+                        <Label Text="Я согласен и принимаю Оферту на заключение депозитного договора" VerticalOptions="Center" Grid.Column="1">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OfferCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="85*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <CheckBox IsChecked="{Binding IsPrivacyPolicy}"/>
+                        <Label Text="Я принимаю Политику конфиденциальности" VerticalOptions="Center" Grid.Column="1">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrivacyPolicyCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
 
                     <Button Text="Отправить" Command="{Binding SendOnlineLoanDatas}" BackgroundColor="{x:StaticResource Red50}" VerticalOptions="Center" 
 Margin="20, 10, 20, 25"/>

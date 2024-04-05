@@ -13,7 +13,7 @@ internal class ChangePasswordViewModel : BaseViewModel
         Task.Run(async () =>
         {
             _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
-            _clientCode = await SecureStorage.Default.GetAsync("ClientCode");
+            _clientCode = "0";
         });
 
         GetCode = new AsyncRelayCommand(OnGetCode);

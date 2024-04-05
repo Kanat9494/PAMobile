@@ -97,8 +97,8 @@ internal class LoginViewModel : BaseViewModel
                     IsUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
                     if (IsUsingBiometrics)
                         await SecureStorage.Default.SetAsync("UserPassword", Password);
-                    //await Shell.Current.GoToAsync("SetupPinCodePage");
-                    await Shell.Current.GoToAsync("//HomePage");
+                    await Shell.Current.GoToAsync("SetupPinCodePage");
+                    //await Shell.Current.GoToAsync("//HomePage");
                     IsBusy = false;
                 }
                 else
