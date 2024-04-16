@@ -60,7 +60,7 @@
                     </Border>
                     <customControls:CustomEntry 
                         Text="{Binding UserName}" 
-                        Placeholder="Введите логин" 
+                        Placeholder="Введите логин (ИНН)" 
                         TextColor="{x:StaticResource Red50}" 
                         FontAttributes="Bold"
                         VerticalOptions="Center" 

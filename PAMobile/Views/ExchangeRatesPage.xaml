@@ -31,7 +31,7 @@
                     <Label Margin="10,0,0,0"
                         Text="Покупка"
                         FontSize="15"
-                        FontAttributes="Bold" 
+                        FontAttributes="Bold"
                         TextColor="{x:StaticResource White}"
                         HorizontalOptions="Center" Grid.Column="2"/>
                     <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="3"/>

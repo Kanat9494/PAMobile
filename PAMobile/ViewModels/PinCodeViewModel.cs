@@ -29,7 +29,7 @@ internal class PinCodeViewModel : BaseViewModel
     public ObservableCollection<Color> PinCodeColors { get; set; }
 
     public ObservableCollection<string> PinCode { get; set; }
-    StringBuilder pinCode = new StringBuilder();
+    public StringBuilder pinCode = new StringBuilder();
 
 
     public ICommand DialCommand { get; }

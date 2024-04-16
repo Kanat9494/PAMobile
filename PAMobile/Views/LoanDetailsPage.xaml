@@ -99,18 +99,17 @@
                 </Border.GestureRecognizers>
             </Border>-->
 
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="60" Margin="10" BackgroundColor="#FABF00">
-                <VerticalStackLayout VerticalOptions="Center">
-                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
-                        />
+            <VerticalStackLayout VerticalOptions="Center" Margin="10, 10, 10, 10">
+                <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
+                    />
 
-                    <Image Source="mbank_logo_w.png" WidthRequest="155" HeightRequest="40" IsVisible="{Binding MbankLabel}"/>
-                </VerticalStackLayout>
+                <Image Source="mbank_logo.png" IsVisible="{Binding MbankLabel}"/>
 
-                <Border.GestureRecognizers>
+                <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>
+
+                </VerticalStackLayout.GestureRecognizers>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

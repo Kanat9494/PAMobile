@@ -71,4 +71,17 @@ public partial class PinPage : ContentPage
 		if (isUsingBiometrics)
 			await _viewModel.OnUseFingerPrint();
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        firstNumber.BackgroundColor = Colors.Transparent;
+        secondNumber.BackgroundColor = Colors.Transparent;
+        thirdNumber.BackgroundColor = Colors.Transparent;
+        fourthNumber.BackgroundColor = Colors.Transparent;
+
+        _viewModel.PinCode.Clear();
+        _viewModel.pinCode.Clear();
+    }
 }

@@ -64,34 +64,30 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Border Margin="14, 10, 14, 20" Padding="10" StrokeShape="RoundRectangle 10"
-                VerticalOptions="Fill" StrokeThickness="0">
-                <VerticalStackLayout>
-                    <!--<Label Text="Основная сумма депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
-                        Text="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DepositDetailsViewModel}}, Path=BalanceOTPA, StringFormat='{0:F2}'}"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+            <VerticalStackLayout>
+                <!--<Label Text="Основная сумма депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+        Text="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DepositDetailsViewModel}}, Path=BalanceOTPA, StringFormat='{0:F2}'}"/>
+    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Проценты" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
-                    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
-                        Text="{Binding RemainingInterest, StringFormat='{0:F2}'}"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>-->
+    <Label Text="Проценты" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+    <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+        Text="{Binding RemainingInterest, StringFormat='{0:F2}'}"/>
+    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>-->
 
-                    <Button BackgroundColor="{x:StaticResource Red50}" Text="Остаток" Margin="10" Command="{Binding GetDepositBalance}"/>
-                    <Button BackgroundColor="{x:StaticResource Red50}" Text="Выписка" Margin="10" Command="{Binding GetDepositStatement}"/>
-                    <Button BackgroundColor="{x:StaticResource Red50}" Text="Справка" Margin="10" Command="{Binding SendRequestForReference}"/>
-                    <!--<Button BackgroundColor="{x:StaticResource Red50}" Text="Пополнить через MBank" Margin="10" Command="{Binding OpenMBankCommand}"/>-->
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="60" Margin="10" BackgroundColor="#FABF00">
-                        <Image Source="mbank_logo_w.png" WidthRequest="155" HeightRequest="40"/>
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
-                        </Border.GestureRecognizers>
-                    </Border>
+                <Button BackgroundColor="{x:StaticResource White}" Text="Остаток" Margin="10" Command="{Binding GetDepositBalance}"/>
+                <Button BackgroundColor="{x:StaticResource White}" Text="Выписка" Margin="10" Command="{Binding GetDepositStatement}"/>
+                <Button BackgroundColor="{x:StaticResource White}" Text="Справка" Margin="10" Command="{Binding SendRequestForReference}"/>
+                <!--<Button BackgroundColor="{x:StaticResource Red50}" Text="Пополнить через MBank" Margin="10" Command="{Binding OpenMBankCommand}"/>-->
+                <Image Source="mbank_logo.png" Margin="10, 10, 10, 10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
 
 
 
-                </VerticalStackLayout>
-            </Border>
+            </VerticalStackLayout>
 
 
             <Border Margin="14, 10, 14, 20" Padding="10" StrokeShape="RoundRectangle 10"
