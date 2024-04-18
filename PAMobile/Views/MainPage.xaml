@@ -7,7 +7,6 @@
              Title="Салым Финанс"
              Shell.NavBarIsVisible="False">
     
-    
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource Red40}"/>
     </ContentPage.Behaviors>
