@@ -35,14 +35,18 @@
 
                 </StackLayout>
             </Border>
-            <StackLayout Orientation="Horizontal" IsVisible="{Binding IsCode}">
+            <Grid IsVisible="{Binding IsCode}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="90*"/>
+                </Grid.ColumnDefinitions>
                 <CheckBox IsChecked="{Binding IsOffer}"/>
-                <Label Text="Я согласен и принимаю Оферту" VerticalOptions="Center">
+                <Label Text="Я согласен и принимаю оферту" VerticalOptions="Center" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OfferCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
-            </StackLayout>
+            </Grid>
             <Button BackgroundColor="#1B6EC2" IsVisible="{Binding IsCode}" Text="Получить код" Margin="10" Command="{Binding GetCode}"
                 HorizontalOptions="Center"/>
 

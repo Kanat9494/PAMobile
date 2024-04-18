@@ -8,4 +8,5 @@ public class LoanResponse
     public int? KODB { get; set; }
     public string? DG_KODV { get; set; }
     public DateTime? DG_DATE1 { get; set; }
+    public bool CanSign { get; set; }
 }

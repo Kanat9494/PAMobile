@@ -8,6 +8,8 @@ internal class DocumentsViewModel : BaseViewModel
         DigitalDocuments = new ObservableCollection<DigitalDocument>();
         GetDigitalDocument = new AsyncRelayCommand<DigitalDocument>(OnGetDigitalDocument);
         GetPublicOffer = new AsyncRelayCommand(OnGetPublicOffer);
+        SignDocumentCommand = new AsyncRelayCommand<int>(OnSignDocument);
+        SendSignedDocumentCommand = new AsyncRelayCommand(OnSendSignedDocument);
 
 
         Task.Run(async () =>
@@ -26,6 +28,7 @@ internal class DocumentsViewModel : BaseViewModel
 
     protected string _accessToken;
     string _clientCode;
+    int _documentId;
 
     public ObservableCollection<LoanResponse> Loans { get; set; }
     public ObservableCollection<DigitalDocument> DigitalDocuments { get; set; }
@@ -33,6 +36,8 @@ internal class DocumentsViewModel : BaseViewModel
 
     public ICommand GetDigitalDocument { get; }
     public ICommand GetPublicOffer { get; }
+    public ICommand SignDocumentCommand { get; }
+    public ICommand SendSignedDocumentCommand { get; }
 
 
     private LoanResponse _selectedLoan;
@@ -57,6 +62,18 @@ internal class DocumentsViewModel : BaseViewModel
     {
         get => _isDocument;
         set => SetProperty(ref _isDocument, value);
+    }
+    private bool _isSign;
+    public bool IsSign
+    {
+        get => _isSign;
+        set => SetProperty(ref _isSign, value);
+    }
+    private int? _signingCode;
+    public int? SigningCode
+    {
+        get => _signingCode;
+        set => SetProperty(ref _signingCode, value);
     }
 
 
@@ -83,6 +100,13 @@ internal class DocumentsViewModel : BaseViewModel
 
     private async void LoadDocuments()
     {
+        var sign = false;
+        if (SelectedLoan.DG_SUM > 200000)
+        {
+            sign = false;
+        }
+        else
+            sign = true;
         var response = await ContentService.Instance(_accessToken).GetItemsAsync<DigitalDocument>($"api/DigitalDocuments/GetDigitalDocuments?positionalN" +
             $"={SelectedLoan.DG_POZN}");
         if (response != null && response.Count() > 0)
@@ -91,7 +115,15 @@ internal class DocumentsViewModel : BaseViewModel
             App.Current.Dispatcher.Dispatch(() =>
             {
                 foreach (var item in response)
+                {
+                    if (sign && item.Status < 2)
+                    {
+                        item.CanSign = true;
+                    }
+                    else
+                        item.CanSign = false;
                     DigitalDocuments.Add(item);
+                }    
 
                 IsDocument = true;
                 HasDocument = false;
@@ -164,5 +196,58 @@ internal class DocumentsViewModel : BaseViewModel
                     Debug.WriteLine("Файл не найден");
             }
         }
+    }
+
+    private async Task OnSignDocument(int documentId)
+    {
+        try
+        {
+            bool answer = await Shell.Current.DisplayAlert("Подтвердите действие", "На ваш номер телефона будет отправлен код", "Да", "Нет");
+
+            if (answer)
+            {
+                _documentId = documentId;
+                var userName = await SecureStorage.Default.GetAsync("UserName");
+                var response = await ContentService.Instance(_accessToken).GetItemAsync2<ConfirmationCode>($"api/ILogin/SendSms?clientITIN={userName}");
+                if (response != null)
+                {
+
+
+                    IsSign = true;
+
+                }
+                else
+                {
+                    await Shell.Current.DisplayAlert("Ошибка", "Произошла непредвиденная ошибка", "Ок");
+                }
+
+            }
+            else
+            {
+                IsSign = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Ошибка", $"Произошла непредвиденная ошибка: {ex.Message}", "Ок");
+        }
+    }
+
+    async Task OnSendSignedDocument()
+    {
+        if (SigningCode == null || SigningCode == 0)
+            return;
+
+        var response = await ContentService.Instance(_accessToken).GetItemAsync2<string>($"api/DigitalDocuments/SignDocumentViaSms?pn={SelectedLoan.DG_POZN}&" +
+            $"documentId={_documentId}&clientCode={_clientCode}&smsCode={SigningCode}");
+        await Shell.Current.DisplayAlert("", response, "Ок");
+        var digitalDoc = DigitalDocuments.FirstOrDefault(d => d.Id == _documentId);
+        if (digitalDoc != null)
+        {
+            digitalDoc.CanSign = false;
+            int i = DigitalDocuments.IndexOf(digitalDoc);
+            DigitalDocuments[i] = digitalDoc;
+        }
+        IsSign = false;
     }
 }

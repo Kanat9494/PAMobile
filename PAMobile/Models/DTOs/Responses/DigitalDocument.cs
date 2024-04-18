@@ -9,4 +9,5 @@ internal class DigitalDocument
     public int TypeDoc { get; set; }
     public string TextStatus { get; set; }
     public string TextTypeDoc { get; set; }
+    public bool? CanSign { get; set; }
 }
