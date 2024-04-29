@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="90*"/>
                 </Grid.ColumnDefinitions>
                 <CheckBox IsChecked="{Binding IsOffer}"/>
-                <Label Text="Я согласен и принимаю оферту" VerticalOptions="Center" Grid.Column="1">
+                <Label Text="Я согласен и принимаю условия оферты" VerticalOptions="Center" Grid.Column="1">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OfferCommand}"/>
                     </Label.GestureRecognizers>

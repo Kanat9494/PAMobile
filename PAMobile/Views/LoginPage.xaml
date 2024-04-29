@@ -4,6 +4,7 @@
              x:Class="PAMobile.Views.LoginPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
              Title="">
     <Grid IsVisible="{Binding IsTechnicalWorks}" Margin="0, -5, 0, 0">
         <Grid.RowDefinitions>
