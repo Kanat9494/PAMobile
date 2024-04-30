@@ -22,7 +22,7 @@
                     <ColumnDefinition Width="80*"/>
                     <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Margin="10, 0, 0, 0" HeightRequest="35" x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=salym_logo_l.png, Dark=doc_icon.png}"/>
+                <Image Grid.Column="0" Margin="10, 0, 0, 0" HeightRequest="35" x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=salym_logo_l.png, Dark=dark_theme_logo.png}"/>
 
 
                 <!--<Label Text="Салым Финанс" TextColor="{x:StaticResource Red40}" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
