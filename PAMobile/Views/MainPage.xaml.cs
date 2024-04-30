@@ -8,6 +8,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 
 		BindingContext = new MainViewModel();
+        //imgLogo.Source = "salym_logo_l.png";
 	}
 
     private bool _isUpdatedApp;
