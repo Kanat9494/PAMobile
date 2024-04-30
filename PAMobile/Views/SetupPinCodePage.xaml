@@ -31,6 +31,6 @@
         </VerticalStackLayout>
 
         <Button Text="Продолжить" Grid.Row="2" HeightRequest="50" Margin="10" VerticalOptions="Start" Background="{x:StaticResource Red50}" FontSize="18"
-            Command="{Binding NextCommand}"/>
+            Command="{Binding NextCommand}" TextColor="White"/>
     </Grid>
 </ContentPage>

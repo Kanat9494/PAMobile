@@ -17,16 +17,29 @@
 
     <ScrollView VerticalScrollBarVisibility="Never">
         <StackLayout Margin="0, -10, 0, 10">
-            <StackLayout BackgroundColor="#ff0000" HeightRequest="70" Orientation="Horizontal">
-                <Label Text="Салым Финанс" TextColor="White" VerticalOptions="Center" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
-                    Margin="10, 0, 0, 0"/>
+            <Grid HeightRequest="70" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="salym_logo_l.png" Margin="10, 0, 0, 0" HeightRequest="35"/>
 
-                <Image Source="doc_icon.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" >
+
+                <!--<Label Text="Салым Финанс" TextColor="{x:StaticResource Red40}" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
+                    Margin="0, 0 , 0, 0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" />-->
+                <!--<VerticalStackLayout Grid.Column="1">
+                    <Label Text="Салым" TextColor="{x:StaticResource Red40}" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
+                        Margin="0, 10, 0, 0" Grid.Column="1" HorizontalOptions="Start" />
+                    <Label Text="финанс" TextColor="{x:StaticResource Red40}" CharacterSpacing="2"/>
+                </VerticalStackLayout>-->
+
+                <Image Source="doc_icon.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" Grid.Column="2" VerticalOptions="Center">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GetDocumentsCommand}"/>
                     </Image.GestureRecognizers>
                 </Image>
-            </StackLayout>
+            </Grid>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>
