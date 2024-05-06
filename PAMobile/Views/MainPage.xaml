@@ -22,32 +22,8 @@
                     <ColumnDefinition Width="80*"/>
                     <ColumnDefinition Width="10*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Margin="10, 0, 0, 0" HeightRequest="35" x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=salym_logo_l.png, Dark=dark_theme_logo.png}"/>
-
-
-                <!--<Label Text="Салым Финанс" TextColor="{x:StaticResource Red40}" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
-                    Margin="0, 0 , 0, 0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" />-->
-                <!--<VerticalStackLayout Grid.Column="1">
-                    <Label Text="Салым" TextColor="{x:StaticResource Red40}" FontAttributes="Bold" FontSize="19" FontFamily="OpenSansSemibold"
-                        Margin="0, 10, 0, 0" Grid.Column="1" HorizontalOptions="Start" />
-                    <Label Text="финанс" TextColor="{x:StaticResource Red40}" CharacterSpacing="2"/>
-                </VerticalStackLayout>-->
-
-                <!--<Grid Grid.Column="0" BackgroundColor="White" Grid.ColumnSpan="2" HeightRequest="60" HorizontalOptions="Start">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="70*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="25"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Source="salym_logo_l.png" Margin="10, 0, 0, 0" HeightRequest="40" Grid.RowSpan="2"/>
-                    <Label Text="САЛЫМ" TextColor="Black" FontAttributes="Bold" FontSize="20" FontFamily="OpenSansSemibold"
-                        Margin="0, 5, 0, 0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Start"/>
-                    <Label Text="финанс" TextColor="Black" CharacterSpacing="4" Grid.Column="1" Grid.Row="1" VerticalOptions="Start"
-                        Margin="0, -5, 0, 0" FontSize="15"/>
-                </Grid>-->
+                <Image Grid.Column="0" Margin="10, 18, 0, 10"  x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=white_theme_logo.png, Dark=dark_theme_logo.png}"
+                    />
 
                 <Image Source="doc_icon.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="EndAndExpand" Grid.Column="1" VerticalOptions="Center">
                     <Image.GestureRecognizers>

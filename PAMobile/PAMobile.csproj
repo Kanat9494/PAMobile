@@ -27,8 +27,8 @@
 		<ApplicationId>com.salymf.pamobile</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0.12</ApplicationDisplayVersion>
-		<ApplicationVersion>14</ApplicationVersion>
+		<ApplicationDisplayVersion>1.0.13</ApplicationDisplayVersion>
+		<ApplicationVersion>15</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -44,7 +44,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.png" Color="#ffffff" Resize="false" BaseSize="167,167" ForegroundScale="0.50"/>
+		<MauiIcon Include="Resources\AppIcon\appicon.png" Color="#ffffff" BaseSize="167,167" ForegroundScale="0.50"/>
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\withbg.png" BaseSize="128,128" Color="#ffffff" />
 
