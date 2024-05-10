@@ -1,5 +1,4 @@
-﻿global using Plugin.Fingerprint;
-global using PAMobile.Events;
+﻿global using PAMobile.Events;
 global using PAMobile.Constants;
 global using PAMobile.Models.DTOs.Responses;
 global using Newtonsoft.Json;
@@ -20,7 +19,6 @@ global using CommunityToolkit.Maui.Markup;
 global using CommunityToolkit.Mvvm.Input;
 global using System.Web;
 global using PAMobile.ViewModels.Details;
-global using Plugin.Fingerprint.Abstractions;
 global using PAMobile.Views.CustomControls;
 global using PAMobile.ViewModels;
 global using Microsoft.Maui.Controls.Shapes;

@@ -22,7 +22,6 @@ namespace PAMobile
             //builder.Services.AddSingleton<FingerPrintConfirmPage>();
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<PinPage>();
-            builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
 
 #if DEBUG
             builder.Logging.AddDebug();

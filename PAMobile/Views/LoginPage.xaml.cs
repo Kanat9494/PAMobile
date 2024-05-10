@@ -1,11 +1,9 @@
-using Plugin.Fingerprint.Abstractions;
-
 namespace PAMobile.Views;
 
 [XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class LoginPage : ContentPage
 {
-	public LoginPage(IFingerprint fingerPrint)
+	public LoginPage()
 	{
 		InitializeComponent();
 
@@ -18,7 +16,7 @@ public partial class LoginPage : ContentPage
         //}).Wait();
         passwordEntry.IsPassword = true;
 
-        BindingContext = _viewModel = new LoginViewModel(fingerPrint);
+        BindingContext = _viewModel = new LoginViewModel();
         _viewModel.ShowPassword = false;
     }
 

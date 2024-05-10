@@ -171,6 +171,12 @@
                     <TapGestureRecognizer Command="{Binding GuideCommand}"/>
                 </Border.GestureRecognizers>
             </Border>
+
+            <!--<Label Text="Сторис" FontSize="18">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding StoriesCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>-->
         </StackLayout>
     </ScrollView>
 </ContentPage>

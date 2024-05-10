@@ -2,7 +2,7 @@
 
 internal class LoginViewModel : BaseViewModel
 {
-    public LoginViewModel(IFingerprint fingerPrint)
+    public LoginViewModel()
     {
         IsBusy = false;
         IsTechnicalWorks = false;
@@ -12,7 +12,6 @@ internal class LoginViewModel : BaseViewModel
         RegisterCommand = new AsyncRelayCommand(OnRegister);
 
 
-        _fingerPrint = fingerPrint;
         //Password = "@bishkek2023";
 
         Task.Run(async () =>
@@ -21,8 +20,6 @@ internal class LoginViewModel : BaseViewModel
             //Password = await SecureStorage.Default.GetAsync("UserPassword");
         });
     }
-
-    private readonly IFingerprint _fingerPrint;
 
     public ICommand LoginCommand { get; }
     private ICommand _fingerPrintCommand;
@@ -167,52 +164,7 @@ internal class LoginViewModel : BaseViewModel
     {
         IsBusy = true;
         await Task.Delay(500);
-        var isAvailable = await _fingerPrint.IsAvailableAsync();
-
-        if (isAvailable)
-        {
-            IsUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
-
-            if (IsUsingBiometrics)
-            {
-                var request = new AuthenticationRequestConfiguration("Используется биометрика", "Подтвердите ваш логин для входа используя " +
-                "биометрику");
-
-                var result = await _fingerPrint.AuthenticateAsync(request);
-
-                if (result.Authenticated)
-                {
-                    var password = await SecureStorage.Default.GetAsync("UserPassword");
-                    UserName = await SecureStorage.Default.GetAsync("UserName");
-
-                    var response = await LoginService.Instance().AuthenticateUser(userName: UserName, password: password);
-
-                    if (response.StatusCode == 200)
-                    {
-                        await SecureStorage.Default.SetAsync("UserAccessToken", response.AccessToken);
-                        await SecureStorage.Default.SetAsync("ClientCode", response.KlKod.ToString());
-                        await SecureStorage.Default.SetAsync("UserName", response.KlLogin);
-                        Preferences.Default.Set("user_full_name", response.Fio);
-                        await Shell.Current.GoToAsync("//HomePage");
-                        IsBusy = false;
-                    }
-                    else
-                    {
-                        await Shell.Current.DisplayAlert("Не удалось войти в систему",
-                            $"{response.ResponseMessage}", "Ок");
-                        IsBusy = false;
-                    }
-                }
-                else
-                {
-                    await Shell.Current.DisplayAlert("Не удалось войти в систему",
-                        $"Биометрическая идентификация не пройдена", "Ок");
-                    IsBusy = false;
-                }
-            }
-            else
-                await Shell.Current.GoToAsync("FingerPrintConfirmPage");
-        }
+        
         IsBusy = false;
     }
 

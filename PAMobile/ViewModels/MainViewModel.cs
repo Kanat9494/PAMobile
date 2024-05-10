@@ -12,6 +12,7 @@ internal class MainViewModel : BaseViewModel
         GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
         OnlineDepositCommand = new AsyncRelayCommand(OnOnlineDeposits);
         GuideCommand = new AsyncRelayCommand(OnGuide);
+        StoriesCommand = new AsyncRelayCommand(OnStories);
 
 
     }
@@ -23,6 +24,7 @@ internal class MainViewModel : BaseViewModel
     public ICommand OnlineLoansCommand { get; }
     public ICommand OnlineDepositCommand { get; }
     public ICommand GuideCommand { get; }
+    public ICommand StoriesCommand { get; }
 
 
 
@@ -119,4 +121,9 @@ internal class MainViewModel : BaseViewModel
 
     private async Task OnGuide()
         => await Shell.Current.GoToAsync("GuidePage");
+
+    async Task OnStories()
+    {
+        await App.Current.MainPage.Navigation.PushModalAsync(new StoriesPage());
+    }
 }

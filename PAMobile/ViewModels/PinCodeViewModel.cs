@@ -4,7 +4,7 @@ internal delegate void PinNumberAddedEventHandler(object sender, int index);
 internal delegate void PinNumberDeletedEventHandler(object sender, int index);
 internal class PinCodeViewModel : BaseViewModel
 {
-    public PinCodeViewModel(IFingerprint fingerPrint)
+    public PinCodeViewModel()
     {
         PinCode = new ObservableCollection<string>();
 
@@ -19,10 +19,8 @@ internal class PinCodeViewModel : BaseViewModel
         DialCommand = new AsyncRelayCommand<string>(OnDial);
         UseFingerPrintCommand = new AsyncRelayCommand(OnExit);
         ClearPinCodeCommand = new RelayCommand(OnClearPinCode);
-        _fingerPrint = fingerPrint;
     }
 
-    private readonly IFingerprint _fingerPrint;
 
     internal event PinNumberAddedEventHandler PinNumberAddedEvent;
     internal event PinNumberDeletedEventHandler PinNumberDeletedEvent;
@@ -99,83 +97,7 @@ internal class PinCodeViewModel : BaseViewModel
     {
         IsBusy = true;
         await Task.Delay(500);
-        var isAvailable = await _fingerPrint.IsAvailableAsync();
-
-        if (isAvailable)
-        {
-            var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
-            bool answer = false;
-            if (!isUsingBiometrics)
-            {
-                answer = await Shell.Current.DisplayAlert("Биометрика", "Вы хотите установить вход с помощью отпечатков пальцев по умолчанию?",
-                    "Да", "Нет");
-            }
-                
-
-            if (answer)
-            {
-                Preferences.Default.Set("isUsingBiometrics", true);
-                var request = new AuthenticationRequestConfiguration("Используется биометрика", "");
-
-                var result = await _fingerPrint.AuthenticateAsync(request);
-
-                if (result.Authenticated)
-                {
-                    var password = await SecureStorage.Default.GetAsync("UserPassword");
-                    var userName = await SecureStorage.Default.GetAsync("UserName");
-
-                    var response = await LoginService.Instance().AuthenticateUser(userName: userName, password: password);
-
-                    if (response.StatusCode == 200)
-                    {
-                        await SecureStorage.Default.SetAsync("UserAccessToken", response.AccessToken);
-                        await SecureStorage.Default.SetAsync("ClientCode", response.KlKod.ToString());
-                        await SecureStorage.Default.SetAsync("UserName", response.KlLogin);
-                        Preferences.Default.Set("user_full_name", response.Fio);
-                        await Shell.Current.GoToAsync("//HomePage");
-                        IsBusy = false;
-                    }
-                    else
-                    {
-                        await Shell.Current.DisplayAlert("Не удалось войти в систему",
-                            $"{response.ResponseMessage}", "Ок");
-                        IsBusy = false;
-                    }
-                }
-                IsBusy = false;
-            }
-            else
-            {
-                var request = new AuthenticationRequestConfiguration("Используется биометрика", "");
-
-                var result = await _fingerPrint.AuthenticateAsync(request);
-
-                if (result.Authenticated)
-                {
-                    var password = await SecureStorage.Default.GetAsync("UserPassword");
-                    var userName = await SecureStorage.Default.GetAsync("UserName");
-
-                    var response = await LoginService.Instance().AuthenticateUser(userName: userName, password: password);
-
-                    if (response.StatusCode == 200)
-                    {
-                        await SecureStorage.Default.SetAsync("UserAccessToken", response.AccessToken);
-                        await SecureStorage.Default.SetAsync("ClientCode", response.KlKod.ToString());
-                        await SecureStorage.Default.SetAsync("UserName", response.KlLogin);
-                        Preferences.Default.Set("user_full_name", response.Fio);
-                        await Shell.Current.GoToAsync("//HomePage");
-                        IsBusy = false;
-                    }
-                    else
-                    {
-                        await Shell.Current.DisplayAlert("Не удалось войти в систему",
-                            $"{response.ResponseMessage}", "Ок");
-                        IsBusy = false;
-                    }
-                }
-                IsBusy = false;
-            }
-        }
+        
     }
 
     void OnClearPinCode()

@@ -2,11 +2,11 @@ namespace PAMobile.Views;
 
 public partial class PinPage : ContentPage
 {
-	public PinPage(IFingerprint fingerprint)
+	public PinPage()
 	{
 		InitializeComponent();
 
-		BindingContext = _viewModel = new PinCodeViewModel(fingerprint);
+		BindingContext = _viewModel = new PinCodeViewModel();
 		indicatorBorder.Background = Color.FromRgba(0, 0, 0, 195);
         _viewModel.PinNumberAddedEvent += HandlePinNumberAdded;
 		_viewModel.PinNumberDeletedEvent += HandlePinNumberDeleted;

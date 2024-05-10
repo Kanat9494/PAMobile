@@ -27,8 +27,8 @@
 		<ApplicationId>com.salymf.pamobile</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0.13</ApplicationDisplayVersion>
-		<ApplicationVersion>15</ApplicationVersion>
+		<ApplicationDisplayVersion>1.0.14</ApplicationDisplayVersion>
+		<ApplicationVersion>16</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -67,7 +67,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Plugin.Fingerprint" Version="3.0.0-beta.1" />
 		<PackageReference Include="Plugin.LocalNotification" Version="11.1.1" />
 	</ItemGroup>
 
@@ -115,6 +114,9 @@
 	  <MauiXaml Update="Views\LoanDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\StoriesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-ios')) and '$(Configuration)' == 'Release'">
@@ -129,5 +131,9 @@
 	  <ProvisioningType>manual</ProvisioningType>
 	  <CodesignKey>iPhone Distribution</CodesignKey>
 	</PropertyGroup>
+
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<BundleResource Include="Platforms\iOS\PrivacyInfo.xcprivacy" LogicalName="PrivacyInfo.xcprivacy" />
+	</ItemGroup>
 
 </Project>

@@ -33,5 +33,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("GuidePage", typeof(GuidePage));
         Routing.RegisterRoute("PinPage", typeof(PinPage));
         Routing.RegisterRoute("SetupPinCodePage", typeof(SetupPinCodePage));
+        Routing.RegisterRoute("StoriesPage", typeof(StoriesPage));
     }
 }
