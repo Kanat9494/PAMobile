@@ -2,25 +2,29 @@
 
 internal class StoriesViewModel : BaseViewModel
 {
-    public StoriesViewModel()
+    public StoriesViewModel(int storyId)
     {
         Images = new ObservableCollection<string>();
         Index = 0;
-        _cancelTokenSource = new CancellationTokenSource();
-        _cancelToken = _cancelTokenSource.Token;
-        for (int i = 1; i < 11; i++)
+        
+        Task.Run(async () =>
         {
-            Images.Add($"https://picsum.photos/id/{i}/200/300");
-        }
+            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            await GetStoryImages(storyId);
+        });
         CloseCommand = new AsyncRelayCommand(OnClose);
+        DownloadInstruction = new AsyncRelayCommand(OnDownload);
+        _storyId = storyId;
 
-        StartTimer();
+        //StartTimer();
     }
 
-    private CancellationTokenSource _cancelTokenSource;
-    CancellationToken _cancelToken;
+    string _accessToken;
+    int _storyId;
+
 
     public ICommand CloseCommand { get; }
+    public ICommand DownloadInstruction { get; }
 
     public ObservableCollection<string> Images { get; set; }
 
@@ -31,58 +35,96 @@ internal class StoriesViewModel : BaseViewModel
         set => SetProperty(ref _index, value);
     }
 
-    private void StartTimer()
-    {
-        Task changePositionTask = new Task(async () =>
-        {
-            if (Images.Count > 0)
-            {
-                while (Index < Images.Count)
-                {
-                    if (_cancelToken.IsCancellationRequested)
-                        break;
-                    if (Index < Images.Count - 1)
-                    {
-                        Index++;
-                    }
-                    else
-                    {
-                        App.Current.MainPage.Navigation.PopModalAsync();
-                        Index = 0;
-                        _cancelTokenSource.Cancel();
-                        _cancelTokenSource.Dispose();
-                        break;
-                    }
-                    await Task.Delay(5000);
-                }
-            }
-        }, _cancelToken);
+    //private void StartTimer()
+    //{
+    //    Task changePositionTask = new Task(async () =>
+    //    {
+    //        if (Images.Count > 0)
+    //        {
+    //            while (Index < Images.Count)
+    //            {
+    //                if (_cancelToken.IsCancellationRequested)
+    //                    break;
+    //                if (Index < Images.Count - 1)
+    //                {
+    //                    Index++;
+    //                }
+    //                else
+    //                {
+    //                    App.Current.MainPage.Navigation.PopModalAsync();
+    //                    Index = 0;
+    //                    _cancelTokenSource.Cancel();
+    //                    _cancelTokenSource.Dispose();
+    //                    break;
+    //                }
+    //                await Task.Delay(7000);
+    //            }
+    //        }
+    //    }, _cancelToken);
 
-        changePositionTask.Start();
-    }
+    //    changePositionTask.Start();
+    //}
 
     async Task OnClose()
     {
-        _cancelTokenSource.Cancel();
-        _cancelTokenSource.Dispose();
         await App.Current.MainPage.Navigation.PopModalAsync();
     }
 
-    internal void CheckPosition(bool toRight)
+    internal bool CheckPosition(bool toRight)
     {
         if (Images.Count > 0)
         {
-            if (Index > 0 && Index < Images.Count - 1)
+            if (toRight)
             {
-                if (toRight)
+                if (Index < Images.Count - 1)
                 {
                     Index++;
+                    return true;
                 }
-                else
+                return false;
+            }
+            else
+            {
+                if (Index > 0 && Index < Images.Count - 1)
                 {
-                    Index--;
+                    if (Index > 0)
+                    {
+                        Index--;
+                    }
                 }
+            }
+        }
+        return false;
+    }
+
+    private async Task GetStoryImages(int storyId)
+    {
+        var response = await ContentService.Instance(_accessToken).GetItemsAsync<string>($"api/Stories/GetStoryImages?storyType={storyId}");
+        if (response != null && response.Count() > 0)
+        {
+            foreach (var item in response)
+            {
+                Images.Add(item);
+            }
+        }
+    }
+
+    async Task OnDownload()
+    {
+        var link = Preferences.Default.Get<string>($"{_storyId}", "");
+
+        if (!string.IsNullOrEmpty(link))
+        {
+            try
+            {
+                Uri uri = new Uri(link);
+                await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            }
+            catch
+            {
+
             }
         }
     }
 }
+

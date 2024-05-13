@@ -10,6 +10,7 @@ internal class LoginViewModel : BaseViewModel
         ConfirmFingerPrintCommand = new AsyncRelayCommand(OnConfirmFingerPrint);
         ChangePassword = new AsyncRelayCommand(OnChangePassword);
         RegisterCommand = new AsyncRelayCommand(OnRegister);
+        InstructionCommand = new AsyncRelayCommand(OnInstruction);
 
 
         //Password = "@bishkek2023";
@@ -27,6 +28,7 @@ internal class LoginViewModel : BaseViewModel
     public ICommand ConfirmFingerPrintCommand { get; }
     public ICommand ChangePassword { get; }
     public ICommand RegisterCommand { get; }
+    public ICommand InstructionCommand { get; }
 
 
     private bool _isTechnicalWorks;
@@ -175,4 +177,17 @@ internal class LoginViewModel : BaseViewModel
 
     async Task OnRegister()
         => await Shell.Current.GoToAsync("RegisteringPage");
+
+    private async Task OnInstruction()
+    {
+        try
+        {
+            Uri uri = new Uri("https://ib.salymfinance.kg/docs/instruction.pdf");
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch
+        {
+
+        }
+    }
 }

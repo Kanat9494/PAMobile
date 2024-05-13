@@ -75,10 +75,12 @@
         Text="{Binding RemainingInterest, StringFormat='{0:F2}'}"/>
     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>-->
 
-                <Button BackgroundColor="{x:StaticResource White}" Text="Остаток" Margin="10" Command="{Binding GetDepositBalance}"/>
-                <Button BackgroundColor="{x:StaticResource White}" Text="Выписка" Margin="10" Command="{Binding GetDepositStatement}"/>
-                <Button BackgroundColor="{x:StaticResource White}" Text="Справка" Margin="10" Command="{Binding SendRequestForReference}"/>
-                <!--<Button BackgroundColor="{x:StaticResource Red50}" Text="Пополнить через MBank" Margin="10" Command="{Binding OpenMBankCommand}"/>-->
+                <Button BackgroundColor="{x:StaticResource White}" Text="ОСТАТОК" Margin="10" Command="{Binding GetDepositBalance}" 
+                    TextColor="{x:StaticResource Red45}" FontAttributes="Bold" FontFamily="RegularFont"/>
+                <Button BackgroundColor="{x:StaticResource White}" Text="ВЫПИСКА" Margin="10" Command="{Binding GetDepositStatement}" 
+                    TextColor="{x:StaticResource Red45}" FontAttributes="Bold" FontFamily="RegularFont"/>
+                <Button BackgroundColor="{x:StaticResource White}" Text="СПРАВКА" Margin="10" Command="{Binding SendRequestForReference}" 
+                    TextColor="{x:StaticResource Red45}" FontAttributes="Bold" FontFamily="RegularFont"/>
                 <Image Source="mbank_logo.png" Margin="10, 10, 10, 10">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>

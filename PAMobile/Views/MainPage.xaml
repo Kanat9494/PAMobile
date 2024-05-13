@@ -4,6 +4,7 @@
              x:Class="PAMobile.Views.MainPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
+             xmlns:models="clr-namespace:PAMobile.Models"
              Title="Салым Финанс"
              Shell.NavBarIsVisible="False">
     
@@ -31,6 +32,33 @@
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
+
+            <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10" HeightRequest="170">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Story">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="130"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Border StrokeThickness="3" StrokeShape="RoundRectangle 0" WidthRequest="100" HeightRequest="130" Stroke="{x:StaticResource Red45}"
+                                HorizontalOptions="Start" >
+                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" /> 
+                            </Border>
+
+                            <Label Text="{Binding Title}"  WidthRequest="120" HorizontalOptions="Start" Grid.Row="1" FontAttributes="Bold" FontFamily="RegularFont"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=StoriesCommand}" CommandParameter="{Binding StoryId}"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50*"/>

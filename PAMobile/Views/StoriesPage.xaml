@@ -2,19 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.StoriesPage"
-             Title="StoriesPage"
+             Title="Сторис"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
-    <Grid>
+    <Grid x:Name="contentGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
 
-        
-        <!--<Image Source="https://picsum.photos/id/237/200/300" Aspect="AspectFill" Grid.RowSpan="2"/>-->
 
-        <CarouselView Grid.RowSpan="2" ItemsSource="{Binding Images}" Loop="False" IsSwipeEnabled="False" Position="{Binding Index}"
+        <CarouselView Grid.RowSpan="3" ItemsSource="{Binding Images}" Loop="False" IsSwipeEnabled="False" Position="{Binding Index}"
             x:Name="cv">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
@@ -27,12 +26,24 @@
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
-        
-        <Border HorizontalOptions="End" Margin="10" StrokeShape="RoundRectangle 30, 30, 30, 30" WidthRequest="40" HeightRequest="40" StrokeThickness="0">
-            <Label Text="X" FontAttributes="Bold" FontSize="29" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0"/>
+
+        <!--<BoxView Grid.Row="1" Color="White" HeightRequest="3" Margin="10, 0, 10, 0" x:Name="storiesIndicator" HorizontalOptions="Start"/>-->
+        <ProgressBar Progress="0.2" ProgressColor="White" x:Name="storiesIndicator" Margin="10, 0, 60, 0"/>
+
+
+        <Border HorizontalOptions="End" Margin="10" StrokeShape="RoundRectangle 30, 30, 30, 30" WidthRequest="40" HeightRequest="40" StrokeThickness="0" Grid.Row="0">
+            <Label Text="X" FontAttributes="Bold" FontSize="29" HorizontalOptions="Center" VerticalOptions="Center" />
 
             <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                <TapGestureRecognizer Tapped="BackCommand"/>
+            </Border.GestureRecognizers>
+        </Border>
+
+        <Border HeightRequest="60" WidthRequest="180" Grid.Row="2" VerticalOptions="Start" StrokeShape="RoundRectangle 10" StrokeThickness="2">
+            <Label Text="Скачать инструкцию" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding DownloadInstruction}"/>
             </Border.GestureRecognizers>
         </Border>
 

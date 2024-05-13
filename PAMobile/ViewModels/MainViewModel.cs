@@ -12,10 +12,17 @@ internal class MainViewModel : BaseViewModel
         GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
         OnlineDepositCommand = new AsyncRelayCommand(OnOnlineDeposits);
         GuideCommand = new AsyncRelayCommand(OnGuide);
-        StoriesCommand = new AsyncRelayCommand(OnStories);
+        StoriesCommand = new AsyncRelayCommand<int>(OnStories);
+        Stories = new ObservableCollection<Story>();
 
-
+        Task.Run(async () =>
+        {
+            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            await GetStories();
+        });
     }
+
+    string _accessToken;
 
     public ICommand ReferenceDefinitionCommand { get; }
     public ICommand GetDocumentsCommand { get; }
@@ -26,6 +33,8 @@ internal class MainViewModel : BaseViewModel
     public ICommand GuideCommand { get; }
     public ICommand StoriesCommand { get; }
 
+    public ObservableCollection<Story> Stories { get; set; }
+
 
 
     private string _loanInfoDefinition;
@@ -33,6 +42,12 @@ internal class MainViewModel : BaseViewModel
     {
         get => _loanInfoDefinition;
         set => SetProperty(ref _loanInfoDefinition, value); 
+    }
+    private bool _storiesExist;
+    public bool StoriesExist
+    {
+        get => _storiesExist;
+        set => SetProperty(ref _storiesExist, value);
     }
 
     async Task OnLoanTapped()
@@ -122,8 +137,24 @@ internal class MainViewModel : BaseViewModel
     private async Task OnGuide()
         => await Shell.Current.GoToAsync("GuidePage");
 
-    async Task OnStories()
+    async Task OnStories(int storyId)
     {
-        await App.Current.MainPage.Navigation.PushModalAsync(new StoriesPage());
+        await App.Current.MainPage.Navigation.PushModalAsync(new StoriesPage(storyId));
+    }
+
+    private async Task GetStories()
+    {
+        var response = await ContentService.Instance(_accessToken).GetItemsAsync<Story>("api/Stories/GetStories");
+
+        if (response != null && response.Count() > 0)
+        {
+            StoriesExist = true;
+            foreach (var item in response)
+            {
+                Preferences.Default.Set($"{item.StoryId}", item.DownloadLink);
+
+                Stories.Add(item);
+            }
+        }
     }
 }
