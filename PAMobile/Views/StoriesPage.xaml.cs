@@ -57,10 +57,12 @@ public partial class StoriesPage : ContentPage
 
                     _cancelTokenSource.Cancel();
                     _cancelTokenSource.Dispose();
-                    await Navigation.PopModalAsync();
-                    _viewModel.Index = 0;
+                   
 
                 }
+
+                await Navigation.PopModalAsync();
+                _viewModel.Index = 0;
 
                 _tapped = false;
 
