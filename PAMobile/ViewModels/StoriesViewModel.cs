@@ -111,20 +111,23 @@ internal class StoriesViewModel : BaseViewModel
 
     async Task OnDownload()
     {
-        var link = Preferences.Default.Get<string>($"{_storyId}", "");
-
-        if (!string.IsNullOrEmpty(link))
+        MainThread.BeginInvokeOnMainThread(async () =>
         {
-            try
-            {
-                Uri uri = new Uri(link);
-                await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
-            }
-            catch
-            {
+            var link = Preferences.Default.Get<string>($"{_storyId}", "");
 
+            if (!string.IsNullOrEmpty(link))
+            {
+                try
+                {
+                    Uri uri = new Uri(link);
+                    await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+                }
+                catch
+                {
+
+                }
             }
-        }
+        });
     }
 }
 
