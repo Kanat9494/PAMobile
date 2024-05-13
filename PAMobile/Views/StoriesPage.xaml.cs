@@ -92,7 +92,7 @@ public partial class StoriesPage : ContentPage
                     if (_tapped)
                         await storiesIndicator.ProgressTo(1, _duration, Easing.Linear);
 
-                    await Navigation.PopModalAsync();
+                    //await Navigation.PopModalAsync();
 
                     if (!_cancelToken.IsCancellationRequested)
                     {
