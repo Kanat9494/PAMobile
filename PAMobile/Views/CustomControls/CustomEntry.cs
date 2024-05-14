@@ -1,5 +1,5 @@
 ﻿namespace PAMobile.Views.CustomControls;
 
-internal class CustomEntry : Entry
+public class CustomEntry : Entry
 {
 }

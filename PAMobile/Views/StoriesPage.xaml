@@ -40,7 +40,7 @@
         </Border>
 
         <Border HeightRequest="60" WidthRequest="180" Grid.Row="2" VerticalOptions="Start" StrokeShape="RoundRectangle 10" StrokeThickness="2">
-            <Label Text="Скачать инструкцию" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+            <Label Text="Подробнее" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
 
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding DownloadInstruction}"/>

@@ -22,6 +22,10 @@ internal class ContentService
     {
         using (HttpClient httpClient = new HttpClient())
         {
+            if (_accessToken == null)
+            {
+                _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            }
             httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + _accessToken);
@@ -48,6 +52,10 @@ internal class ContentService
     {
         using (HttpClient httpClient = new HttpClient())
         {
+            if (_accessToken == null)
+            {
+                _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            }
             httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + _accessToken);
@@ -72,6 +80,10 @@ internal class ContentService
     {
         using (HttpClient httpClient = new HttpClient())
         {
+            if (_accessToken == null)
+            {
+                _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            }
             httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
             httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + _accessToken);
@@ -103,6 +115,10 @@ internal class ContentService
     {
         using (var httpClient = new HttpClient())
         {
+            if (_accessToken == null)
+            {
+                _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            }
             httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
             var content = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + _accessToken);
@@ -126,6 +142,10 @@ internal class ContentService
     {
         try
         {
+            if (_accessToken == null)
+            {
+                _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            }
             var longString = JsonConvert.SerializeObject(request);
 
             using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(longString)))

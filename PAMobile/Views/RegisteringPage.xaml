@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.RegisteringPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
-             
+             HideSoftInputOnTapped="True"
              Title="Регистрация">
     <ScrollView>
         <StackLayout>
