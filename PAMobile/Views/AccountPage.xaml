@@ -29,16 +29,14 @@
                     LineBreakMode="TailTruncation"
                     VerticalOptions="Center"
                     FontSize="16"
-                    FontFamily="RegularFont"/>
+                    FontFamily="MontserratRegular"/>
 
                     <Label
                     Text="{Binding UserFullName}"
                     Grid.Row="1"
-                    LineBreakMode="TailTruncation"
                     FontSize="20"
-                    FontAttributes="Bold"
                     VerticalOptions="Center"
-                    FontFamily="RegularFont"/>
+                    FontFamily="MontserratSemiBold"/>
 
                     <!--<Border
                     Grid.Column="1"
@@ -61,7 +59,7 @@
 
                 <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
                     <StackLayout Orientation="Horizontal">
-                        <Label VerticalOptions="Center" Text="Курсы валют" FontSize="20" FontAttributes="Bold" FontFamily="RegularFont"/>
+                        <Label VerticalOptions="Center" Text="Курсы валют" FontSize="20" FontFamily="MontserratSemiBold"/>
 
                         <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
                             WidthRequest="40" Padding="10">
@@ -89,7 +87,7 @@
                     </Border.GestureRecognizers>
                 </Border>-->
 
-                <Label Text="Версия 1.0.18" Margin="0, 20, 0, 0" FontFamily="RegularFont" FontSize="16" FontAttributes="Bold" x:Name="versionText" TextColor="#999999"
+                <Label Text="Версия 1.0.18" Margin="0, 20, 0, 0" FontFamily="MontserratBold" FontSize="16" x:Name="versionText" TextColor="#999999"
                     HorizontalOptions="Center"/>
 
             </StackLayout>

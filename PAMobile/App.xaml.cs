@@ -1,7 +1,4 @@
-﻿using Foundation;
-using UIKit;
-
-namespace PAMobile
+﻿namespace PAMobile
 {
     public partial class App : Application
     {

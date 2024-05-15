@@ -21,30 +21,29 @@
         <VerticalStackLayout
             VerticalOptions="CenterAndExpand"
             Spacing="5"
-            Margin="20, 20, 20, 0"
+            Margin="20, 0, 20, 0"
             Grid.Row="1">
             <Label 
                 Text="Добро пожаловать!" 
                 HorizontalOptions="Center" 
                 FontSize="Title"
-                FontAttributes="Bold" 
                 Padding="0" 
                 Margin="0"
                 VerticalOptions="Center"
-                FontFamily="RegularFont"/>
+                FontFamily="MontserratBold"/>
 
             <Label 
                 Text="Для входа пожалуйста введите имя" 
                 HorizontalOptions="Center" 
                 FontSize="Subtitle"
                 VerticalOptions="Center"
-                FontFamily="RegularFont"/>
+                FontFamily="MontserratSemiBold"/>
             <Label 
                 Text="пользователя и пароль" 
                 HorizontalOptions="Center" 
                 FontSize="Subtitle"
                 VerticalOptions="Center"
-                FontFamily="RegularFont"/>
+                FontFamily="MontserratSemiBold"/>
 
             <Border
                 Stroke="{x:StaticResource Red50}"
@@ -65,9 +64,9 @@
                         Text="{Binding UserName}" 
                         Placeholder="Введите логин (ИНН)" 
                         TextColor="{x:StaticResource Red50}" 
-                        FontAttributes="Bold"
                         VerticalOptions="Center" 
                         HorizontalOptions="FillAndExpand" 
+                        FontFamily="MontserratBold"
                         Margin="0,0,20,0"/>
                 </StackLayout>
             </Border>
@@ -92,7 +91,7 @@
                         Text="{Binding Password}" 
                         Placeholder="Введите пароль" 
                         TextColor="{x:StaticResource Red50}" 
-                        FontAttributes="Bold"
+                        FontFamily="MontserratBold"
                         VerticalOptions="Center" 
                         HorizontalOptions="FillAndExpand" 
                         Margin="0,0,20,0"/>
@@ -116,9 +115,9 @@
                         </TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>-->
-                <Label Text="Забыли пароль?" TextColor="#1d8348" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                <Label Text="Забыли пароль?" TextColor="#1d8348" HorizontalOptions="CenterAndExpand"
                     VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="16"
-                    FontFamily="RegularFont">
+                    FontFamily="MontserratBold">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ChangePassword}"/>
                     </Label.GestureRecognizers>
@@ -126,27 +125,27 @@
             </StackLayout>
 
             <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" TextColor="White" FontAttributes="Bold" CornerRadius="10"
-                WidthRequest="200" Margin="0,15,0,0" 
+                WidthRequest="200" Margin="0,15,0,0" FontFamily="MontserratRegular"
                 Command="{Binding LoginCommand}"/>
 
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0" Padding="0">
-                <Label Text="У вас нет учетной записи?" TextColor="DarkGray" FontSize="16"
-                    FontFamily="RegularFont"/>
-                <Label Text="  Регистрация" TextColor="#1d8348" FontAttributes="Bold" FontSize="16"
-                    FontFamily="RegularFont">
+            <Grid Margin="0, 30, 0, 0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="35*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="У вас нет учетной записи?" TextColor="#323232" FontSize="14" FontFamily="MontserratRegular"/>
+                <Label Text="Регистрация" TextColor="#1d8348" FontFamily="MontserratBold" FontSize="15" MaxLines="2" Grid.Column="1"
+                    >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
-                <!--<Image
-                    Source="{Binding TestImg}"
-                    HeightRequest="70"
-                    WidthRequest="70"/>-->
-            </StackLayout>
+            </Grid>
 
-            <Label Text="Инструкция для регистрации" TextColor="#1d8348" FontAttributes="Bold" FontSize="17" HorizontalOptions="Center" 
-                FontFamily="RegularFont" Margin="0, 10, 0, 0">
+            <Label Text="Инструкция для регистрации" TextColor="#1d8348" FontSize="17" HorizontalOptions="Center" 
+                FontFamily="MontserratBold" Margin="0, 10, 0, 0">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding InstructionCommand}"/>
                 </Label.GestureRecognizers>

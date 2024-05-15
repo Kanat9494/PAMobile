@@ -12,17 +12,17 @@
                 SelectLoanTermCommand="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ChangeLoanTermsViewModel}}, Path=SelectLoanTermCommand}"/>-->
             <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
                 Color="{x:StaticResource Red35}"/>
-            <Label Text="Заявление на изменение условий кредитного договора" FontSize="17" FontAttributes="Bold" Margin="10"/>
+            <Label Text="Заявление на изменение условий кредитного договора" FontSize="17" FontFamily="MontserratSemiBold" Margin="10"/>
             <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
-                ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
-            <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"/>
+                ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+            <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0" FontFamily="MontserratRegular"/>
             <StackLayout IsVisible="{Binding IsNext}">
-                <Label Text="Выберите условия" FontSize="17" Margin="10, 30, 10, 0"/>
+                <Label Text="Выберите условия" FontSize="17" Margin="10, 30, 10, 0" FontFamily="MontserratRegular"/>
 
                 <CollectionView ItemsSource="{Binding LoanTerms}" Margin="10" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Label Text="{Binding .}" FontSize="16" Margin="10, 5, 10, 0">
+                            <Label Text="{Binding .}" FontSize="16" Margin="10, 5, 10, 0" FontFamily="MontserratRegular">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ChangeLoanTermsViewModel}},  Path=SelectLoanTermCommand}"
                                         CommandParameter="{Binding .}"/>
@@ -34,10 +34,10 @@
             </StackLayout>
 
             <StackLayout IsVisible="{Binding IsReference}">
-                <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0"/>
+                <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0" FontFamily="MontserratRegular"/>
 
-                <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12"/>
-                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"/>
+                <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12" FontFamily="MontserratRegular"/>
+                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0" FontFamily="MontserratRegular"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

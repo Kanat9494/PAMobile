@@ -6,7 +6,7 @@
              Title="Курсы валют"
              Shell.TabBarIsVisible="False">
     <StackLayout>
-        <Label Text="{Binding Today, StringFormat='Курсы валют на дату {0:F}'}" FontSize="19" Margin="10"/>
+        <Label Text="{Binding Today, StringFormat='Курсы валют на дату {0:F}'}" FontSize="19" Margin="10" FontFamily="MontserratRegular"/>
 
         <CollectionView ItemsSource="{Binding CurrentExchangeRates}" VerticalOptions="FillAndExpand">
             <CollectionView.Header>
@@ -23,7 +23,7 @@
                     <Label Margin="10,0,0,0"
                         Text="Валюта"
                         FontSize="15"
-                        FontAttributes="Bold" 
+                        FontFamily="MontserratSemiBold"
                         TextColor="{x:StaticResource White}"
                         HorizontalOptions="Center"
                         Grid.Column="0"/>
@@ -31,7 +31,7 @@
                     <Label Margin="10,0,0,0"
                         Text="Покупка"
                         FontSize="15"
-                        FontAttributes="Bold"
+                        FontFamily="MontserratSemiBold"
                         TextColor="{x:StaticResource White}"
                         HorizontalOptions="Center" Grid.Column="2"/>
                     <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="3"/>
@@ -39,7 +39,7 @@
                     <Label Margin="10,0,0,0"
                         Text="Продажа"
                         FontSize="15"
-                        FontAttributes="Bold" 
+                        FontFamily="MontserratSemiBold"
                         TextColor="{x:StaticResource White}"
                         HorizontalOptions="Center" Grid.Column="4"/>
                     <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="5"/>
@@ -47,7 +47,7 @@
                     <Label Margin="10,0,0,0"
                         Text="НБКР"
                         FontSize="15"
-                        FontAttributes="Bold" 
+                        FontFamily="MontserratSemiBold" 
                         TextColor="{x:StaticResource White}"
                         HorizontalOptions="Center" Grid.Column="6"/>
                 </Grid>
@@ -69,28 +69,28 @@
                             <Label Margin="10,0,0,0"
                                 Text="{Binding V_SIMV}"
                                 FontSize="15"
-                                FontAttributes="Bold" 
+                                FontFamily="MontserratSemiBold"
                                 HorizontalOptions="Center"
                                 Grid.Column="0"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="1"/>
                             <Label Margin="10,0,0,0"
                                 Text="{Binding KV_CURS_POK}"
                                 FontSize="15"
-                                FontAttributes="Bold" 
+                                FontFamily="MontserratSemiBold" 
                                 HorizontalOptions="Center" Grid.Column="2"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="3"/>
 
                             <Label Margin="10,0,0,0"
                                 Text="{Binding KV_CURS_PROD}"
                                 FontSize="15"
-                                FontAttributes="Bold" 
+                                FontFamily="MontserratSemiBold"
                                 HorizontalOptions="Center" Grid.Column="4"/>
                             <BoxView Color="Black" HeightRequest="20" WidthRequest="1" Grid.Column="5"/>
 
                             <Label Margin="10,0,0,0"
                                 Text="{Binding KURS_NBKR}"
                                 FontSize="15"
-                                FontAttributes="Bold" 
+                                FontFamily="MontserratSemiBold"
                                 HorizontalOptions="Center" Grid.Column="6"/>
 
                         </Grid>

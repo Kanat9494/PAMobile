@@ -12,11 +12,12 @@
         <StackLayout>
             <StackLayout>
                 <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
-                    ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0"/>
+                    ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
 
-                <Button Text="Публичная оферта" Command="{Binding GetPublicOffer}" Margin="10" BackgroundColor="{x:StaticResource Red50}" TextColor="White"/>
+                <Button Text="Публичная оферта" Command="{Binding GetPublicOffer}" Margin="10" BackgroundColor="{x:StaticResource Red50}" TextColor="White"
+                    FontFamily="MontserratRegular"/>
 
-                <Label Text="Нет документов" Margin="10" FontSize="18" IsVisible="{Binding HasDocument}"/>
+                <Label Text="Нет документов" Margin="10" FontSize="18" IsVisible="{Binding HasDocument}" FontFamily="MontserratRegular" MaxLines="2"/>
             </StackLayout>
 
             <CollectionView IsVisible="{Binding IsDocument}" Margin="10" ItemsSource="{Binding DigitalDocuments}"
@@ -29,10 +30,10 @@
                             <ColumnDefinition Width="30*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Справка" FontSize="16" HorizontalOptions="Center"
-                    Grid.Column="0" HeightRequest="40"/>
+                    Grid.Column="0" HeightRequest="40" FontFamily="MontserratRegular"/>
                         <Label Text="Статус" FontSize="16" HorizontalOptions="CenterAndExpand"
-                    Grid.Column="1" HeightRequest="40" VerticalOptions="CenterAndExpand"/>
-                        <Label Text="" FontSize="16" HorizontalOptions="Center"
+                    Grid.Column="1" HeightRequest="40" VerticalOptions="CenterAndExpand" FontFamily="MontserratRegular"/>
+                        <Label Text="" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
                     Grid.Column="2" HeightRequest="40"/>
                     </Grid>
                 </CollectionView.Header>
@@ -52,32 +53,32 @@
                             </Grid.RowDefinitions>
 
                             <Label Text="{Binding TextTypeDoc}" FontSize="16" HorizontalOptions="Center"
-                                Grid.Column="0" />
-                            <Label Text="{Binding TextStatus}" FontSize="16" HorizontalOptions="Center"
+                                Grid.Column="0" FontFamily="MontserratRegular"/>
+                            <Label Text="{Binding TextStatus}" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
                                 Grid.Column="1" />
-                            <Button Text="Получить" FontSize="16" HorizontalOptions="Center"
+                            <Button Text="Получить" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
                                 Grid.Column="2" TextColor="White" Background="Green" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DocumentsViewModel}}, Path=GetDigitalDocument}" CommandParameter="{Binding .}"/>
 
                             <Button Grid.Row="1" Grid.ColumnSpan="3" Text="Подписать" BackgroundColor="{x:StaticResource Red50}" Margin="10" IsVisible="{Binding CanSign}"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DocumentsViewModel}}, Path=SignDocumentCommand}"
-                                TextColor="White" CommandParameter="{Binding Id}"/>
+                                TextColor="White" CommandParameter="{Binding Id}" FontFamily="MontserratRegular"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
             <VerticalStackLayout IsVisible="{Binding IsSign}" Margin="10">
-                <Label Text="Введите код смс" TextColor="{x:StaticResource Red40}" FontSize="12"/>
+                <Label Text="Введите код смс" TextColor="{x:StaticResource Red40}" FontSize="12" FontFamily="MontserratRegular"/>
                 <Border HeightRequest="55" Margin="0, 10, 0, 0" StrokeThickness="0" StrokeShape="RoundRectangle 10">
                     <customControls:CustomEntry Placeholder="СМС код" VerticalOptions="Center" Margin="10, 0, 0, 0" Text="{Binding SigningCode}"
-                Keyboard="Numeric"/>
+                Keyboard="Numeric" FontFamily="MontserratRegular"/>
                 </Border>
 
                 <Button Text="Отправить" Margin="0, 10, 0, 10" BackgroundColor="{x:StaticResource Red50}" TextColor="White"
-                    Command="{Binding SendSignedDocumentCommand}"/>
+                    Command="{Binding SendSignedDocumentCommand}" FontFamily="MontserratRegular"/>
             </VerticalStackLayout>
 
-            <Label Margin="10" FontSize="18" Text="Документы хранятся не более 30 дней"/>
+            <Label Margin="10" FontSize="18" Text="Документы хранятся не более 30 дней" MaxLines="2" FontFamily="MontserratRegular"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

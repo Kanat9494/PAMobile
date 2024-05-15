@@ -12,8 +12,8 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="75*"/>
         </Grid.RowDefinitions>
-        
-        <Label Text="Введите пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="OpenSansSemibold"
+
+        <Label Text="Введите пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="MontserratSemiBold"
             />
 
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
@@ -26,21 +26,21 @@
         <VerticalStackLayout Grid.Row="2" VerticalOptions="End" Margin="0, 0, 0, 30">
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55">
-                    <Label Text="1" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="1" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="1"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55">
-                    <Label Text="2" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="2" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="2"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="3" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="3" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="3"/>
@@ -50,21 +50,21 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55">
-                    <Label Text="4" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="4" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="4"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="5" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="5" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="5"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="6" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="6" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="6"/>
@@ -74,21 +74,21 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="7" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="7" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="7"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="8" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="8" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="8"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="9" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="9" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="9"/>
@@ -98,21 +98,21 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
                 <Border HeightRequest="65" WidthRequest="65" StrokeShape="RoundRectangle 55" >
-                    <Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFingerPrintCommand}"
                             />
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
-                    <Label Text="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=DialCommand}"
                             CommandParameter="0"/>
                     </Border.GestureRecognizers>
                 </Border>
                 <Border HeightRequest="65" WidthRequest="65" StrokeShape="RoundRectangle 55" >
-                    <Label Text="X" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="OpenSansSemibold"/>
+                    <Label Text="X" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=ClearPinCodeCommand}"
                             />

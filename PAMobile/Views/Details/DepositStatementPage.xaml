@@ -6,8 +6,8 @@
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
     <VerticalStackLayout>
-        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по основной сумме" Command="{Binding PrincipalAmountCommand}"/>
+        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по основной сумме" Command="{Binding PrincipalAmountCommand}" FontFamily="MontserratRegular"/>
 
-        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по процентам" Command="{Binding InterestsStatementCommand}"/>
+        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по процентам" Command="{Binding InterestsStatementCommand}" FontFamily="MontserratRegular"/>
     </VerticalStackLayout>
 </ContentPage>

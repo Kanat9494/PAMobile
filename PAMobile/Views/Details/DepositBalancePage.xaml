@@ -7,18 +7,18 @@
              Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="Остаток по депозиту" FontAttributes="Bold" FontSize="18" Margin="10"/>
+            <Label Text="Остаток по депозиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10"/>
 
-            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5"/>
-            <Label Text="{Binding CurrentDepositBalance.OstatokDeposit, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+            <Label Text="{Binding CurrentDepositBalance.OstatokDeposit, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
             <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5"/>
-            <Label Text="{Binding CurrentDepositBalance.SumPersent, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+            <Label Text="{Binding CurrentDepositBalance.SumPersent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
             <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-            <Label Text="% ставка за год" FontSize="12" Margin="10, 15, 10, 5"/>
-            <Label Text="{Binding CurrentDepositBalance.ChangedPercent, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="10, 0, 10, 0"/>
+            <Label Text="% ставка за год" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+            <Label Text="{Binding CurrentDepositBalance.ChangedPercent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
             <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
         </VerticalStackLayout>
     </ScrollView>

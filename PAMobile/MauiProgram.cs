@@ -16,6 +16,9 @@ namespace PAMobile
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
+                    fonts.AddFont("Montserrat-Regular.ttf", "MontserratRegular");
+                    fonts.AddFont("Montserrat-SemiBold.ttf", "MontserratSemiBold");
                 });
 
             builder.Services.AddSingleton<LoginPage>();

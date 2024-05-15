@@ -16,34 +16,34 @@
 
             <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="14, 10, 14, 10" Padding="10">
                 <VerticalStackLayout>
-                    <Label Text="Информация по кредиту" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
-                    
-                    <Label Text="Код погашения" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanPositionalNumber}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <Label Text="Информация по кредиту" FontSize="17" FontFamily="MontserratSemiBold" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
+
+                    <Label Text="Код погашения" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanPositionalNumber}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Сумма выданного кредита" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanSum, StringFormat='{0:N2}'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0" />
+                    <Label Text="Сумма выданного кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanSum, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Валюта по кредиту" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanCurrency}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0" />
+                    <Label Text="Валюта по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanCurrency}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Процентная ставка (за год)" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanPercent}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <Label Text="Процентная ставка (за год)" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanPercent}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Срок по кредиту" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanTerm, StringFormat='{0} месяцев'}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <Label Text="Срок по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanTerm, StringFormat='{0} месяцев'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Дата выдачи кредита" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanStartDate}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <Label Text="Дата выдачи кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanStartDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
                     <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Дата окончания кредита" FontSize="12" Margin="5, 15, 10, 5"/>
-                    <Label Text="{Binding LoanEndDate}" FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" Margin="5, 0, 10, 0"/>
+                    <Label Text="Дата окончания кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding LoanEndDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
                 </VerticalStackLayout>
             </Border>
 
@@ -53,7 +53,7 @@
                         />
 
                     <Label Text="Выписка" IsVisible="{Binding ExtractLabel}" FontSize="16"
-                        FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+                        VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontFamily="MontserratSemiBold"/>
                 </StackLayout>
 
                 <Border.GestureRecognizers>
@@ -64,7 +64,7 @@
             <!--<Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
                 FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>-->
             <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <Label Text="Остаток кредита" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Остаток кредита" FontSize="16" FontFamily="MontserratSemiBold" HorizontalOptions="Center" VerticalOptions="Center"/>
 
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanDebtCommand}"/>
@@ -77,7 +77,7 @@
                         />
 
                     <Label Text="График погашения" IsVisible="{Binding GraphicLabel}" FontSize="16"
-                        FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
 
                 <Border.GestureRecognizers>

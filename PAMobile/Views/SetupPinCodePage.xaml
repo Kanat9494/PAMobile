@@ -12,29 +12,25 @@
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Label Text="Придумайте пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="OpenSansSemibold"/>
+        <Label Text="Придумайте пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="MontserratSemiBold"/>
 
         <VerticalStackLayout Grid.Row="1">
             <Border Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
                 >
                 <customControls:CustomEntry Margin="5, 5, 0, 0" Keyboard="Numeric" VerticalOptions="Center" HorizontalOptions="Center"
                     MaxLength="4" FontSize="45" FontAttributes="Bold" IsPassword="True" Text="{Binding Pin1}"
-                    Placeholder="****" x:Name="firstCode">
-                    <customControls:CustomEntry.CharacterSpacing>
-                        15
-                    </customControls:CustomEntry.CharacterSpacing>
-                </customControls:CustomEntry>
+                    Placeholder="****" x:Name="firstCode" CharacterSpacing="15"/>
             </Border>
 
             <Border Stroke="Transparent" Margin="10, 10, 10, 10" StrokeShape="RoundRectangle 10" HeightRequest="75"
                 >
                 <customControls:CustomEntry Margin="5, 5, 0, 0" Keyboard="Numeric" VerticalOptions="Center" HorizontalOptions="Center"
                     MaxLength="4" FontSize="45" IsPassword="True" Text="{Binding Pin2}" FontAttributes="Bold" x:Name="secondCode"
-                    Placeholder="****"/>
+                    Placeholder="****" CharacterSpacing="15"/>
             </Border>
         </VerticalStackLayout>
 
         <Button Text="Продолжить" Grid.Row="2" HeightRequest="50" Margin="10" VerticalOptions="Start" Background="{x:StaticResource Red50}" FontSize="18"
-            Command="{Binding NextCommand}" TextColor="White"/>
+            Command="{Binding NextCommand}" TextColor="White" FontFamily="MontserratRegular"/>
     </Grid>
 </ContentPage>
