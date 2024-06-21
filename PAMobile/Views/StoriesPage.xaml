@@ -17,7 +17,7 @@
             x:Name="cv">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding .}" Aspect="AspectFill">
+                    <Image Source="{Binding .}" Aspect="AspectFit">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>
