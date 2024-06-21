@@ -8,6 +8,9 @@
 
             MainPage = new AppShell();
 
+            //Application.Current.UserAppTheme = AppTheme.Light;
+            //this.RequestedThemeChanged += (s, e) => { Application.Current.UserAppTheme = AppTheme.Light; };
+
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(CustomEntry), (handler, view) =>
             {
 #if __ANDROID__

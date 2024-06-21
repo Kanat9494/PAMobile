@@ -1,5 +1,7 @@
 ﻿namespace PAMobile.ViewModels;
 
+internal delegate void ImagesReceivedEventHandler(int count);
+
 internal class StoriesViewModel : BaseViewModel
 {
     public StoriesViewModel(int storyId)
@@ -19,6 +21,9 @@ internal class StoriesViewModel : BaseViewModel
         //StartTimer();
     }
 
+    public event ImagesReceivedEventHandler? ImagesReceivedEvent;
+
+
     string _accessToken;
     int _storyId;
 
@@ -33,6 +38,12 @@ internal class StoriesViewModel : BaseViewModel
     {
         get => _index;
         set => SetProperty(ref _index, value);
+    }
+    private int _storiesCount;
+    public int StoriesCount
+    {
+        get => _storiesCount;
+        set => SetProperty(ref _storiesCount, value);
     }
 
     //private void StartTimer()
@@ -107,6 +118,8 @@ internal class StoriesViewModel : BaseViewModel
                 Images.Add(item);
             }
         }
+        StoriesCount = Images.Count;
+        NotifyImagesReceivedEvent(StoriesCount);
     }
 
     async Task OnDownload()
@@ -126,6 +139,11 @@ internal class StoriesViewModel : BaseViewModel
 
             }
         }
+    }
+
+    internal void NotifyImagesReceivedEvent(int count)
+    {
+        ImagesReceivedEvent?.Invoke(count);
     }
 }
 

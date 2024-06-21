@@ -27,9 +27,9 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
 
-        <!--<BoxView Grid.Row="1" Color="White" HeightRequest="3" Margin="10, 0, 10, 0" x:Name="storiesIndicator" HorizontalOptions="Start"/>-->
-        <ProgressBar Progress="0.2" ProgressColor="White" x:Name="storiesIndicator" Margin="10, 0, 60, 0"/>
+        <Grid x:Name="storiesGrid" Grid.Row="0" VerticalOptions="Center" Margin="0, 0, 60, 0" ColumnSpacing="5">
 
+        </Grid>
 
         <Border HorizontalOptions="End" Margin="10" StrokeShape="RoundRectangle 30, 30, 30, 30" WidthRequest="40" HeightRequest="40" StrokeThickness="0" Grid.Row="0">
             <Label Text="X" FontAttributes="Bold" FontSize="29" HorizontalOptions="Center" VerticalOptions="Center" />
@@ -39,13 +39,13 @@
             </Border.GestureRecognizers>
         </Border>
 
-        <Border HeightRequest="60" WidthRequest="180" Grid.Row="2" VerticalOptions="Start" StrokeShape="RoundRectangle 10" StrokeThickness="2">
+        <!--<Border HeightRequest="60" WidthRequest="180" Grid.Row="2" VerticalOptions="Start" StrokeShape="RoundRectangle 10" StrokeThickness="2">
             <Label Text="Подробнее" HorizontalOptions="Center" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
 
             <Border.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding DownloadInstruction}"/>
             </Border.GestureRecognizers>
-        </Border>
+        </Border>-->
 
     </Grid>
 </ContentPage>

@@ -23,30 +23,23 @@ internal class LoginService
             KlPassword = password
         };
 
-        //var devSslHelper = new 
-
-        using (var httpClient = new HttpClient())
+        try
         {
-            httpClient.BaseAddress = new Uri(PAConstants.SERVER_ROOT_URL);
 
+            PAConstants.MSHC.DefaultRequestHeaders.Clear();
             var content = new StringContent(JsonConvert.SerializeObject(requestUser), Encoding.UTF8, "application/json");
-
-            try
+            var response = await PAConstants.MSHC.PostAsync("api/ILogin/AuthenticateUser", content);
+            var result = await response.Content.ReadAsStringAsync();
+            var authenticatedUser = JsonConvert.DeserializeObject<ILoginResponse>(result);
+            return authenticatedUser;
+        }
+        catch (Exception ex)
+        {
+            return new ILoginResponse
             {
-                var response = await httpClient.PostAsync("api/ILogin/AuthenticateUser", content);
-                var result = await response.Content.ReadAsStringAsync();
-                var authenticatedUser = JsonConvert.DeserializeObject<ILoginResponse>(result);
-
-                return authenticatedUser;
-            }
-            catch (Exception ex)
-            {
-                return new ILoginResponse
-                {
-                    StatusCode = 500,
-                    ResponseMessage = ex.Message,
-                };
-            }
+                StatusCode = 500,
+                ResponseMessage = ex.Message,
+            };
         }
     }
 }

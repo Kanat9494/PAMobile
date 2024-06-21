@@ -11,6 +11,7 @@ internal class PAConstants
     //боевой сервис
     //internal const string SERVER_ROOT_URL = "http://192.168.2.11:91/";
     internal const string SERVER_ROOT_URL = "https://mobile.salymfinance.kg/";
+    internal static HttpClient MSHC = new HttpClient();
 
     //для дома
     //internal const string SERVER_ROOT_URL = "http://192.168.1.51:45455";

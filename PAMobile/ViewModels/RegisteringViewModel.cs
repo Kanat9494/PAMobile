@@ -12,8 +12,8 @@ internal class RegisteringViewModel : BaseViewModel
 
         Task.Run(async () =>
         {
-            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
-            _clientCode = await SecureStorage.Default.GetAsync("ClientCode");
+            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken") ?? "";
+            _clientCode = await SecureStorage.Default.GetAsync("ClientCode") ?? "0";
         });
 
         GetCode = new AsyncRelayCommand(OnGetCode);

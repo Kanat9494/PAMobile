@@ -12,7 +12,7 @@ internal class ChangePasswordViewModel : BaseViewModel
 
         Task.Run(async () =>
         {
-            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
+            _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken") ?? "";
             _clientCode = "0";
         });
 
