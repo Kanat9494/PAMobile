@@ -81,11 +81,13 @@
                     TextColor="{x:StaticResource Red45}" FontFamily="MontserratBold"/>
                 <Button BackgroundColor="{x:StaticResource White}" Text="СПРАВКА" Margin="10" Command="{Binding SendRequestForReference}" 
                     TextColor="{x:StaticResource Red45}" FontFamily="MontserratBold"/>
-                <Image Source="mbank_logo.png" Margin="10, 10, 10, 10">
+                <!--<Image Source="mbank_logo.png" Margin="10, 10, 10, 10">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
                     </Image.GestureRecognizers>
-                </Image>
+                </Image>-->
+                <Button BackgroundColor="{x:StaticResource White}" Text="ПОПОЛНЕНИЕ ДЕПОЗИТА" Margin="10" Command="{Binding DepositReplenishmentChooseCommand}" 
+                    TextColor="{x:StaticResource Red45}" FontFamily="MontserratBold"/>
 
 
 

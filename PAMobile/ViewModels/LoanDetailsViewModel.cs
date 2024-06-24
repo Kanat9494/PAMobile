@@ -13,6 +13,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         BackCommand = new AsyncRelayCommand(OnBack);
         GetExtractCommand = new AsyncRelayCommand(OnGetExtract);
         OpenMBankCommand = new AsyncRelayCommand(OnOpenMBank);
+        LoanRepaymentChooseCommand = new AsyncRelayCommand(OnLoanRepaymentChoose);
 
         Task.Run(async () =>
         {
@@ -26,6 +27,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
     public ICommand BackCommand { get; }
     public ICommand GetExtractCommand { get; }
     public ICommand OpenMBankCommand { get; }
+    public ICommand LoanRepaymentChooseCommand { get; }
 
     string _accessToken;
 
@@ -275,7 +277,11 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         }
         catch (Exception ex)
         {
+            IsLoadingSum = false;
             await Shell.Current.DisplayAlert("Ошибка", "Произошла непредвиденная ошибка", "Ок");
         }
     }
+
+    async Task OnLoanRepaymentChoose()
+        => await Shell.Current.GoToAsync($"{nameof(LoanRepaymentChoosePage)}?{nameof(LoanRepaymentChooseViewModel.LoanPositionalNumber)}={LoanPositionalNumber}");
 }

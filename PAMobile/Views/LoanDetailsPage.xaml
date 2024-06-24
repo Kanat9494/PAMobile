@@ -85,21 +85,15 @@
                 </Border.GestureRecognizers>
             </Border>
 
-            <!--<Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <VerticalStackLayout VerticalOptions="Center">
-                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
-                        />
-
-                    <Label Text="Оплатить через MBank" IsVisible="{Binding MbankLabel}" FontSize="16"
-                        FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
+                <Label Text="Погашение кредита" FontSize="16" FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center"/>
 
                 <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
+                    <TapGestureRecognizer Command="{Binding LoanRepaymentChooseCommand}"/>
                 </Border.GestureRecognizers>
-            </Border>-->
+            </Border>
 
-            <VerticalStackLayout VerticalOptions="Center" Margin="10, 10, 10, 10">
+            <!--<VerticalStackLayout VerticalOptions="Center" Margin="10, 10, 10, 10">
                 <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
                     />
 
@@ -109,7 +103,7 @@
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
 
                 </VerticalStackLayout.GestureRecognizers>
-            </VerticalStackLayout>
+            </VerticalStackLayout>-->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

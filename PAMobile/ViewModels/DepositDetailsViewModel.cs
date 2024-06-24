@@ -12,6 +12,7 @@ internal class DepositDetailsViewModel : BaseViewModel, IQueryAttributable
         GetDigitalDocument = new AsyncRelayCommand<DigitalDocument>(OnGetDigitalDocument);
         DigitalDocuments = new ObservableCollection<DigitalDocument>();
         OpenMBankCommand = new AsyncRelayCommand(OnOpenMBank);
+        DepositReplenishmentChooseCommand = new AsyncRelayCommand(OnDepositReplenishmentChoose);
 
 
         Task.Run(async () =>
@@ -38,7 +39,7 @@ internal class DepositDetailsViewModel : BaseViewModel, IQueryAttributable
     public ICommand GetDigitalDocument { get; }
     public ICommand OpenMBankCommand { get; }
 
-
+    public ICommand DepositReplenishmentChooseCommand { get; set; }
     public ICommand GetDepositBalance { get; }
     public ICommand GetDepositStatement { get; }
     public ICommand SendRequestForReference { get; }
@@ -244,4 +245,7 @@ internal class DepositDetailsViewModel : BaseViewModel, IQueryAttributable
             await Shell.Current.DisplayAlert("Ошибка", "Произошла непредвиденная ошибка", "Ок");
         }
     }
+
+    async Task OnDepositReplenishmentChoose()
+        => await Shell.Current.GoToAsync($"{nameof(DepositReplenishmentChoosePage)}?{nameof(DepositReplenishmentChooseViewModel.DepositPN)}={DepositPositionalNumber}");
 }
