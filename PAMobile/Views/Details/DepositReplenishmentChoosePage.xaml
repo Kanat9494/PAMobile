@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.Details.DepositReplenishmentChoosePage"
              Shell.TabBarIsVisible="False"
              Title="Пополнение депозита">
-    <Grid BackgroundColor="#f2f2f2">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="50*"/>
@@ -14,7 +14,7 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Column="0" Background="White" StrokeThickness="0" Margin="15, 15, 15, 0"
+        <Border Grid.Column="0" StrokeThickness="0" Margin="15, 15, 15, 0"
         StrokeShape="RoundRectangle 10">
             <VerticalStackLayout>
                 <Border StrokeThickness="0" WidthRequest="100" HeightRequest="80" VerticalOptions="Center" Margin="10" StrokeShape="RoundRectangle 10">

@@ -8,9 +8,9 @@ internal class MainViewModel : BaseViewModel
         ReferenceDefinitionCommand = new AsyncRelayCommand<string>(OnReference);
         LoansCommand = new AsyncRelayCommand(OnLoanTapped);
         DepositsCommand = new AsyncRelayCommand(OnDeposit);
-        OnlineLoansCommand = new AsyncRelayCommand(OnOnlineLoans);
+        //OnlineLoansCommand = new AsyncRelayCommand(OnOnlineLoans);
         GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
-        OnlineDepositCommand = new AsyncRelayCommand(OnOnlineDeposits);
+        //OnlineDepositCommand = new AsyncRelayCommand(OnOnlineDeposits);
         GuideCommand = new AsyncRelayCommand(OnGuide);
         StoriesCommand = new AsyncRelayCommand<int>(OnStories);
         Stories = new ObservableCollection<Story>();

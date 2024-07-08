@@ -69,7 +69,6 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
 
                 <Button Text="Кредиты" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="17" FontFamily="MontserratSemiBold"
@@ -80,11 +79,11 @@
                     HeightRequest="50" Margin="5, 0, 0, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
                     Path=DepositsCommand}" TextColor="White"/>
 
-                <Button Text="Онлайн кредит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="13" FontFamily="MontserratSemiBold"
+                <!--<Button Text="Онлайн кредит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="13" FontFamily="MontserratSemiBold"
                     HeightRequest="50" Margin="0, 0, 5, 0" Grid.Row="1" Command="{Binding OnlineLoansCommand}" TextColor="White"/>
 
                 <Button Text="Онлайн депозит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="13" FontFamily="MontserratSemiBold"
-                    HeightRequest="50" Margin="5, 0, 0, 0" Grid.Row="1" Command="{Binding OnlineDepositCommand}" TextColor="White"/>
+                    HeightRequest="50" Margin="5, 0, 0, 0" Grid.Row="1" Command="{Binding OnlineDepositCommand}" TextColor="White"/>-->
             </Grid>
 
             <toolkit:Expander>

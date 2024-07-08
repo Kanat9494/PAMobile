@@ -26,7 +26,7 @@
             <Label 
                 Text="Добро пожаловать!" 
                 HorizontalOptions="Center" 
-                FontSize="Title"
+                FontSize="17"
                 Padding="0" 
                 Margin="0"
                 VerticalOptions="Center"
@@ -35,13 +35,13 @@
             <Label 
                 Text="Для входа пожалуйста введите имя" 
                 HorizontalOptions="Center" 
-                FontSize="Subtitle"
+                FontSize="14"
                 VerticalOptions="Center"
                 FontFamily="MontserratSemiBold"/>
             <Label 
                 Text="пользователя и пароль" 
                 HorizontalOptions="Center" 
-                FontSize="Subtitle"
+                FontSize="14"
                 VerticalOptions="Center"
                 FontFamily="MontserratSemiBold"/>
 
@@ -135,7 +135,7 @@
                     <ColumnDefinition Width="35*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="У вас нет учетной записи?" TextColor="#323232" FontSize="14" FontFamily="MontserratRegular"/>
+                <Label Text="У вас нет учетной записи?" FontSize="14" FontFamily="MontserratRegular"/>
                 <Label Text="Регистрация" TextColor="#1d8348" FontFamily="MontserratBold" FontSize="15" MaxLines="2" Grid.Column="1"
                     >
                     <Label.GestureRecognizers>
