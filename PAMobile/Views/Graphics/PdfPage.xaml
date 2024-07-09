@@ -10,9 +10,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <ScrollView>
-            <WebView Source="{Binding PdfUrl}" Grid.Row="0" Margin="0, 0, 0, 50"/>
-        </ScrollView>
+        <WebView Source="https://ib.salymfinance.kg/docs/InstructionRegistrIbank.pdf" Grid.Row="0" />
+
 
         <Button Background="{x:StaticResource Red50}" Text="Скачать" Margin="10, 0, 10, 10" Grid.Row="1"
             Command="{Binding DownloadCommand}"/>
