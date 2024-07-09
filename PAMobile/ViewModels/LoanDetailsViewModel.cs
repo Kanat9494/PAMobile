@@ -178,37 +178,39 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         //var excelBytes = await ContentService.Instance(_accessToken).GetItemAsync2<byte[]>($"api/Loans/GetLoanStatementXlsx?loanPositionalNumber={LoanPositionalNumber}");
 
         //await FileHelper.SaveFileAsync(excelBytes);
-        IsLoadingGraphic = true;
-        GraphicLabel = false;
+        //IsLoadingGraphic = true;
+        //GraphicLabel = false;
 
-        var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Loans/GetLoanGraphicXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
+        //var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Loans/GetLoanGraphicXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
 
-        if (!string.IsNullOrEmpty(filePath))
-        {
-            bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
-            if (answer)
-            {
-                if (File.Exists(filePath))
-                {
-                    try
-                    {
-                        await Launcher.OpenAsync(new OpenFileRequest
-                        {
-                            File = new ReadOnlyFile(filePath)
-                        });
-                    }
-                    catch
-                    {
+        //if (!string.IsNullOrEmpty(filePath))
+        //{
+        //    bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
+        //    if (answer)
+        //    {
+        //        if (File.Exists(filePath))
+        //        {
+        //            try
+        //            {
+        //                await Launcher.OpenAsync(new OpenFileRequest
+        //                {
+        //                    File = new ReadOnlyFile(filePath)
+        //                });
+        //            }
+        //            catch
+        //            {
 
-                    }
-                }
-                else
-                    Debug.WriteLine("Файл не найден");
-            }
-        }
+        //            }
+        //        }
+        //        else
+        //            Debug.WriteLine("Файл не найден");
+        //    }
+        //}
 
-        IsLoadingGraphic = false;
-        GraphicLabel = true;
+        //IsLoadingGraphic = false;
+        //GraphicLabel = true;
+        await Shell.Current.GoToAsync($"{nameof(LoanGraphicsPage)}?{nameof(LoanGraphicsViewModel.LoanPositionalNumber)}={LoanPositionalNumber}");
+
     }
 
     private async Task OnGetExtract()
@@ -218,12 +220,12 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
         //await Task.Delay(1500);
         //await Shell.Current.GoToAsync($"{nameof(LoanExtractPage)}?{nameof(LoanExtractViewModel.LoanPositionalNumber)}={LoanPositionalNumber}");
 
-        var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Loans/GetLoanStatementXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
+        var filePath = await LocalNotificationHelper.DownloadPDF($"api/Loans/GetLoanStatementXlsx?loanPositionalNumber={LoanPositionalNumber}", _accessToken);
 
         if (!string.IsNullOrEmpty(filePath))
         {
-            bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
-            if (answer)
+            //bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
+            if (true)
             {
                 if (File.Exists(filePath))
                 {
@@ -233,7 +235,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
                         //{
                         //    File = new ReadOnlyFile(filePath)
                         //});
-                        await Shell.Current.GoToAsync($"{nameof(LoanGraphicsPage)}?{nameof(LoanGraphicsViewModel.FilePath)}={filePath}");
+                        await Shell.Current.GoToAsync($"{nameof(PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
                     }
                     catch
                     {

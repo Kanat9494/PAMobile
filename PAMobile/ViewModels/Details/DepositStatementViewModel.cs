@@ -71,20 +71,22 @@ internal class DepositStatementViewModel : BaseViewModel
     {
         //await Task.Delay(1000);
 
-        var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Deposits/GetDepositSOPAXlsx?depositPN={DepositPositionalNumber}", _accessToken);
+        var filePath = await LocalNotificationHelper.DownloadPDF($"api/Deposits/GetDepositSOPAXlsx?depositPN={DepositPositionalNumber}", _accessToken);
         if (!string.IsNullOrEmpty(filePath))
         {
-            bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
-            if (answer)
+            //bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
+            if (true)
             {
                 if (File.Exists(filePath))
                 {
                     try
                     {
-                        await Launcher.OpenAsync(new OpenFileRequest
-                        {
-                            File = new ReadOnlyFile(filePath)
-                        });
+                        //await Launcher.OpenAsync(new OpenFileRequest
+                        //{
+                        //    File = new ReadOnlyFile(filePath)
+                        //});
+                        await Shell.Current.GoToAsync($"{nameof(PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
+
                     }
                     catch
                     {
@@ -100,22 +102,23 @@ internal class DepositStatementViewModel : BaseViewModel
     async Task OnInterestsStatement()
     {
         //await Task.Delay(1000);
-        var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/Deposits/GetDepositISXlsx?depositPN={DepositPositionalNumber}", _accessToken);
+        var filePath = await LocalNotificationHelper.DownloadPDF($"api/Deposits/GetDepositISXlsx?depositPN={DepositPositionalNumber}", _accessToken);
 
 
         if (!string.IsNullOrEmpty(filePath))
         {
-            bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
-            if (answer)
+            //bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
+            if (true)
             {
                 if (File.Exists(filePath))
                 {
                     try
                     {
-                        await Launcher.OpenAsync(new OpenFileRequest
-                        {
-                            File = new ReadOnlyFile(filePath)
-                        });
+                        //await Launcher.OpenAsync(new OpenFileRequest
+                        //{
+                        //    File = new ReadOnlyFile(filePath)
+                        //});
+                        await Shell.Current.GoToAsync($"{nameof(PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
                     }
                     catch
                     {

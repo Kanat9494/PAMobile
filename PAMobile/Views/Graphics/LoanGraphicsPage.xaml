@@ -3,8 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Graphics.LoanGraphicsPage"
              Shell.TabBarIsVisible="False"
+             xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              Title="">
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <WebView Source="{Binding PdfUrl}"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Text="Подробнее" BackgroundColor="{x:StaticResource Red50}" Margin="10, 10, 10, 0" FontSize="16"
+            Command="{Binding GetPdfCommand}"/>
+
+
+        <CollectionView ItemsSource="{Binding LoanGraphics}" Grid.Row="2">
+            <CollectionView.Header>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Дата погашения" Margin="10, 10, 10, 0" FontSize="16" FontAttributes="Bold"/>
+                    <Label Text="Сумма оплаты" HorizontalOptions="End" Margin="10, 10, 10, 0" HorizontalTextAlignment="End" Grid.Column="1" FontSize="16" FontAttributes="Bold"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:LoanGraphic">
+                    <Grid Margin="10, 0, 10, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding DateRepayment}" VerticalOptions="End"/>
+                        <Label Text="{Binding PayMonth, StringFormat='{0:N2}'}" VerticalOptions="End" Grid.Column="1" HorizontalOptions="End"/>
+
+                        <BoxView Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator Color="{x:StaticResource Green45}" HeightRequest="50" WidthRequest="50" Grid.RowSpan="3"
+        IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"/>
     </Grid>
 </ContentPage>

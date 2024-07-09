@@ -28,7 +28,7 @@ public partial class MainPage : ContentPage
                 var currentVersion = AppInfo.VersionString;
                 if (!response.Equals(currentVersion))
                 {
-                    var answer = await Shell.Current.DisplayAlert("Подтвердите действие", "Доступна новая версия приложения, хотите обновить?", "Да", "Нет");
+                    var answer = await Shell.Current.DisplayAlert(TextConstants.Title, TextConstants.Description, TextConstants.Confirm, TextConstants.Reject);
                     if (answer)
                     {
                         Uri uri = new Uri("https://apps.apple.com/kg/app/salymfinance/id6479408917");

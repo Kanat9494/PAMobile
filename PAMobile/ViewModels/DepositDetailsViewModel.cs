@@ -200,23 +200,24 @@ internal class DepositDetailsViewModel : BaseViewModel, IQueryAttributable
 
     async Task OnGetDigitalDocument(DigitalDocument document)
     {
-        var filePath = await LocalNotificationHelper.DownloadAndNotify($"api/DigitalDocuments/GetDigitalDocument?id={document.Id}&" +
+        var filePath = await LocalNotificationHelper.DownloadPDF($"api/DigitalDocuments/GetDigitalDocument?id={document.Id}&" +
             $"dgpozn={document.DG_POZN}", _accessToken);
 
 
         if (!string.IsNullOrEmpty(filePath))
         {
-            bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
-            if (answer)
+            //bool answer = await Shell.Current.DisplayAlert("", "Файл скачан и готов к просмотру, вы хотите его открыть?", "Ок", "Нет");
+            if (true)
             {
                 if (File.Exists(filePath))
                 {
                     try
                     {
-                        await Launcher.OpenAsync(new OpenFileRequest
-                        {
-                            File = new ReadOnlyFile(filePath)
-                        });
+                        //await Launcher.OpenAsync(new OpenFileRequest
+                        //{
+                        //    File = new ReadOnlyFile(filePath)
+                        //});
+                        await Shell.Current.GoToAsync($"{nameof(PAMobile.Views.Graphics.PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
                     }
                     catch
                     {
