@@ -229,10 +229,11 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
                 {
                     try
                     {
-                        await Launcher.OpenAsync(new OpenFileRequest
-                        {
-                            File = new ReadOnlyFile(filePath)
-                        });
+                        //await Launcher.OpenAsync(new OpenFileRequest
+                        //{
+                        //    File = new ReadOnlyFile(filePath)
+                        //});
+                        await Shell.Current.GoToAsync($"{nameof(LoanGraphicsPage)}?{nameof(LoanGraphicsViewModel.FilePath)}={filePath}");
                     }
                     catch
                     {
