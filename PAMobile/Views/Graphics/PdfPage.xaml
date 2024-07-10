@@ -19,9 +19,6 @@
             Command="{Binding DownloadCommand}"/>
     </Grid>-->
 
-    <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
-        </ContentView>
-    </VerticalStackLayout>
+    <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
+
 </ContentPage>
