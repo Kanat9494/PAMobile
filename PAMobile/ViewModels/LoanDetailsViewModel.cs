@@ -236,7 +236,7 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
                         //    File = new ReadOnlyFile(filePath)
                         //});
                         //await Shell.Current.GoToAsync($"{nameof(PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
-                        Uri uri = new Uri($"file://{filePath}");
+                        Uri uri = new Uri($"{filePath}");
                         await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
                     }
                     catch
