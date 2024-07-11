@@ -4,20 +4,9 @@
              x:Class="PAMobile.Views.Graphics.PdfPage"
              Shell.TabBarIsVisible="False"
              Title="">
-    <!--<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-        <ContentView Grid.Row="0" Grid.RowSpan="2">
-            <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-        </ContentView>
-
-
-        <Button Background="{x:StaticResource Red50}" Text="Скачать" Margin="10, 0, 10, 10" Grid.Row="1"
-            Command="{Binding DownloadCommand}"/>
-    </Grid>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}"/>
+    </ContentPage.ToolbarItems>
 
     <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
 
