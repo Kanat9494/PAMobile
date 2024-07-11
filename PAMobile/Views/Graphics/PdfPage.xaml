@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Graphics.PdfPage"
              Shell.TabBarIsVisible="False"
-             Title="Просмотр">
+             Title="">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}"/>
+        <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}" Order="Primary"/>
     </ContentPage.ToolbarItems>
 
     <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
