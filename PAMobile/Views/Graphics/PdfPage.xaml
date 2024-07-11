@@ -5,7 +5,7 @@
              Shell.TabBarIsVisible="False"
              Title="">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}" Order="Primary"/>
+        <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}" Order="Primary" Priority="1"/>
     </ContentPage.ToolbarItems>
 
     <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
