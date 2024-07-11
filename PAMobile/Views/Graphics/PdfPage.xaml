@@ -4,10 +4,13 @@
              x:Class="PAMobile.Views.Graphics.PdfPage"
              Shell.TabBarIsVisible="False"
              Title="">
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="download.png" Command="{Binding DownloadCommand}" Order="Primary" Priority="0"/>
-    </ContentPage.ToolbarItems>
-
+    </ContentPage.ToolbarItems>-->
+    <Shell.TitleView>
+        <ImageButton Source="download.png" Command="{Binding DownloadCommand}" HorizontalOptions="End"/>
+    </Shell.TitleView>
+    
     <WebView Source="{Binding PdfUrl}" x:Name="pdfViewer" />
 
 </ContentPage>
