@@ -8,7 +8,7 @@
     <Grid x:Name="contentGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="*"/>
             <!--<RowDefinition Height="120"/>-->
         </Grid.RowDefinitions>
@@ -33,7 +33,7 @@
         </Grid>
 
         <Border HorizontalOptions="End" Margin="10" StrokeShape="RoundRectangle 30, 30, 30, 30" WidthRequest="35" HeightRequest="35" StrokeThickness="0" Grid.Row="1"
-            BackgroundColor="#80000000">
+            BackgroundColor="#80000000" VerticalOptions="End">
             <Image Source="close.png" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFill" WidthRequest="15" HeightRequest="15"/>
 
             <Border.GestureRecognizers>
