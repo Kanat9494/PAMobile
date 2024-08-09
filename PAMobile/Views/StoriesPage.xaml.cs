@@ -80,7 +80,8 @@ public partial class StoriesPage : ContentPage
                 {
                     Progress = 0,
                     ProgressColor = Color.FromArgb("#919191"),
-                    VerticalOptions = LayoutOptions.Center
+                    VerticalOptions = LayoutOptions.Center,
+                    ScaleY = 0.6
                 });
             }
 

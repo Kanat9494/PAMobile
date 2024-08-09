@@ -18,12 +18,14 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:LoanResponse">
                     <ContentView>
-                        <Border HeightRequest="120" StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="0, 10, 0, 0">
+                        <Border HeightRequest="165" StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="0, 10, 0, 0">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="40"/>
-                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
                                 </Grid.RowDefinitions>
 
                                 <Grid.ColumnDefinitions>
@@ -32,19 +34,28 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Row="0" Grid.Column="0" Text="Номер договора" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="10, 10, 0, 0"/>
+                                    Margin="10, 10, 0, 0"/>
 
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding DG_NOM}" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                                    Margin="0, 10, 10, 0" HorizontalOptions="End"/>
 
                                 <Label Grid.Row="1" Grid.Column="0" Text="Сумма кредита" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="10, 10, 0, 0"/>
+                                    Margin="10, 10, 0, 0"/>
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding DG_SUM, StringFormat='{0:N2}'}" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                                    Margin="0, 10, 10, 0" HorizontalOptions="End"/>
                                 <Label Grid.Row="2" Grid.Column="0" Text="Валюта кредита" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="10, 10, 0, 0"/>
+                                    Margin="10, 10, 0, 0"/>
                                 <Label Grid.Row="2" Grid.Column="1" Text="{Binding DG_KODV}" FontSize="16" FontFamily="MontserratSemiBold"
-            Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                                    Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+
+                                <Label Grid.Row="3" Grid.Column="0" Text="Остаток по ОС" FontSize="16" FontFamily="MontserratSemiBold"
+                                    Margin="10, 10, 0, 0"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding PricipalBalance}" FontSize="16" FontFamily="MontserratSemiBold"
+                                    Margin="0, 10, 10, 0" HorizontalOptions="End"/>
+                                <Label Grid.Row="4" Grid.Column="0" Text="Остаток по %" FontSize="16" FontFamily="MontserratSemiBold"
+                                    Margin="10, 10, 0, 0"/>
+                                <Label Grid.Row="4" Grid.Column="1" Text="{Binding PercentBalance}" FontSize="16" FontFamily="MontserratSemiBold"
+                                    Margin="0, 10, 10, 0" HorizontalOptions="End"/>
                             </Grid>
 
                             <Border.GestureRecognizers>

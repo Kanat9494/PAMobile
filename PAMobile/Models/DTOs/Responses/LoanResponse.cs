@@ -9,4 +9,6 @@ public class LoanResponse
     public string? DG_KODV { get; set; }
     public DateTime? DG_DATE1 { get; set; }
     public bool CanSign { get; set; }
+    public decimal? PricipalBalance { get; set; }
+    public decimal? PercentBalance { get; set; }
 }

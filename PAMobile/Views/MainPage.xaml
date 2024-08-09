@@ -46,8 +46,10 @@
                                 <RowDefinition Height="80"/>
                             </Grid.RowDefinitions>
                             <Border StrokeThickness="3" StrokeShape="RoundRectangle 15, 15, 15, 15" WidthRequest="100" HeightRequest="130" Stroke="{x:StaticResource Red45}"
-                                HorizontalOptions="Start" >
-                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" /> 
+                                HorizontalOptions="Start" Padding="3">
+                                <Border StrokeShape="RoundRectangle 12" StrokeThickness="0">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                </Border>
                             </Border>
 
                             <Label Text="{Binding Title}"  WidthRequest="110" HorizontalOptions="Start" Grid.Row="1" FontFamily="MontserratBold" Margin="0, 0, 5, 0"
