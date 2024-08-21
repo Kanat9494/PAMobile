@@ -17,6 +17,7 @@ internal class StoriesViewModel : BaseViewModel
         CloseCommand = new AsyncRelayCommand(OnClose);
         DownloadInstruction = new AsyncRelayCommand(OnDownload);
         _storyId = storyId;
+        Id = storyId;
 
         //StartTimer();
     }
@@ -44,6 +45,12 @@ internal class StoriesViewModel : BaseViewModel
     {
         get => _storiesCount;
         set => SetProperty(ref _storiesCount, value);
+    }
+    private int _id;
+    public int Id
+    {
+        get => _id;
+        set => SetProperty(ref _id, value);
     }
 
     //private void StartTimer()

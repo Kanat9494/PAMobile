@@ -55,6 +55,8 @@ public partial class StoriesPage : ContentPage
 
     private async void BackCommand(object sender, TappedEventArgs e)
     {
+        Preferences.Default.Set("has_to_scroll", true);
+        Preferences.Default.Set("story_id", _viewModel.Id);
         await Navigation.PopModalAsync();
         if (_progressTimer.IsRunning)
         {

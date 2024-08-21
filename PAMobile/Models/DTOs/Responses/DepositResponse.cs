@@ -14,4 +14,6 @@ public class DepositResponse
     public short? DV_SROK { get; set; }
     public decimal? VK_STAVVKL { get; set; }
     public string VK_NAME { get; set; }
+    public decimal OstatokDeposit { get; set; }
+    public decimal SumPersent { get; set; }
 }

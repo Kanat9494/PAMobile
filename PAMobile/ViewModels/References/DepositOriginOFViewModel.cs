@@ -6,6 +6,8 @@ internal class DepositOriginOFViewModel : BaseDepositApplicationViewModel
     {
         NextCommand = new AsyncRelayCommand(OnNext);
         SendReferenceCommand = new AsyncRelayCommand(OnSendReference);
+        AddDocumentCommand = new AsyncRelayCommand(OnAddDocument);
+
 
         OriginsOfFunds = new ObservableCollection<string>
         {
@@ -21,6 +23,7 @@ internal class DepositOriginOFViewModel : BaseDepositApplicationViewModel
 
     public ICommand NextCommand { get; }
     public ICommand SendReferenceCommand { get; }
+    public ICommand AddDocumentCommand { get; }
 
     public ObservableCollection<string> OriginsOfFunds { get; set; }
 
@@ -63,6 +66,24 @@ internal class DepositOriginOFViewModel : BaseDepositApplicationViewModel
         get => _isOtherOrigin;
         set => SetProperty(ref _isOtherOrigin, value);
     }
+    private string _selectedOrigin;
+    public string SelectedOrigin
+    {
+        get => _selectedOrigin;
+        set => SetProperty(ref _selectedOrigin, value);
+    }
+    private string _imagePath;
+    public string ImagePath
+    {
+        get => _imagePath;
+        set => SetProperty(ref _imagePath, value);
+    }
+    private string _documentDownloaded;
+    public string DocumentDownloaded
+    {
+        get => _documentDownloaded;
+        set => SetProperty(ref _documentDownloaded, value);
+    }
 
 
     private async Task OnNext()
@@ -102,7 +123,40 @@ internal class DepositOriginOFViewModel : BaseDepositApplicationViewModel
 
         await ContentService.Instance(_accessToken).GetItemAsync2<string>($"api/Deposits/SendOriginOfFunds?depositPN={SelectedDeposit.DV_POZN}&" +
             $"text=Информация о происхождении денежных средств&originOfFunds={OriginOfFunds}");
+
+        var fileData = await File.ReadAllBytesAsync(ImagePath);
+        var clientITIN = await SecureStorage.Default.GetAsync("UserName");
+        var file = new FileToSave
+        {
+            PathFile = $"{clientITIN}\\Deposits\\{SelectedDeposit.DV_POZN}\\ElectronicDocuments\\{SelectedOrigin}",
+            FileData = fileData,
+        };
+        await ContentService.Instance(_accessToken).PostItemAsync<FileToSave>(file, "api/Files/UploadFile");
         await Shell.Current.DisplayAlert("Заявление отправлено", "", "Ок");
         await App.Current.MainPage.Navigation.PopModalAsync();
+    }
+
+    private async Task OnAddDocument()
+    {
+        try
+        {
+            SelectedOrigin = OriginOfFunds;
+            var result = await FilePicker.Default.PickAsync(new PickOptions
+            {
+                PickerTitle = "Выберите фото для обзора",
+                FileTypes = FilePickerFileType.Images
+            });
+
+            if (result != null)
+            {
+                ImagePath = result.FullPath;
+                DocumentDownloaded = "Ваш документ добавлен";
+                SelectedOrigin = SelectedOrigin + "_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + System.IO.Path.GetExtension(result.FullPath);
+            }
+        }
+        catch
+        {
+
+        }
     }
 }

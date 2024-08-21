@@ -139,6 +139,7 @@ internal class MainViewModel : BaseViewModel
 
     async Task OnStories(int storyId)
     {
+        Preferences.Default.Set("story_id", storyId);
         await App.Current.MainPage.Navigation.PushModalAsync(new StoriesPage(storyId));
     }
 

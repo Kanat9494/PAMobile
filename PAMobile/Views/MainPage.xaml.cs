@@ -41,5 +41,18 @@ public partial class MainPage : ContentPage
 
             }
         }
+
+        var hasToScroll = Preferences.Default.Get("has_to_scroll", false);
+        if (hasToScroll)
+        {
+            var storyId = Preferences.Default.Get("story_id", -1);
+            if (storyId >= 0)
+            {
+                storiesCV.ScrollTo(storyId + 1, position: ScrollToPosition.Start);
+
+                Preferences.Default.Set("has_to_scroll", false);
+                Preferences.Default.Set("story_id", -1);
+            }
+        }
     }
 }

@@ -33,7 +33,8 @@
                 </Image>
             </Grid>
 
-            <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 10, 10, 0" HeightRequest="170" HorizontalScrollBarVisibility="Never">
+            <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 10, 10, 0" HeightRequest="170" HorizontalScrollBarVisibility="Never"
+                x:Name="storiesCV">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" />
                 </CollectionView.ItemsLayout>
