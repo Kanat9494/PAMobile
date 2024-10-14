@@ -32,5 +32,7 @@
 	<string>We need access to the camera to take photos to verify your identity for online loan and online deposit applications.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Приложение использует Face ID для входа</string>
 </dict>
 </plist>
