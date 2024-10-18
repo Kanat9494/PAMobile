@@ -27,8 +27,8 @@
 		<ApplicationId>com.salymf.pamobile</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0.31</ApplicationDisplayVersion>
-		<ApplicationVersion>33</ApplicationVersion>
+		<ApplicationDisplayVersion>1.0.32</ApplicationDisplayVersion>
+		<ApplicationVersion>34</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -79,6 +79,7 @@
 	  <None Remove="Resources\Images\contract.png" />
 	  <None Remove="Resources\Images\doc_icon.png" />
 	  <None Remove="Resources\Images\dotnet_bot.svg" />
+	  <None Remove="Resources\Images\face_id.png" />
 	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\mbank_logo_full.png" />
 	  <None Remove="Resources\Images\mbank_logo_w.png" />
@@ -94,6 +95,7 @@
 	  <None Remove="Resources\Images\show_icon.png" />
 	  <None Remove="Resources\Images\user_icon.png" />
 	  <None Remove="Resources\Images\white_back_icon.png" />
+	  <None Remove="Resources\Images\white_face_id.png" />
 	  <None Remove="Views\" />
 	</ItemGroup>
 	<ItemGroup>

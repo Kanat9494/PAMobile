@@ -11,6 +11,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="75*"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
         <Label Text="Введите пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="MontserratSemiBold"
@@ -98,9 +99,10 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
                 <Border HeightRequest="65" WidthRequest="65" StrokeShape="RoundRectangle 55" >
-                    <Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="MontserratSemiBold"/>
+                    <!--<Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="MontserratSemiBold"/>-->
+                    <Image Source="{AppThemeBinding Light=face_id.png, Dark=white_face_id.png}" Aspect="AspectFill"/>
                     <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFingerPrintCommand}"
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFaceIdCommand}"
                             />
                     </Border.GestureRecognizers>
                 </Border>
@@ -121,8 +123,11 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
 
+        <Button Text="Выйти" Grid.Row="3" Margin="10, 0, 10, 15" FontSize="18" FontFamily="MontserratSemiBold" Background="{x:StaticResource Red45}"
+            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFingerPrintCommand}"/>
+
         <Border Stroke="Transparent" x:Name="indicatorBorder" HeightRequest="150" WidthRequest="150" IsVisible="{Binding IsBusy}" VerticalOptions="Center"
-            Grid.RowSpan="3" StrokeShape="RoundRectangle 10">
+            Grid.RowSpan="4" StrokeShape="RoundRectangle 10">
             <ActivityIndicator IsRunning="{Binding IsBusy}" HeightRequest="60" WidthRequest="60" Color="{x:StaticResource Green45}"/>
         </Border>
     </Grid>

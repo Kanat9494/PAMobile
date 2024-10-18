@@ -66,10 +66,17 @@ public partial class PinPage : ContentPage
 	{
 		base.OnNavigatedTo(e);
 
-        var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
+        try
+		{
+            var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
 
-		if (isUsingBiometrics)
-			await _viewModel.OnUseFingerPrint();
+            if (isUsingBiometrics)
+                await _viewModel.OnUseFaceId();
+        }
+		catch (Exception ex)
+		{
+
+		}
     }
 
     protected override void OnAppearing()
@@ -83,5 +90,10 @@ public partial class PinPage : ContentPage
 
         _viewModel.PinCode.Clear();
         _viewModel.pinCode.Clear();
+    }
+
+    private void FaceIdTapped(object sender, TappedEventArgs e)
+    {
+
     }
 }

@@ -1,4 +1,9 @@
-﻿namespace PAMobile.ViewModels;
+﻿#if IOS
+using Foundation;
+using LocalAuthentication;
+#endif
+
+namespace PAMobile.ViewModels;
 
 internal delegate void PinNumberAddedEventHandler(object sender, int index);
 internal delegate void PinNumberDeletedEventHandler(object sender, int index);
@@ -19,6 +24,7 @@ internal class PinCodeViewModel : BaseViewModel
         DialCommand = new AsyncRelayCommand<string>(OnDial);
         UseFingerPrintCommand = new AsyncRelayCommand(OnExit);
         ClearPinCodeCommand = new RelayCommand(OnClearPinCode);
+        UseFaceIdCommand = new AsyncRelayCommand(OnUseFaceId);
     }
 
 
@@ -33,6 +39,7 @@ internal class PinCodeViewModel : BaseViewModel
     public ICommand DialCommand { get; }
     public ICommand ClearPinCodeCommand { get; }
     public ICommand UseFingerPrintCommand { get; }
+    public ICommand UseFaceIdCommand { get; }
 
     private async Task OnDial(string number)
     {
@@ -121,5 +128,99 @@ internal class PinCodeViewModel : BaseViewModel
         Preferences.Default.Clear();
 
         await Shell.Current.GoToAsync("//MainPage");
+    }
+
+    public async Task OnUseFaceId()
+    {
+
+        IsBusy = true;
+
+        try
+        {
+#if IOS
+            var context = new LAContext();
+            NSError authError;
+            if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out authError)) 
+            {
+                var isUsingBiometrics = Preferences.Default.Get("isUsingBiometrics", false);
+                bool answer = false;
+                if (!isUsingBiometrics)
+                {
+                    answer = await Shell.Current.DisplayAlert("Биометрика", "Вы хотите установить вход с помощью отпечатков пальцев по умолчанию?",
+                        "Да", "Нет");
+                }
+
+                if (answer) 
+                {
+                    Preferences.Default.Set("isUsingBiometrics", true);
+                    var result = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, "Войти с помощью Face Id");
+                    
+                    if (result.Item1) 
+                    {
+                        var password = await SecureStorage.Default.GetAsync("UserPassword");
+                        var userName = await SecureStorage.Default.GetAsync("UserName");
+
+                        var response = await LoginService.Instance().AuthenticateUser(userName: userName, password: password);
+
+                        if (response.StatusCode == 200)
+                        {
+                            await SecureStorage.Default.SetAsync("UserAccessToken", response.AccessToken);
+                            await SecureStorage.Default.SetAsync("ClientCode", response!.KlKod!.ToString()!);
+                            await SecureStorage.Default.SetAsync("UserName", response.KlLogin!);
+                            Preferences.Default.Set("user_full_name", response!.Fio);
+                            await Shell.Current.GoToAsync("//HomePage");
+                            IsBusy = false;
+                        }
+                        else
+                        {
+                            await Shell.Current.DisplayAlert("Не удалось войти в систему",
+                                $"{response.ResponseMessage}", "Ок");
+                            IsBusy = false;
+                        }
+
+                    }
+                    IsBusy = false;
+                }
+                else
+                {
+                    var result = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, "Войти с помощью Face Id");
+                    
+                    if (result.Item1) 
+                    {
+                        var password = await SecureStorage.Default.GetAsync("UserPassword");
+                        var userName = await SecureStorage.Default.GetAsync("UserName");
+
+                        var response = await LoginService.Instance().AuthenticateUser(userName: userName, password: password);
+
+                        if (response.StatusCode == 200)
+                        {
+                            await SecureStorage.Default.SetAsync("UserAccessToken", response.AccessToken);
+                            await SecureStorage.Default.SetAsync("ClientCode", response.KlKod.ToString());
+                            await SecureStorage.Default.SetAsync("UserName", response.KlLogin);
+                            Preferences.Default.Set("user_full_name", response.Fio);
+                            await Shell.Current.GoToAsync("//HomePage");
+                            IsBusy = false;
+                        }
+                        else
+                        {
+                            await Shell.Current.DisplayAlert("Не удалось войти в систему",
+                                $"{response.ResponseMessage}", "Ок");
+                            IsBusy = false;
+                        }
+
+                    }
+                    IsBusy = false;
+                }
+            }
+#else
+            await Shell.Current.DisplayAlert("Ошибка", "Face Id недоступен", "Ок");
+#endif
+            IsBusy = false;
+        }
+        catch (Exception ex)
+        {
+            IsBusy = false;
+            await Shell.Current.DisplayAlert("Ошибка", "Face Id недоступен", "Ок");
+        }
     }
 }
