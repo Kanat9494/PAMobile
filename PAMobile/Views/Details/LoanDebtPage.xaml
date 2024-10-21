@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.Details.LoanDebtPage"
              Title="Остаток кредита"
              Shell.TabBarIsVisible="False"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True">
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="Всего задолженность по кредиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10" HorizontalOptions="Start"/>

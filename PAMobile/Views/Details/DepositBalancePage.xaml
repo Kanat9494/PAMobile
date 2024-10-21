@@ -4,10 +4,10 @@
              x:Class="PAMobile.Views.Details.DepositBalancePage"
              Title="Остаток депозита"
              Shell.TabBarIsVisible="False"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True">
     <ScrollView>
         <VerticalStackLayout>
-            <Label Text="Остаток по депозиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10"/>
+            <!--<Label Text="Остаток по депозиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10"/>-->
 
             <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
             <Label Text="{Binding CurrentDepositBalance.OstatokDeposit, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>

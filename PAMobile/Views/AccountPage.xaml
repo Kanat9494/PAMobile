@@ -59,6 +59,21 @@
 
                 <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
                     <StackLayout Orientation="Horizontal">
+                        <Label VerticalOptions="Center" Text="Документы" FontSize="20" FontFamily="MontserratSemiBold"/>
+
+                        <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
+                            WidthRequest="40" Padding="10">
+                            <Image Source="next_icon.png" />
+                        </Border>
+                    </StackLayout>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=GetDocumentsCommand}"/>
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                    <StackLayout Orientation="Horizontal">
                         <Label VerticalOptions="Center" Text="Курсы валют" FontSize="20" FontFamily="MontserratSemiBold"/>
 
                         <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"

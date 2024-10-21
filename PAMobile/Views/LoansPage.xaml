@@ -4,12 +4,12 @@
              x:Class="PAMobile.Views.LoansPage"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              xmlns:viewModel="clr-namespace:PAMobile.ViewModels"
-             Title=""
+             Title="Кредиты"
              Shell.TabBarIsVisible="False"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True">
     <StackLayout x:Name="mainContent">
-        <Label Text="Кредиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
-               FontSize="22" FontFamily="MontserratSemiBold"/>
+        <!--<Label Text="Кредиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
+               FontSize="22" FontFamily="MontserratSemiBold"/>-->
 
         <ActivityIndicator Color="{x:StaticResource Green45}" Margin="0, 20, 0, 0"
             IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>

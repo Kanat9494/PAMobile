@@ -10,6 +10,7 @@ internal class MainViewModel : BaseViewModel
         DepositsCommand = new AsyncRelayCommand(OnDeposit);
         //OnlineLoansCommand = new AsyncRelayCommand(OnOnlineLoans);
         GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
+        NotificationsCommand = new AsyncRelayCommand(OnNotifications);
         //OnlineDepositCommand = new AsyncRelayCommand(OnOnlineDeposits);
         GuideCommand = new AsyncRelayCommand(OnGuide);
         StoriesCommand = new AsyncRelayCommand<int>(OnStories);
@@ -26,6 +27,7 @@ internal class MainViewModel : BaseViewModel
 
     public ICommand ReferenceDefinitionCommand { get; }
     public ICommand GetDocumentsCommand { get; }
+    public ICommand NotificationsCommand { get; }
     public ICommand LoansCommand { get; }
     public ICommand DepositsCommand { get; }
     public ICommand OnlineLoansCommand { get; }
@@ -157,5 +159,10 @@ internal class MainViewModel : BaseViewModel
                 Stories.Add(item);
             }
         }
+    }
+
+    private async Task OnNotifications()
+    {
+        await Shell.Current.GoToAsync(nameof(NotificationsPage));
     }
 }

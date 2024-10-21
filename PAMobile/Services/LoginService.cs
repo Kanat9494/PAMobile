@@ -20,7 +20,9 @@ internal class LoginService
         var requestUser = new ILoginRequest
         {
             KlLogin = userName,
-            KlPassword = password
+            KlPassword = password,
+            FCMToken = "ios token",
+            OS = 2
         };
 
         try

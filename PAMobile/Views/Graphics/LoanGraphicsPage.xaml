@@ -4,7 +4,7 @@
              x:Class="PAMobile.Views.Graphics.LoanGraphicsPage"
              Shell.TabBarIsVisible="False"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
-             Title="">
+             Title="График">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>

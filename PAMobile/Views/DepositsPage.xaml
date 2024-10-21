@@ -4,12 +4,12 @@
              x:Class="PAMobile.Views.DepositsPage"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              xmlns:viewModel="clr-namespace:PAMobile.ViewModels"
-             Title=""
-             Shell.NavBarIsVisible="False"
+             Title="Депозиты"
+             Shell.NavBarIsVisible="True"
              Shell.TabBarIsVisible="False">
     <StackLayout >
-        <Label Text="Депозиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
-               FontSize="22" FontFamily="MontserratSemiBold"/>
+        <!--<Label Text="Депозиты" Margin="0, 25, 0, 0" HorizontalOptions="Center"
+               FontSize="22" FontFamily="MontserratSemiBold"/>-->
 
         <ActivityIndicator Color="{x:StaticResource Green45}" Margin="0, 20, 0, 0"
             IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}"/>

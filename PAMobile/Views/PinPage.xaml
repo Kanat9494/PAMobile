@@ -98,9 +98,10 @@
             </HorizontalStackLayout>
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="15" Margin="0, 15, 0, 0">
-                <Border HeightRequest="65" WidthRequest="65" StrokeShape="RoundRectangle 55" >
+                <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
                     <!--<Label Text="Выйти" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="MontserratSemiBold"/>-->
-                    <Image Source="{AppThemeBinding Light=face_id.png, Dark=white_face_id.png}" Aspect="AspectFill"/>
+                    <Image Source="{AppThemeBinding Light=face_id.png, Dark=white_face_id.png}" Aspect="AspectFill" HorizontalOptions="Center"
+                        VerticalOptions="Center" Margin="2, 3, 0, 0"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFaceIdCommand}"
                             />
@@ -113,7 +114,7 @@
                             CommandParameter="0"/>
                     </Border.GestureRecognizers>
                 </Border>
-                <Border HeightRequest="65" WidthRequest="65" StrokeShape="RoundRectangle 55" >
+                <Border HeightRequest="75" WidthRequest="75" StrokeShape="RoundRectangle 55" >
                     <Label Text="X" VerticalOptions="Center" HorizontalOptions="Center" FontSize="45" FontFamily="MontserratSemiBold"/>
                     <Border.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=ClearPinCodeCommand}"

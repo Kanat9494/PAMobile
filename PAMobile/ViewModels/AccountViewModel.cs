@@ -13,6 +13,8 @@ internal class AccountViewModel : BaseViewModel
         ExitCommand = new RelayCommand(OnExit);
         ExchangeRatesCommand = new AsyncRelayCommand(OnExchangeRates);
         GuideCommand = new AsyncRelayCommand(OnGuide);
+        GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
+
 
         Task.Run(async () =>
         {
@@ -31,6 +33,8 @@ internal class AccountViewModel : BaseViewModel
     public ICommand ExitCommand { get; }
     public ICommand ExchangeRatesCommand { get; }
     public ICommand GuideCommand { get; }
+    public ICommand GetDocumentsCommand { get; }
+
 
     private bool _isRefreshing;
     public bool IsRefreshing
@@ -99,5 +103,10 @@ internal class AccountViewModel : BaseViewModel
     private async Task OnExchangeRates()
     {
         await Shell.Current.GoToAsync("ExchangeRatesPage");
+    }
+
+    private async Task OnGetDocuments()
+    {
+        await Shell.Current.GoToAsync("DocumentsPage");
     }
 }
