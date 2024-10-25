@@ -249,4 +249,5 @@ internal class DepositDetailsViewModel : BaseViewModel, IQueryAttributable
 
     async Task OnDepositReplenishmentChoose()
         => await Shell.Current.GoToAsync($"{nameof(DepositReplenishmentChoosePage)}?{nameof(DepositReplenishmentChooseViewModel.DepositPN)}={DepositPositionalNumber}");
+
 }

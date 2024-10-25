@@ -5,6 +5,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
              xmlns:models="clr-namespace:PAMobile.Models"
+             xmlns:dtos="clr-namespace:PAMobile.Models.DTOs.Responses"
              Title="Салым Финанс"
              Shell.NavBarIsVisible="False">
     
@@ -202,6 +203,27 @@
                     <TapGestureRecognizer Command="{Binding GuideCommand}"/>
                 </Border.GestureRecognizers>
             </Border>
+
+            <CollectionView ItemsSource="{Binding Ads}" Margin="0, 20, 0, 20">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="dtos:Ad">
+                        <Border HeightRequest="150" WidthRequest="250" Margin="10, 0, 10, 0" StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12">
+                            <Image Source="{Binding Banner}" Aspect="AspectFill"/>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=AdCommand}"
+                                    CommandParameter="{Binding AdId}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <!--<Label Text="Сторис" FontSize="18">
                 <Label.GestureRecognizers>

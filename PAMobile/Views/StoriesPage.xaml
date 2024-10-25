@@ -4,7 +4,8 @@
              x:Class="PAMobile.Views.StoriesPage"
              Title="Сторис"
              Shell.TabBarIsVisible="False"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White">
     <Grid x:Name="contentGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -15,10 +16,10 @@
 
 
         <CarouselView Grid.RowSpan="3" ItemsSource="{Binding Images}" Loop="False" IsSwipeEnabled="False" Position="{Binding Index}"
-            x:Name="cv">
+            x:Name="cv" >
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding .}" Aspect="Fill">
+                    <Image Source="{Binding .}" Aspect="AspectFit" >
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Image.GestureRecognizers>

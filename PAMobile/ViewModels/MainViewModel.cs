@@ -15,12 +15,14 @@ internal class MainViewModel : BaseViewModel
         GuideCommand = new AsyncRelayCommand(OnGuide);
         StoriesCommand = new AsyncRelayCommand<int>(OnStories);
         Stories = new ObservableCollection<Story>();
+        AdCommand = new AsyncRelayCommand<int>(OnAd);
 
         Task.Run(async () =>
         {
             _accessToken = await SecureStorage.Default.GetAsync("UserAccessToken");
             await GetStories();
         });
+        Ads = new ObservableCollection<Ad>();
     }
 
     string _accessToken;
@@ -34,8 +36,10 @@ internal class MainViewModel : BaseViewModel
     public ICommand OnlineDepositCommand { get; }
     public ICommand GuideCommand { get; }
     public ICommand StoriesCommand { get; }
+    public ICommand AdCommand { get; }
 
     public ObservableCollection<Story> Stories { get; set; }
+    public ObservableCollection<Ad> Ads { get; set; }
 
 
 
@@ -159,10 +163,25 @@ internal class MainViewModel : BaseViewModel
                 Stories.Add(item);
             }
         }
+
+        var ads = await ContentService.Instance(_accessToken).GetItemsAsync<Ad>("api/Ads/GetAds");
+
+        if (ads != null && ads.Count() > 0)
+        {
+            foreach (var item in ads)
+            {
+                Ads.Add(item);
+            }
+        }
     }
 
     private async Task OnNotifications()
     {
         await Shell.Current.GoToAsync(nameof(NotificationsPage));
+    }
+
+    private async Task OnAd(int id)
+    {
+        await Shell.Current.GoToAsync($"{nameof(AdDetailsPage)}?{nameof(AdDetailsViewModel.AdId)}={id}");
     }
 }

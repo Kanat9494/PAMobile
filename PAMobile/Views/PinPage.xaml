@@ -124,7 +124,7 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
 
-        <Button Text="Выйти" Grid.Row="3" Margin="10, 0, 10, 15" FontSize="18" FontFamily="MontserratSemiBold" Background="{x:StaticResource Red45}"
+        <Button Text="Выйти" Grid.Row="3" Margin="15, 0, 15, 15" FontSize="18" FontFamily="MontserratSemiBold" Background="{x:StaticResource Red45}"
             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PinCodeViewModel}}, Path=UseFingerPrintCommand}"/>
 
         <Border Stroke="Transparent" x:Name="indicatorBorder" HeightRequest="150" WidthRequest="150" IsVisible="{Binding IsBusy}" VerticalOptions="Center"

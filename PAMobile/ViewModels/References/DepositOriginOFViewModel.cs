@@ -124,16 +124,20 @@ internal class DepositOriginOFViewModel : BaseDepositApplicationViewModel
         await ContentService.Instance(_accessToken).GetItemAsync2<string>($"api/Deposits/SendOriginOfFunds?depositPN={SelectedDeposit.DV_POZN}&" +
             $"text=Информация о происхождении денежных средств&originOfFunds={OriginOfFunds}");
 
-        var fileData = await File.ReadAllBytesAsync(ImagePath);
         var clientITIN = await SecureStorage.Default.GetAsync("UserName");
-        var file = new FileToSave
+
+        if (!string.IsNullOrWhiteSpace(ImagePath))
         {
-            PathFile = $"{clientITIN}\\Deposits\\{SelectedDeposit.DV_POZN}\\ElectronicDocuments\\{SelectedOrigin}",
-            FileData = fileData,
-        };
-        await ContentService.Instance(_accessToken).PostItemAsync<FileToSave>(file, "api/Files/UploadFile");
-        await Shell.Current.DisplayAlert("Заявление отправлено", "", "Ок");
-        await App.Current.MainPage.Navigation.PopModalAsync();
+            var fileData = await File.ReadAllBytesAsync(ImagePath);
+            var file = new FileToSave
+            {
+                PathFile = $"{clientITIN}\\Deposits\\{SelectedDeposit.DV_POZN}\\ElectronicDocuments\\{SelectedOrigin}",
+                FileData = fileData,
+            };
+            await ContentService.Instance(_accessToken).PostItemAsync<FileToSave>(file, "api/Files/UploadFile");
+            await Shell.Current.DisplayAlert("Заявление отправлено", "", "Ок");
+            await App.Current.MainPage.Navigation.PopModalAsync();
+        }
     }
 
     private async Task OnAddDocument()

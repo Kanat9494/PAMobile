@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.Details.AdDetailsPage"
+             xmlns:viewModels="clr-namespace:PAMobile.ViewModels.Details"
+             Title="">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border HeightRequest="300" Margin="10, 10, 10, 10" StrokeThickness="0" StrokeShape="RoundRectangle 15">
+                <Image Source="{Binding CurrentAd.DetailsBanner}" Aspect="AspectFill"/>
+            </Border>
+
+            <Label Text="{Binding CurrentAd.Description}" FontFamily="MontserratRegular" FontSize="16"
+                Margin="10, 10, 10, 0"/>
+
+            <Border BackgroundColor="{x:StaticResource Red50}" StrokeThickness="0" StrokeShape="RoundRectangle 10"
+                WidthRequest="150" Margin="10, 10, 10, 0" Padding="0, 5, 0, 5">
+                <Label Text="Получить консультацию"  FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"
+                    TextColor="White" HorizontalTextAlignment="Center"/>
+            </Border>
+
+            <Label Text="Подробнее" FontSize="18" FontFamily="MontserratBold" HorizontalOptions="Center" Margin="10, 30, 10, 0"
+                TextColor="{x:StaticResource Red50}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AdDetailsViewModel}}, Path=GoToCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

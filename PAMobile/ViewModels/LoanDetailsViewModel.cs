@@ -289,4 +289,5 @@ internal class LoanDetailsViewModel : BaseViewModel, IQueryAttributable
 
     async Task OnLoanRepaymentChoose()
         => await Shell.Current.GoToAsync($"{nameof(LoanRepaymentChoosePage)}?{nameof(LoanRepaymentChooseViewModel.LoanPositionalNumber)}={LoanPositionalNumber}");
+    
 }

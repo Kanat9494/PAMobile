@@ -124,10 +124,17 @@ internal class PinCodeViewModel : BaseViewModel
 
     private async Task OnExit()
     {
-        SecureStorage.Default.RemoveAll();
-        Preferences.Default.Clear();
+        var answer = await Shell.Current.DisplayAlert("Подтвердите", "Вы действительно хотите выйти?",
+                        "Да", "Нет");
 
-        await Shell.Current.GoToAsync("//MainPage");
+        if (answer)
+        {
+            SecureStorage.Default.RemoveAll();
+            Preferences.Default.Clear();
+
+            await Shell.Current.GoToAsync("//MainPage");
+        }
+        
     }
 
     public async Task OnUseFaceId()
