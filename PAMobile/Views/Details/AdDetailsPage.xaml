@@ -4,14 +4,15 @@
              x:Class="PAMobile.Views.Details.AdDetailsPage"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels.Details"
              Title="">
-    <ScrollView>
+    <!--<ScrollView>
         <VerticalStackLayout>
-            <Border HeightRequest="300" Margin="10, 10, 10, 10" StrokeThickness="0" StrokeShape="RoundRectangle 15">
-                <Image Source="{Binding CurrentAd.DetailsBanner}" Aspect="AspectFill"/>
+            <Border StrokeThickness="0" >
+                <Image Source="{Binding CurrentAd.DetailsBanner}" Aspect="Fill"/>
             </Border>
 
-            <Label Text="{Binding CurrentAd.Description}" FontFamily="MontserratRegular" FontSize="16"
-                Margin="10, 10, 10, 0"/>
+            --><!--<Label Text="{Binding CurrentAd.Description}" FontFamily="MontserratRegular" FontSize="16"
+                Margin="10, 10, 10, 0"/>--><!--
+            <Image Source="{Binding CurrentAd.Url}" />
 
             <Border BackgroundColor="{x:StaticResource Red50}" StrokeThickness="0" StrokeShape="RoundRectangle 10"
                 WidthRequest="150" Margin="10, 10, 10, 0" Padding="0, 5, 0, 5">
@@ -19,12 +20,17 @@
                     TextColor="White" HorizontalTextAlignment="Center"/>
             </Border>
 
-            <Label Text="Подробнее" FontSize="18" FontFamily="MontserratBold" HorizontalOptions="Center" Margin="10, 30, 10, 0"
-                TextColor="{x:StaticResource Red50}">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AdDetailsViewModel}}, Path=GoToCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
         </VerticalStackLayout>
-    </ScrollView>
+    </ScrollView>-->
+
+    <Grid>
+        <WebView Source="{Binding CurrentAd.Url}"/>
+
+        <Border BackgroundColor="{x:StaticResource Red50}" StrokeThickness="0" StrokeShape="RoundRectangle 10"
+                 WidthRequest="150" Margin="10, 10, 10, 0" Padding="0, 5, 0, 5" HeightRequest="60"
+            VerticalOptions="End">
+            <Label Text="Получить консультацию"  FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"
+                TextColor="White" HorizontalTextAlignment="Center"/>
+        </Border>
+    </Grid>
 </ContentPage>

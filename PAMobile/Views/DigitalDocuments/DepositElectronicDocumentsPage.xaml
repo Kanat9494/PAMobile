@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.DigitalDocuments.DepositElectronicDocumentsPage"
+             xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
+             xmlns:viewModels="clr-namespace:PAMobile.ViewModels.DigitalDocuments"
+             Title="Документы по депозитам">
+    <Grid>
+        <Image Source="bg_transparent.png"
+         Aspect="AspectFill"
+         Grid.RowSpan="2"/>
+
+        <StackLayout>
+            <StackLayout>
+                <Picker Title="Выберите депозит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}" TextColor="Black"
+                ItemDisplayBinding="{Binding DV_NOM}" Margin="10, 15, 10, 0"/>
+
+
+                <Label Text="Нет документов" Margin="10" FontSize="18" IsVisible="{Binding HasDocument}"/>
+            </StackLayout>
+
+            <CollectionView IsVisible="{Binding IsDocument}" Margin="10" ItemsSource="{Binding DigitalDocuments}"
+            VerticalOptions="FillAndExpand">
+                <CollectionView.Header>
+                    <Grid BackgroundColor="{x:StaticResource White60}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Справка" FontSize="16" HorizontalOptions="Center"
+                        Grid.Column="0" TextColor="Black" HeightRequest="40"/>
+                        <Label Text="Статус" FontSize="16" HorizontalOptions="CenterAndExpand"
+    Grid.Column="1" TextColor="Black" HeightRequest="40" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="" FontSize="16" HorizontalOptions="Center"
+    Grid.Column="2" TextColor="Black" HeightRequest="40"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:DigitalDocument">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="30*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding TextTypeDoc}" FontSize="16" HorizontalOptions="Center"
+                    Grid.Column="0" TextColor="Black"/>
+                            <Label Text="{Binding TextStatus}" FontSize="16" HorizontalOptions="Center"
+Grid.Column="1" TextColor="Black"/>
+                            <Button Text="Получить" FontSize="16" HorizontalOptions="Center" 
+Grid.Column="2" TextColor="White" Background="Green" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DepositElectronicDocViewModel}}, Path=GetDigitalDocument}" CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.Footer>
+                    <Label Margin="10" FontSize="18" Text="Документы хранятся не более 30 дней"/>
+                </CollectionView.Footer>
+            </CollectionView>
+
+        </StackLayout>
+
+
+
+    </Grid>
+</ContentPage>

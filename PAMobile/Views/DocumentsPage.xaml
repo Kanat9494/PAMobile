@@ -4,81 +4,26 @@
              x:Class="PAMobile.Views.DocumentsPage"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              HideSoftInputOnTapped="True"
              Title="Документы">
-    <ScrollView>
-        <StackLayout>
-            <StackLayout>
-                <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
-                    ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Text="Публичная оферта" Command="{Binding GetPublicOffer}" Margin="10" Padding="12" FontSize="Medium" BackgroundColor="{x:StaticResource Red50}" TextColor="White"  Grid.Row="0" Grid.Column="0" />
+            <Button Text="По кредитам" Command="{Binding GetLoanDocs}"  Margin="10" Padding="12" FontSize="Medium" BackgroundColor="{x:StaticResource Red50}" TextColor="White" Grid.Row="1" Grid.Column="0"/>
+            <Button Text="По депозитам" Command="{Binding GetDepositDocs}"  Margin="10" Padding="12" FontSize="Medium" BackgroundColor="{x:StaticResource Red50}" TextColor="White" Grid.Row="2" Grid.Column="0"/>
 
-                <Button Text="Публичная оферта" Command="{Binding GetPublicOffer}" Margin="10" BackgroundColor="{x:StaticResource Red50}" TextColor="White"
-                    FontFamily="MontserratRegular"/>
-
-                <Label Text="Нет документов" Margin="10" FontSize="18" IsVisible="{Binding HasDocument}" FontFamily="MontserratRegular" MaxLines="2"/>
-            </StackLayout>
-
-            <CollectionView IsVisible="{Binding IsDocument}" Margin="10" ItemsSource="{Binding DigitalDocuments}"
-                VerticalOptions="FillAndExpand">
-                <CollectionView.Header>
-                    <Grid BackgroundColor="{x:StaticResource White60}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30*"/>
-                            <ColumnDefinition Width="30*"/>
-                            <ColumnDefinition Width="30*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Справка" FontSize="16" HorizontalOptions="Center"
-                    Grid.Column="0" HeightRequest="40" FontFamily="MontserratRegular"/>
-                        <Label Text="Статус" FontSize="16" HorizontalOptions="CenterAndExpand"
-                    Grid.Column="1" HeightRequest="40" VerticalOptions="CenterAndExpand" FontFamily="MontserratRegular"/>
-                        <Label Text="" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
-                    Grid.Column="2" HeightRequest="40"/>
-                    </Grid>
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:DigitalDocument">
-                        <Grid Margin="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30*"/>
-                                <ColumnDefinition Width="30*"/>
-                                <ColumnDefinition Width="30*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                                <RowDefinition Height="60"/>
-
-                            </Grid.RowDefinitions>
-
-                            <Label Text="{Binding TextTypeDoc}" FontSize="16" HorizontalOptions="Center"
-                                Grid.Column="0" FontFamily="MontserratRegular"/>
-                            <Label Text="{Binding TextStatus}" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
-                                Grid.Column="1" />
-                            <Button Text="Получить" FontSize="16" HorizontalOptions="Center" FontFamily="MontserratRegular"
-                                Grid.Column="2" TextColor="White" Background="Green" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DocumentsViewModel}}, Path=GetDigitalDocument}" CommandParameter="{Binding .}"/>
-
-                            <Button Grid.Row="1" Grid.ColumnSpan="3" Text="Подписать" BackgroundColor="{x:StaticResource Red50}" Margin="10" IsVisible="{Binding CanSign}"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DocumentsViewModel}}, Path=SignDocumentCommand}"
-                                TextColor="White" CommandParameter="{Binding Id}" FontFamily="MontserratRegular"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-            <VerticalStackLayout IsVisible="{Binding IsSign}" Margin="10">
-                <Label Text="Введите код смс" TextColor="{x:StaticResource Red40}" FontSize="12" FontFamily="MontserratRegular"/>
-                <Border HeightRequest="55" Margin="0, 10, 0, 0" StrokeThickness="0" StrokeShape="RoundRectangle 10">
-                    <customControls:CustomEntry Placeholder="СМС код" VerticalOptions="Center" Margin="10, 0, 0, 0" Text="{Binding SigningCode}"
-                Keyboard="Numeric" FontFamily="MontserratRegular"/>
-                </Border>
-
-                <Button Text="Отправить" Margin="0, 10, 0, 10" BackgroundColor="{x:StaticResource Red50}" TextColor="White"
-                    Command="{Binding SendSignedDocumentCommand}" FontFamily="MontserratRegular"/>
+            <VerticalStackLayout Grid.Row="3" HorizontalOptions="End" VerticalOptions="End"  Margin="10, 20, 10, 30">
+                <Label Text="Документы хранятся не более 30 дней" FontSize="18" HorizontalOptions="Center"/>
             </VerticalStackLayout>
-
-            <Label Margin="10" FontSize="18" Text="Документы хранятся не более 30 дней" MaxLines="2" FontFamily="MontserratRegular"/>
-        </StackLayout>
-    </ScrollView>
+        </Grid>
+    </Grid>
 </ContentPage>

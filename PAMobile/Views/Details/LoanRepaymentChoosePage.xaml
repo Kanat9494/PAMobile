@@ -2,33 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Details.LoanRepaymentChoosePage"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Title="Погашение кредита">
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" />
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
 
-        <Border Grid.Column="0" StrokeThickness="0" Margin="15, 15, 15, 0"
-            StrokeShape="RoundRectangle 10">
-            <VerticalStackLayout>
-                <Border StrokeThickness="0" WidthRequest="100" HeightRequest="80" VerticalOptions="Center" Margin="10" StrokeShape="RoundRectangle 10">
-                    <Image Source="mb_small.png" Aspect="AspectFill"/>
-                </Border>
-                <Label Text="MBANK" VerticalOptions="Center" HorizontalOptions="Center"/>
-            </VerticalStackLayout>
 
-            <Border.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
-            </Border.GestureRecognizers>
-        </Border>
+            <Border Grid.Column="0" StrokeThickness="0" Margin="15, 15, 15, 0"
+        StrokeShape="RoundRectangle 10">
+                <VerticalStackLayout>
+                    <Border StrokeThickness="0" WidthRequest="100" HeightRequest="80" VerticalOptions="Center" Margin="10" StrokeShape="RoundRectangle 10">
+                        <Image Source="mb_small.png" Aspect="AspectFill"/>
+                    </Border>
+                    <Label Text="MBANK" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
 
-        <ActivityIndicator HeightRequest="50" WidthRequest="50" Color="{x:StaticResource Green45}" HorizontalOptions="Center" VerticalOptions="Center"
-            IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}" Grid.ColumnSpan="2"/>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenMBankCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <ActivityIndicator HeightRequest="50" WidthRequest="50" Color="{x:StaticResource Green45}" HorizontalOptions="Center" VerticalOptions="Center"
+        IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}" Grid.ColumnSpan="2"/>
+        </Grid>
     </Grid>
 </ContentPage>

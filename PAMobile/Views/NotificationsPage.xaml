@@ -4,28 +4,31 @@
              x:Class="PAMobile.Views.NotificationsPage"
              xmlns:models="clr-namespace:PAMobile.Models"
              Title="Уведомления"
-             Shell.TabBarIsVisible="False">
-    <CollectionView ItemsSource="{Binding ClientNotifications}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:Notification">
-                <Border Margin="10, 10, 10, 0" StrokeShape="RoundRectangle 10" StrokeThickness="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="35"/>
-                        </Grid.RowDefinitions>
+             >
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill"/>
+        <CollectionView ItemsSource="{Binding ClientNotifications}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Notification">
+                    <Border Margin="10, 10, 10, 0" StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
 
-                        <Label Text="{Binding Text}" FontSize="18" Margin="10, 15, 10, 0" FontAttributes="Bold"/>
-                        <Label Text="{Binding SentDate, StringFormat='{0:dd.MM.yyyy}'}" HorizontalOptions="End" Grid.Row="1"
-                            Margin="10, 0, 10, 5" VerticalOptions="End"/>
-                    </Grid>
-                </Border>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-        <CollectionView.Footer>
-            <ActivityIndicator Color="{x:StaticResource Red50}" WidthRequest="60" HeightRequest="60"
-                HorizontalOptions="Center" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
-                Grid.RowSpan="2" VerticalOptions="Center"/>
-        </CollectionView.Footer>
-    </CollectionView>
+                            <Label Text="{Binding Text}" FontSize="18" Margin="10, 15, 10, 0" FontAttributes="Bold"/>
+                            <Label Text="{Binding SentDate, StringFormat='{0:dd.MM.yyyy}'}" HorizontalOptions="End" Grid.Row="1"
+                        Margin="10, 0, 10, 5" VerticalOptions="End"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ActivityIndicator Color="{x:StaticResource Red50}" WidthRequest="60" HeightRequest="60"
+                    HorizontalOptions="Center" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"
+                    Grid.RowSpan="2" VerticalOptions="Center"/>
+            </CollectionView.Footer>
+        </CollectionView>
+    </Grid>
 </ContentPage>

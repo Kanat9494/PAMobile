@@ -5,105 +5,115 @@
              Title=""
              Shell.NavBarIsVisible="False"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
-             Shell.TabBarIsVisible="False">
-    <ScrollView VerticalScrollBarVisibility="Never" Background="#ff0000">
-        <VerticalStackLayout>
-            <Image Source="white_back_icon.png" Margin="5, 20, 0, 20" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=BackCommand}"/>
-                </Image.GestureRecognizers>
-            </Image>
+             Shell.TabBarIsVisible="True">
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <ScrollView VerticalScrollBarVisibility="Never" >
+            <VerticalStackLayout>
+                <Border StrokeThickness="0" Background="{x:StaticResource Red45}" Margin="0, -5, 0, 0">
+                    <Image Source="white_back_icon.png" Margin="5, 20, 0, 20" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=BackCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
 
-            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="14, 10, 14, 10" Padding="10">
-                <VerticalStackLayout>
-                    <Label Text="Информация по кредиту" FontSize="17" FontFamily="MontserratSemiBold" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
+                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Margin="14, 10, 14, 10" Padding="10">
+                    <VerticalStackLayout>
+                        <Label Text="Информация по кредиту" FontSize="17" FontFamily="MontserratSemiBold" Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
 
-                    <Label Text="Код погашения" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanPositionalNumber}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Код погашения" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanPositionalNumber}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Сумма выданного кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanSum, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Сумма выданного кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanSum, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Валюта по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanCurrency}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Валюта по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanCurrency}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0" />
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Процентная ставка (за год)" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanPercent}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Процентная ставка (за год)" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanPercent}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Срок по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanTerm, StringFormat='{0} месяцев'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Срок по кредиту" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanTerm, StringFormat='{0} месяцев'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Дата выдачи кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanStartDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
-                    <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
+                        <Label Text="Дата выдачи кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanStartDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
+                        <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                    <Label Text="Дата окончания кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                    <Label Text="{Binding LoanEndDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
-                </VerticalStackLayout>
-            </Border>
+                        <Label Text="Дата окончания кредита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
+                        <Label Text="{Binding LoanEndDate}" FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"/>
+                    </VerticalStackLayout>
+                </Border>
 
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <StackLayout>
-                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingExtract}" IsVisible="{Binding IsLoadingExtract}"
-                        />
-
-                    <Label Text="Выписка" IsVisible="{Binding ExtractLabel}" FontSize="16"
-                        VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontFamily="MontserratSemiBold"/>
-                </StackLayout>
-
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetExtractCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>
-
-            <!--<Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
-                FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>-->
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <Label Text="Остаток кредита" FontSize="16" FontFamily="MontserratSemiBold" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanDebtCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>
-
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <VerticalStackLayout VerticalOptions="Center">
-                    <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingGraphic}" IsVisible="{Binding IsLoadingGraphic}"
-                        />
-
-                    <Label Text="График погашения" IsVisible="{Binding GraphicLabel}" FontSize="16"
-                        FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                </VerticalStackLayout>
-
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanGraphicCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>
-
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10">
-                <Label Text="Погашение кредита" FontSize="16" FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center"/>
-
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding LoanRepaymentChooseCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>  
-
-            <!--<VerticalStackLayout VerticalOptions="Center" Margin="10, 10, 10, 10">
-                <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10"
+                    BackgroundColor="{x:StaticResource Red45}">
+                    <StackLayout>
+                        <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingExtract}" IsVisible="{Binding IsLoadingExtract}"
                     />
 
-                <Image Source="mbank_logo.png" IsVisible="{Binding MbankLabel}"/>
+                        <Label Text="Выписка" IsVisible="{Binding ExtractLabel}" FontSize="16"
+                    VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontFamily="MontserratSemiBold"
+                            TextColor="White"/>
+                    </StackLayout>
 
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetExtractCommand}"/>
+                    </Border.GestureRecognizers>
+                </Border>
 
-                </VerticalStackLayout.GestureRecognizers>
-            </VerticalStackLayout>-->
-        </VerticalStackLayout>
-    </ScrollView>
+                <!--<Button BackgroundColor="{x:StaticResource Gray100}" Text="Остаток кредита" Margin="14, 10, 14, 10" Command="{Binding GetLoanDebtCommand}"
+            FontSize="16" FontAttributes="Bold" TextColor="{x:StaticResource Black}"/>-->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10"
+                    BackgroundColor="{x:StaticResource Red45}">
+                    <Label Text="Остаток кредита" FontSize="16" FontFamily="MontserratSemiBold" HorizontalOptions="Center" VerticalOptions="Center"
+                        TextColor="White"/>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanDebtCommand}"/>
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10" BackgroundColor="{x:StaticResource Red45}">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingGraphic}" IsVisible="{Binding IsLoadingGraphic}"
+                    />
+
+                        <Label Text="График погашения" IsVisible="{Binding GraphicLabel}" FontSize="16"
+                    FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                    </VerticalStackLayout>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=GetLoanGraphicCommand}"/>
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="50" Margin="10" BackgroundColor="{x:StaticResource Red45}">
+                    <Label Text="Погашение кредита" FontSize="16" FontFamily="MontserratSemiBold" VerticalOptions="Center" HorizontalOptions="Center"
+                        TextColor="White"/>
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoanRepaymentChooseCommand}"/>
+                    </Border.GestureRecognizers>
+                </Border>
+
+                <!--<VerticalStackLayout VerticalOptions="Center" Margin="10, 10, 10, 10">
+            <ActivityIndicator Color="#00e600" HeightRequest="50" WidthRequest="50" IsRunning="{Binding IsLoadingSum}" IsVisible="{Binding IsLoadingSum}"
+                />
+
+            <Image Source="mbank_logo.png" IsVisible="{Binding MbankLabel}"/>
+
+            <VerticalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:LoanDetailsViewModel}}, Path=OpenMBankCommand}"/>
+
+            </VerticalStackLayout.GestureRecognizers>
+        </VerticalStackLayout>-->
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

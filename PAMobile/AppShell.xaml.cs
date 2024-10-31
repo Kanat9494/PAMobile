@@ -15,7 +15,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(LoanDetailsPage), typeof(LoanDetailsPage));
         Routing.RegisterRoute("LoansPage", typeof(LoansPage));
         Routing.RegisterRoute("DepositsPage", typeof(DepositsPage));
-
+        Routing.RegisterRoute(nameof(ChangeLoanTermsPage), typeof(ChangeLoanTermsPage));
         Routing.RegisterRoute(nameof(LoanGraphicPage), typeof(LoanGraphicPage));
         Routing.RegisterRoute(nameof(DepositDetailsPage), typeof(DepositDetailsPage));
         Routing.RegisterRoute(nameof(DepositPartWithdrawalPage), typeof(DepositPartWithdrawalPage));
@@ -40,5 +40,16 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(PdfPage), typeof(PdfPage));
         Routing.RegisterRoute(nameof(NotificationsPage), typeof(NotificationsPage));
         Routing.RegisterRoute(nameof(AdDetailsPage), typeof(AdDetailsPage));
+        Routing.RegisterRoute(nameof(DeclarationPage), typeof(DeclarationPage));
+        Routing.RegisterRoute(nameof(GetLoanInformationPage), typeof(GetLoanInformationPage));
+        Routing.RegisterRoute(nameof(GetLoanTranchePage), typeof(GetLoanTranchePage));
+        Routing.RegisterRoute(nameof(GetLoanDocumentsPage), typeof(GetLoanDocumentsPage));
+        Routing.RegisterRoute(nameof(GetLoanOverPaymentPage), typeof(GetLoanOverPaymentPage));
+        Routing.RegisterRoute(nameof(DepositPartWithdrawalPage), typeof(DepositPartWithdrawalPage));
+        Routing.RegisterRoute(nameof(DepositApplicationFTPage), typeof(DepositApplicationFTPage));
+        Routing.RegisterRoute(nameof(DepositTerminationPage), typeof(DepositTerminationPage));
+        Routing.RegisterRoute(nameof(DepositOriginOFPage), typeof(DepositOriginOFPage));
+        Routing.RegisterRoute(nameof(LoanDigitalDocsPage), typeof(LoanDigitalDocsPage));
+        Routing.RegisterRoute(nameof(DepositElectronicDocumentsPage), typeof(DepositElectronicDocumentsPage));
     }
 }

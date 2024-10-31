@@ -19,7 +19,7 @@
     >
         <ShellContent
         Icon="resized_home_icon.png"
-        Title="Главная"
+        Title="Меню"
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="HomePage"
         Shell.NavBarIsVisible="True"
@@ -32,7 +32,7 @@
         Shell.NavBarIsVisible="False"/>-->
 
         <ShellContent
-        Title="Аккаунт"
+        Title="Справочник"
         Icon="resized_account_icon.png"
         ContentTemplate="{DataTemplate views:AccountPage}"
         Shell.NavBarIsVisible="False"

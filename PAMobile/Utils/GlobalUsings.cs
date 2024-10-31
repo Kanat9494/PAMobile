@@ -35,6 +35,10 @@ global using PAMobile.ViewModels.OnlineLoans;
 global using PAMobile.ViewModels.OnlineDeposits;
 global using PAMobile.Views.Graphics;
 global using PAMobile.ViewModels.Graphics;
+global using PAMobile.Views.DigitalDocuments;
+global using PAMobile.ViewModels.DigitalDocuments;
+
+
 
 
 

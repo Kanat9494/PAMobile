@@ -4,49 +4,52 @@
              x:Class="PAMobile.Views.References.DepositApplicationFTPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              Title="">
-    <ScrollView>
-        <StackLayout>
-            <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-                Color="{x:StaticResource Red50}"/>
-            <Label Text="Заявление на перечисление депозита и процента" FontSize="17" FontFamily="MontserratSemiBold" Margin="10" />
-            <Picker Title="Выберите депозит" ItemsSource="{Binding Deposits}" SelectedItem="{Binding SelectedDeposit}"
-                ItemDisplayBinding="{Binding DV_NOM}" Margin="15, 15, 10, 0" FontFamily="MontserratRegular"/>
-
-            
-            <StackLayout IsVisible="{Binding IsNext}" Margin="10, 30, 10, 0">
-                <Picker Title="Выберите БИК" ItemsSource="{Binding BICAccounts}" SelectedItem="{Binding SelectedBICAccount}"
-                    ItemDisplayBinding="{Binding bname}" Margin="5" FontFamily="MontserratRegular"/>
-
-                <Label Text="БИК" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
-                    <customControls:CustomEntry Placeholder="Введите БИК" Margin="10, 0, 0, 0" Text="{Binding SelectedBICAccount.bmfo}"
-                        IsEnabled="False" FontFamily="MontserratRegular"/>
-                </Border>
-
-                <Label Text="Рассчетный счет" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
-                    <customControls:CustomEntry Placeholder="Введите расчетный счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding PaymentAccount}"
-                        FontFamily="MontserratRegular"/>
-                </Border>
-
-                <Label Text="№ карт.счет (лицевой счет)" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
-                    <customControls:CustomEntry Placeholder="Введите карт. счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding CardNumber}"
-                        FontFamily="MontserratRegular"/>
-                </Border>
-
-            </StackLayout>
-            
-            <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" Command="{Binding NextCommand}" VerticalOptions="Center"
-                Margin="20, 20, 20, 0" FontFamily="MontserratRegular"/>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <ScrollView>
+            <StackLayout>
+                <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+            Color="{x:StaticResource Red50}"/>
+                <Label Text="Заявление на перечисление депозита и процента" FontSize="17" FontFamily="MontserratSemiBold" Margin="10" />
+                <Picker Title="Выберите депозит" ItemsSource="{Binding Deposits}" SelectedItem="{Binding SelectedDeposit}"
+            ItemDisplayBinding="{Binding DV_NOM}" Margin="15, 15, 10, 0" FontFamily="MontserratRegular"/>
 
 
-            <StackLayout IsVisible="{Binding IsReferenceText}">
-                <Label Text="Заявление" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-                <Label Text="{Binding ReferenceText}" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" Margin="20, 20, 20, 0" BackgroundColor="{x:StaticResource Red50}"
+                <StackLayout IsVisible="{Binding IsNext}" Margin="10, 30, 10, 0">
+                    <Picker Title="Выберите БИК" ItemsSource="{Binding BICAccounts}" SelectedItem="{Binding SelectedBICAccount}"
+                ItemDisplayBinding="{Binding bname}" Margin="5" FontFamily="MontserratRegular"/>
+
+                    <Label Text="БИК" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+                    <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
+                        <customControls:CustomEntry Placeholder="Введите БИК" Margin="10, 0, 0, 0" Text="{Binding SelectedBICAccount.bmfo}"
+                    IsEnabled="False" FontFamily="MontserratRegular"/>
+                    </Border>
+
+                    <Label Text="Рассчетный счет" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+                    <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
+                        <customControls:CustomEntry Placeholder="Введите расчетный счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding PaymentAccount}"
                     FontFamily="MontserratRegular"/>
+                    </Border>
+
+                    <Label Text="№ карт.счет (лицевой счет)" FontSize="13" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+                    <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" HeightRequest="50">
+                        <customControls:CustomEntry Placeholder="Введите карт. счет" Margin="10, 0, 0, 0" Keyboard="Numeric" Text="{Binding CardNumber}"
+                    FontFamily="MontserratRegular"/>
+                    </Border>
+
+                </StackLayout>
+
+                <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" Command="{Binding NextCommand}" VerticalOptions="Center"
+            Margin="20, 20, 20, 0" FontFamily="MontserratRegular"/>
+
+
+                <StackLayout IsVisible="{Binding IsReferenceText}">
+                    <Label Text="Заявление" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+                    <Label Text="{Binding ReferenceText}" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+                    <Button Text="Отправить" Command="{Binding SendReferenceCommand}" Margin="20, 20, 20, 0" BackgroundColor="{x:StaticResource Red50}"
+                FontFamily="MontserratRegular"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

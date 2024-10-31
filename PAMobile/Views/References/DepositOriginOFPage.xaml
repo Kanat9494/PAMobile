@@ -5,47 +5,50 @@
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              
              Title="">
-    <ScrollView>
-        <StackLayout>
-            <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-        Color="{x:StaticResource Red50}"/>
-            <Label Text="Информация о происхождении денежных средств" FontSize="17" FontFamily="MontserratSemiBold" Margin="10" />
-            <Picker Title="Выберите депозит" ItemsSource="{Binding Deposits}" SelectedItem="{Binding SelectedDeposit}"
-        ItemDisplayBinding="{Binding DV_NOM}" Margin="15, 15, 10, 0" FontFamily="MontserratRegular"/>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <ScrollView>
+            <StackLayout>
+                <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+    Color="{x:StaticResource Red50}"/>
+                <Label Text="Информация о происхождении денежных средств" FontSize="17" FontFamily="MontserratSemiBold" Margin="10" />
+                <Picker Title="Выберите депозит" ItemsSource="{Binding Deposits}" SelectedItem="{Binding SelectedDeposit}"
+    ItemDisplayBinding="{Binding DV_NOM}" Margin="15, 15, 10, 0" FontFamily="MontserratRegular"/>
 
 
-            <StackLayout IsVisible="{Binding IsNext}" Margin="10, 30, 10, 0">
-                <Label Text="Выберите происхождение денежных средств" FontSize="17" FontFamily="MontserratSemiBold"/>
-                <Picker Title="Выберите происхождение" ItemsSource="{Binding OriginsOfFunds}" SelectedItem="{Binding SelectedOriginOfFunds}"
-                    ItemDisplayBinding="{Binding .}" Margin="5" FontFamily="MontserratRegular"/>
+                <StackLayout IsVisible="{Binding IsNext}" Margin="10, 30, 10, 0">
+                    <Label Text="Выберите происхождение денежных средств" FontSize="17" FontFamily="MontserratSemiBold"/>
+                    <Picker Title="Выберите происхождение" ItemsSource="{Binding OriginsOfFunds}" SelectedItem="{Binding SelectedOriginOfFunds}"
+                ItemDisplayBinding="{Binding .}" Margin="5" FontFamily="MontserratRegular"/>
 
 
-            </StackLayout>
+                </StackLayout>
 
-            <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" IsVisible="{Binding IsOtherOrigin}" HeightRequest="50">
-                <customControls:CustomEntry Placeholder="Укажите происхождение денежных средств" Margin="10, 0, 0, 0" Text="{Binding OriginOfFunds}"
-                    FontFamily="MontserratRegular"/>
-            </Border>
-
-            <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" Command="{Binding NextCommand}" VerticalOptions="Center"
-                Margin="20, 20, 20, 0" FontFamily="MontserratRegular" FontSize="16" FontAttributes="Bold"/>
-
-
-
-            <StackLayout IsVisible="{Binding IsReferenceText}">
-                <Label Text="Информация о происхождении денежных средств" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratSemiBold"/>
-                <Label Text="{Binding ReferenceText}" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
-
-                <Button Command="{Binding AddDocumentCommand}" Margin="10, 15, 10, 0" BackgroundColor="{x:StaticResource Red50}" Text="Добавить фото документа"
-                    FontSize="16" FontAttributes="Bold"/>
-                <Border Margin="15, 15, 15, 0" StrokeThickness="4" StrokeShape="RoundRectangle 10" Stroke="{x:StaticResource Red50}">
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 12">
-                        <Image Source="{Binding ImagePath}" />
-                    </Border>
+                <Border StrokeShape="RoundRectangle 10" Padding="2" Margin="10, 5, 10, 0" IsVisible="{Binding IsOtherOrigin}" HeightRequest="50">
+                    <customControls:CustomEntry Placeholder="Укажите происхождение денежных средств" Margin="10, 0, 0, 0" Text="{Binding OriginOfFunds}"
+                FontFamily="MontserratRegular"/>
                 </Border>
-                <Button Text="Отправить" Command="{Binding SendReferenceCommand}" Margin="10, 15, 10, 0" BackgroundColor="{x:StaticResource Red50}"
-                    FontFamily="MontserratRegular" FontSize="16" FontAttributes="Bold"/>
+
+                <Button Text="Далее" BackgroundColor="{x:StaticResource Red50}" Command="{Binding NextCommand}" VerticalOptions="Center"
+            Margin="20, 20, 20, 0" FontFamily="MontserratRegular" FontSize="16" FontAttributes="Bold"/>
+
+
+
+                <StackLayout IsVisible="{Binding IsReferenceText}">
+                    <Label Text="Информация о происхождении денежных средств" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratSemiBold"/>
+                    <Label Text="{Binding ReferenceText}" FontSize="16" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+
+                    <Button Command="{Binding AddDocumentCommand}" Margin="10, 15, 10, 0" BackgroundColor="{x:StaticResource Red50}" Text="Добавить фото документа"
+                FontSize="16" FontAttributes="Bold"/>
+                    <Border Margin="15, 15, 15, 0" StrokeThickness="4" StrokeShape="RoundRectangle 10" Stroke="{x:StaticResource Red50}">
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 12">
+                            <Image Source="{Binding ImagePath}" />
+                        </Border>
+                    </Border>
+                    <Button Text="Отправить" Command="{Binding SendReferenceCommand}" Margin="10, 15, 10, 0" BackgroundColor="{x:StaticResource Red50}"
+                FontFamily="MontserratRegular" FontSize="16" FontAttributes="Bold"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

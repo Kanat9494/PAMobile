@@ -16,6 +16,7 @@ internal class MainViewModel : BaseViewModel
         StoriesCommand = new AsyncRelayCommand<int>(OnStories);
         Stories = new ObservableCollection<Story>();
         AdCommand = new AsyncRelayCommand<int>(OnAd);
+        DeclarationCommand = new AsyncRelayCommand(OnDeclaration);
 
         Task.Run(async () =>
         {
@@ -37,6 +38,7 @@ internal class MainViewModel : BaseViewModel
     public ICommand GuideCommand { get; }
     public ICommand StoriesCommand { get; }
     public ICommand AdCommand { get; }
+    public ICommand DeclarationCommand { get; }
 
     public ObservableCollection<Story> Stories { get; set; }
     public ObservableCollection<Ad> Ads { get; set; }
@@ -184,4 +186,7 @@ internal class MainViewModel : BaseViewModel
     {
         await Shell.Current.GoToAsync($"{nameof(AdDetailsPage)}?{nameof(AdDetailsViewModel.AdId)}={id}");
     }
+
+    async Task OnDeclaration()
+        => await Shell.Current.GoToAsync($"{nameof(DeclarationPage)}?{nameof(DeclarationViewModel.Type)}=3");
 }

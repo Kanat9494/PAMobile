@@ -13,84 +13,285 @@
         <toolkit:StatusBarBehavior StatusBarColor="{x:StaticResource Red40}"/>
     </ContentPage.Behaviors>
 
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="contract.png" Command="{Binding GetDocumentsCommand}"/>
-    </ContentPage.ToolbarItems>-->
+    <Grid >
 
-    <ScrollView VerticalScrollBarVisibility="Never">
-        <StackLayout Margin="0, -10, 0, 10">
-            <Grid HeightRequest="70" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80*"/>
-                    <ColumnDefinition Width="10*"/>
-                </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Margin="10, 18, 0, 10"  x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=white_theme_logo.png, Dark=dark_theme_logo.png}"
-                    />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
 
-                <Image Source="{AppThemeBinding Light=bell_icon.png, Dark=white_bell_icon.png}" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand" Grid.Column="1" VerticalOptions="Center"
-                    Margin="0, 0, 10, 0">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NotificationsCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
-            </Grid>
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Margin="10, 18, 0, 10"  x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=white_theme_logo.png, Dark=dark_theme_logo.png}"
+        />
 
-            <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 10, 10, 0" HeightRequest="170" HorizontalScrollBarVisibility="Never"
-                x:Name="storiesCV">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" />
-                </CollectionView.ItemsLayout>
+            <Image Source="r_bell_icon" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand" Grid.Column="1" VerticalOptions="Center"
+                Margin="0, 0, 10, 0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NotificationsCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Story">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="130"/>
-                                <RowDefinition Height="80"/>
-                            </Grid.RowDefinitions>
-                            <Border StrokeThickness="3" StrokeShape="RoundRectangle 15, 15, 15, 15" WidthRequest="100" HeightRequest="130" Stroke="{x:StaticResource Red45}"
-                                HorizontalOptions="Start" Padding="3">
-                                <Border StrokeShape="RoundRectangle 12" StrokeThickness="0">
-                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
-                                </Border>
+        <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 10, 10, 0" HeightRequest="170" HorizontalScrollBarVisibility="Never"
+            x:Name="storiesCV" Grid.Row="1">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Story">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="130"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Border StrokeThickness="2" StrokeShape="RoundRectangle 15, 15, 15, 15" WidthRequest="100" HeightRequest="130" 
+                            HorizontalOptions="Start" Padding="3">
+                            <Border.Stroke>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FFCE49" Offset="0.0" />
+                                    <GradientStop Color="#850000" Offset="0.5" />
+                                    <GradientStop Color="#ff0000" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Stroke>
+                            <Border StrokeShape="RoundRectangle 12" StrokeThickness="0">
+                                <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
                             </Border>
+                        </Border>
 
-                            <Label Text="{Binding Title}"  WidthRequest="110" HorizontalOptions="Start" Grid.Row="1" FontFamily="MontserratBold" Margin="0, 0, 5, 0"
-                                FontSize="13"/>
+                        <Label Text="{Binding Title}"  WidthRequest="110" HorizontalOptions="Start" Grid.Row="1" FontFamily="MontserratBold" Margin="0, 0, 5, 0"
+                            FontSize="13"/>
 
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=StoriesCommand}" CommandParameter="{Binding StoryId}"/>
-                            </Grid.GestureRecognizers>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50*"/>
-                    <ColumnDefinition Width="50*"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=StoriesCommand}" CommandParameter="{Binding StoryId}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-                </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                </Grid.RowDefinitions>
+        <Grid Margin="10" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
 
-                <Button Text="Кредиты" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="17" FontFamily="MontserratSemiBold"
-                    HeightRequest="50" Margin="0, 0, 5, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
-                    Path=LoansCommand}" TextColor="White"/>
+            </Grid.ColumnDefinitions>
 
-                <Button Text="Депозиты" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="17" FontFamily="MontserratSemiBold"
-                    HeightRequest="50" Margin="5, 0, 0, 0" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
-                    Path=DepositsCommand}" TextColor="White"/>
+            <!--<Button   
+                />-->
+            <Border  StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                Margin="0, 0, 5, 0" BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#FFCE49"/>
+                            <!--<GradientStop Offset="0.5" Color="#850000"/>-->
+                            <GradientStop Offset="1" Color="#ff0000"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="loans.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
+                        HorizontalOptions="Center"/>
 
-                <!--<Button Text="Онлайн кредит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="13" FontFamily="MontserratSemiBold"
+                    <Label Text="Кредиты" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
+                        VerticalOptions="Start"/>
+
+                </Grid>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                        Path=LoansCommand}" />
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" StrokeThickness="1" StrokeShape="RoundRectangle 10"
+                Grid.Column="1" Margin="5, 0, 0, 0">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#FFCE49"/>
+                            <!--<GradientStop Offset="0.5" Color="#850000"/>-->
+                            <GradientStop Offset="1" Color="#ff0000"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="deposit.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
+                        HorizontalOptions="Center"/>
+
+                    <Label Text="Депозиты" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
+                        VerticalOptions="Start"/>
+                </Grid>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                        Path=DepositsCommand}" />
+                </Border.GestureRecognizers>
+            </Border>
+
+            <!--<Button Text="Онлайн кредит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="0" FontSize="13" FontFamily="MontserratSemiBold"
                     HeightRequest="50" Margin="0, 0, 5, 0" Grid.Row="1" Command="{Binding OnlineLoansCommand}" TextColor="White"/>
 
-                <Button Text="Онлайн депозит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="13" FontFamily="MontserratSemiBold"
+            <Button Text="Онлайн депозит" BackgroundColor="{x:StaticResource Red50}" Grid.Column="1" FontSize="13" FontFamily="MontserratSemiBold"
                     HeightRequest="50" Margin="5, 0, 0, 0" Grid.Row="1" Command="{Binding OnlineDepositCommand}" TextColor="White"/>-->
-            </Grid>
+        </Grid>
 
+        <Grid Margin="10" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" Grid.Column="0" Margin="0, 0, 5, 0"
+                StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#FFCE49"/>
+                            <!--<GradientStop Offset="0.5" Color="#850000"/>-->
+                            <GradientStop Offset="1" Color="#ff0000"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <!--<Label Text="Заявления" TextColor="White" FontSize="19" FontFamily="MontserratSemiBold"
+                    VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1"/>
+
+                <Image Source="personal.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 20, 5"
+                    HorizontalOptions="Center"/>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="declaration.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
+                        HorizontalOptions="Center"/>
+
+                    <Label Text="Заявления" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
+                        VerticalOptions="Start"/>
+
+
+                </Grid>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                        Path=DeclarationCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" Grid.Column="1" Margin="5, 0, 0, 0"
+                StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                <Border.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
+                        <GradientStopCollection>
+                            <GradientStop Offset="0" Color="#FFCE49"/>
+                            <!--<GradientStop Offset="0.5" Color="#850000"/>-->
+                            <GradientStop Offset="1" Color="#ff0000"/>
+                        </GradientStopCollection>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="document.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
+                        HorizontalOptions="Center"/>
+
+                    <Label Text="Электронные документы" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
+                        TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
+                        VerticalOptions="Start"/>
+
+
+                </Grid>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                         Path=GetDocumentsCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>
+        </Grid>
+
+        <!--<Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Grid.Row="3" 
+            Padding="15" Margin="10, 20, 10, 0">
+            <StackLayout Orientation="Horizontal">
+                <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Справочник" FontSize="20"
+                    FontFamily="MontserratSemiBold"/>
+
+                <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 35"
+                    BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
+                    <Image Source="next_icon.png" Aspect="AspectFill" />
+                </Border>
+            </StackLayout>
+
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GuideCommand}"/>
+            </Border.GestureRecognizers>
+        </Border>-->
+
+        <CollectionView ItemsSource="{Binding Ads}" Margin="0, 20, 0, 20" Grid.Row="4" >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="dtos:Ad">
+                    <!--<Grid >
+                        --><!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="85*" />
+                            <ColumnDefinition Width="15*" />
+                        </Grid.ColumnDefinitions>--><!--
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="140" />
+                    </Grid.RowDefinitions>
+
+                    
+                    </Grid>-->
+
+                    <Border Grid.Column="0" Margin="10, 0, 0, 0" StrokeThickness="0" 
+                        StrokeShape="RoundRectangle 12" >
+                        <Image Source="{Binding Banner}" Aspect="AspectFill"/>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=AdCommand}"
+                                CommandParameter="{Binding AdId}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+    <!--<ScrollView VerticalScrollBarVisibility="Never">
+        <StackLayout Margin="0, -10, 0, 10">
+            
+
+            
             <toolkit:Expander>
                 <toolkit:Expander.Header>
                     <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" 
@@ -187,49 +388,15 @@
                 </StackLayout>
             </toolkit:Expander>
 
-            <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" 
-                Padding="15" Margin="10, 20, 10, 0">
-                <StackLayout Orientation="Horizontal">
-                    <Label VerticalOptions="Center" HorizontalOptions="Start" Text="Справочник" FontSize="20"
-                        FontFamily="MontserratSemiBold"/>
+            
 
-                    <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 35"
-                        BackgroundColor="{x:StaticResource White95}" HeightRequest="35" WidthRequest="35" Padding="8">
-                        <Image Source="next_icon.png" Aspect="AspectFill" />
-                    </Border>
-                </StackLayout>
+            
 
-                <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GuideCommand}"/>
-                </Border.GestureRecognizers>
-            </Border>
-
-            <CollectionView ItemsSource="{Binding Ads}" Margin="0, 20, 0, 20">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal"/>
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="dtos:Ad">
-                        <Border HeightRequest="150" WidthRequest="250" Margin="10, 0, 10, 0" StrokeThickness="0"
-                            StrokeShape="RoundRectangle 12">
-                            <Image Source="{Binding Banner}" Aspect="AspectFill"/>
-
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=AdCommand}"
-                                    CommandParameter="{Binding AdId}"/>
-                            </Border.GestureRecognizers>
-                        </Border>
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-            <!--<Label Text="Сторис" FontSize="18">
+            --><!--<Label Text="Сторис" FontSize="18">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding StoriesCommand}"/>
                 </Label.GestureRecognizers>
-            </Label>-->
+            </Label>--><!--
         </StackLayout>
-    </ScrollView>
+    </ScrollView>-->
 </ContentPage>

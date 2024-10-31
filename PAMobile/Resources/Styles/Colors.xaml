@@ -64,4 +64,8 @@
     <Color x:Key="Pink100">#521177</Color>
     <Color x:Key="Red45">#e60000</Color>
     <Color x:Key="Red40">#cc0000</Color>
+    <Color x:Key="SalymRed">#ff0000</Color>
+    <Color x:Key="SalymYellow">#FFCE49</Color>
+    <Color x:Key="SalymBrown">#850000</Color>
+    <Color x:Key="SalymOrange">#F58735</Color>
 </ResourceDictionary>

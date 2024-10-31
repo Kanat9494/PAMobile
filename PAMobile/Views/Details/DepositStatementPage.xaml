@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Details.DepositStatementPage"
              Title="Выписки"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Shell.NavBarIsVisible="True">
-    <VerticalStackLayout>
-        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по основной сумме" Command="{Binding PrincipalAmountCommand}" FontFamily="MontserratRegular"/>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="2"/>
+        <VerticalStackLayout>
+            <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по основной сумме" Command="{Binding PrincipalAmountCommand}" FontFamily="MontserratRegular"/>
 
-        <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по процентам" Command="{Binding InterestsStatementCommand}" FontFamily="MontserratRegular"/>
-    </VerticalStackLayout>
+            <Button Margin="10" BackgroundColor="#ff0000" Text="Выписка по процентам" Command="{Binding InterestsStatementCommand}" FontFamily="MontserratRegular"/>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

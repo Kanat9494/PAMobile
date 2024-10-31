@@ -7,6 +7,7 @@ internal class DepositsViewModel : BaseViewModel
         IsLoading = true;
         Deposits = new ObservableCollection<DepositResponse>();
         DepositCommand = new AsyncRelayCommand<int>(OnDeposit);
+        DeclarationCommand = new AsyncRelayCommand(OnDeclaration);
 
         Task.Run(async () =>
         {
@@ -26,6 +27,7 @@ internal class DepositsViewModel : BaseViewModel
     public ObservableCollection<DepositResponse> Deposits { get; set; }
 
     public ICommand DepositCommand { get; }
+    public ICommand DeclarationCommand { get; }
 
     private async Task LoadDeposits()
     {
@@ -47,4 +49,7 @@ internal class DepositsViewModel : BaseViewModel
         //await Task.Delay(1500);
         await Shell.Current.GoToAsync($"{nameof(DepositDetailsPage)}?{nameof(DepositDetailsViewModel.DepositPositionalNumber)}={depositPositionalNumber}");
     }
+
+    async Task OnDeclaration()
+        => await Shell.Current.GoToAsync($"{nameof(DeclarationPage)}?{nameof(DeclarationViewModel.Type)}=2");
 }

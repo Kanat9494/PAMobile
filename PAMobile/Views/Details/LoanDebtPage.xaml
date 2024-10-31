@@ -3,45 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Details.LoanDebtPage"
              Title="Остаток кредита"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Shell.NavBarIsVisible="True">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label Text="Всего задолженность по кредиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10" HorizontalOptions="Start"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Image Source="bg_transparent.png" Aspect="AspectFill" />
+        
+        <ScrollView>
+            <VerticalStackLayout>
+                <Label Text="Всего задолженность по кредиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10" HorizontalOptions="Start"/>
 
-            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanTotalDebt.LoanBalance, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanTotalDebt.LoanBalance, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanTotalDebt.Percent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanTotalDebt.Percent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanTotalDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanTotalDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanTotalDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanTotalDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Просроченная задолженность по кредиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10, 30, 10, 10"/>
+                <Label Text="Просроченная задолженность по кредиту" FontFamily="MontserratSemiBold" FontSize="18" Margin="10, 30, 10, 10"/>
 
-            <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanOverdueDebt.Ostatok, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Основная сумма" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanOverdueDebt.Ostatok, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanOverdueDebt.ProcPercent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Проценты" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanOverdueDebt.ProcPercent, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanOverdueDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+                <Label Text="Штрафы" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanOverdueDebt.Fine, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
 
-            <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
-            <Label Text="{Binding CurrentLoanOverdueDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
-            <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
-        </VerticalStackLayout>
-    </ScrollView>
+                <Label Text="Итого" FontSize="12" Margin="10, 15, 10, 5" FontFamily="MontserratRegular"/>
+                <Label Text="{Binding CurrentLoanOverdueDebt.Summa, StringFormat='{0:N2}'}" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 10, 0"/>
+                <BoxView Color="#999999" HeightRequest="1" Margin="5, 5, 5, 0" HorizontalOptions="Fill"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

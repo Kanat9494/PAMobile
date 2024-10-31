@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PAMobile.Views.Graphics.LoanGraphicsPage"
-             Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              Title="График">
     <Grid>
@@ -10,6 +10,8 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="2"/>
 
         <Button Grid.Row="0" Text="Подробнее" BackgroundColor="{x:StaticResource Red50}" Margin="10, 10, 10, 0" FontSize="16"
             Command="{Binding GetPdfCommand}"/>

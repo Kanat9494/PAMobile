@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.DeclarationPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
+             xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
+             Title="Заявления">
+    <Grid>
+        <Image Source="bg_transparent.png"
+            Aspect="AspectFill"
+            Grid.RowSpan="2"/>
+        <StackLayout Margin="10">
+            <toolkit:Expander IsVisible="{Binding IsLoan}">
+                <toolkit:Expander.Header>
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
+                        <Label Text="Кредит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
+                    </Border>
+                </toolkit:Expander.Header>
+
+                <VerticalStackLayout Margin="10">
+                    <Label Text="На изменение условий кредитного договора" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                CommandParameter="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На получение информации по кредиту" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="2"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На выдачу транша" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="3"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На выдачу документа по залогу" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="4"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На выплату переплаты" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="5"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </VerticalStackLayout>
+            </toolkit:Expander>
+
+            <toolkit:Expander IsVisible="{Binding IsDeposit}">
+                <toolkit:Expander.Header>
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 10" HorizontalOptions="Fill" Padding="15" Margin="10, 0, 10, 10">
+                        <Label Text="Депозит" FontSize="20" FontAttributes="Bold" FontFamily="OpenSansRegular"/>
+                    </Border>
+                </toolkit:Expander.Header>
+
+                <VerticalStackLayout Margin="10">
+                    <Label Text="На выдачу части депозита" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="6"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На перечисление депозита и %" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                    CommandParameter="7"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="На расторжение договора" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                        CommandParameter="8"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label Text="О происхождении денежных средств" FontSize="17" FontAttributes="Bold" Margin="10, 0, 10, 10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:DeclarationViewModel}}, Path=ReferenceDefinitionCommand}"
+                                        CommandParameter="9"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </VerticalStackLayout>
+            </toolkit:Expander>
+
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

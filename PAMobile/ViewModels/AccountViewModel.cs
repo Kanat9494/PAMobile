@@ -16,6 +16,7 @@ internal class AccountViewModel : BaseViewModel
         GetDocumentsCommand = new AsyncRelayCommand(OnGetDocuments);
 
 
+
         Task.Run(async () =>
         {
             //await Task.Delay(1000);

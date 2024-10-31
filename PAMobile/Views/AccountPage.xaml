@@ -6,106 +6,124 @@
              Title="Аккаунт"
              xmlns:viewModels="clr-namespace:PAMobile.ViewModels"
              Shell.NavBarIsVisible="False">
-    <RefreshView
-        IsRefreshing="{Binding IsRefreshing}"
-        Command="{Binding RefreshAccountInfo}">
-        <ScrollView
-        >
-            <StackLayout x:Name="contentSL">
-                <Grid
-                Margin="10, 30, 10, 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="80"/>
-                    </Grid.ColumnDefinitions>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <RefreshView
+    IsRefreshing="{Binding IsRefreshing}"
+    Command="{Binding RefreshAccountInfo}">
+            <ScrollView
+    >
+                <StackLayout x:Name="contentSL">
+                    <Grid
+            Margin="10, 30, 10, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Label
-                    Text="Добро пожаловать"
-                    Grid.Row="0"
-                    LineBreakMode="TailTruncation"
-                    VerticalOptions="Center"
-                    FontSize="16"
-                    FontFamily="MontserratRegular"/>
+                        <Label
+                Text="Добро пожаловать"
+                Grid.Row="0"
+                LineBreakMode="TailTruncation"
+                VerticalOptions="Center"
+                FontSize="16"
+                FontFamily="MontserratRegular"/>
 
-                    <Label
-                    Text="{Binding UserFullName}"
-                    Grid.Row="1"
-                    FontSize="20"
-                    VerticalOptions="Center"
-                    FontFamily="MontserratSemiBold"/>
+                        <Label
+                Text="{Binding UserFullName}"
+                Grid.Row="1"
+                FontSize="20"
+                VerticalOptions="Center"
+                FontFamily="MontserratSemiBold"/>
 
-                    <!--<Border
-                    Grid.Column="1"
-                    Grid.RowSpan="2"
-                    StrokeShape="RoundRectangle 10"
-                        StrokeThickness="0">
-                        <Image
-                        Source="{Binding ProfileImg}"
-                        Aspect="Fill"/>
-                    </Border>-->
-                </Grid>
-
-
-                <ActivityIndicator
-                    Color="{x:StaticResource Green45}"
-                    IsRunning="{Binding IsBusy}"
-                    IsVisible="{Binding IsBusy}"
-                    HeightRequest="50"
-                    WidthRequest="50"/>
-
-                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
-                    <StackLayout Orientation="Horizontal">
-                        <Label VerticalOptions="Center" Text="Документы" FontSize="20" FontFamily="MontserratSemiBold"/>
-
-                        <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
-                            WidthRequest="40" Padding="10">
-                            <Image Source="next_icon.png" />
-                        </Border>
-                    </StackLayout>
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=GetDocumentsCommand}"/>
-                    </Border.GestureRecognizers>
-                </Border>
-
-                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
-                    <StackLayout Orientation="Horizontal">
-                        <Label VerticalOptions="Center" Text="Курсы валют" FontSize="20" FontFamily="MontserratSemiBold"/>
-
-                        <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
-                            WidthRequest="40" Padding="10">
-                            <Image Source="next_icon.png" />
-                        </Border>
-                    </StackLayout>
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=ExchangeRatesCommand}"/>
-                    </Border.GestureRecognizers>
-                </Border>
-
-                <!--<Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
-                    <StackLayout Orientation="Horizontal">
-                        <Label VerticalOptions="Center" Text="Выйти" FontSize="20" FontAttributes="Bold" FontFamily="RegularFont"/>
-
-                        <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" BackgroundColor="#f2f2f2" StrokeShape="RoundRectangle 40" HeightRequest="40"
-                            WidthRequest="40" Padding="10">
-                            <Image Source="next_icon.png" />
-                        </Border>
-                    </StackLayout>
-
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=ExitCommand}"/>
-                    </Border.GestureRecognizers>
+                        <!--<Border
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                StrokeShape="RoundRectangle 10"
+                    StrokeThickness="0">
+                    <Image
+                    Source="{Binding ProfileImg}"
+                    Aspect="Fill"/>
                 </Border>-->
+                    </Grid>
 
-                <Label Text="Версия " Margin="0, 20, 0, 0" FontFamily="MontserratBold" FontSize="16" x:Name="versionText" TextColor="#999999"
-                    HorizontalOptions="Center"/>
 
-            </StackLayout>
-        </ScrollView>
-    </RefreshView>
+                    <ActivityIndicator
+                Color="{x:StaticResource Green45}"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                HeightRequest="50"
+                WidthRequest="50"/>
+
+                    <!--<Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                <StackLayout Orientation="Horizontal">
+                    <Label VerticalOptions="Center" Text="Документы" FontSize="20" FontFamily="MontserratSemiBold"/>
+
+                    <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
+                        WidthRequest="40" Padding="10">
+                        <Image Source="next_icon.png" />
+                    </Border>
+                </StackLayout>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=GetDocumentsCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>-->
+
+                    <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label VerticalOptions="Center" Text="Справочник" FontSize="20" FontFamily="MontserratSemiBold"/>
+
+                            <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
+                        WidthRequest="40" Padding="10">
+                                <Image Source="next_icon.png" />
+                            </Border>
+                        </StackLayout>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=GuideCommand}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                        <StackLayout Orientation="Horizontal">
+                            <Label VerticalOptions="Center" Text="Курсы валют" FontSize="20" FontFamily="MontserratSemiBold"/>
+
+                            <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" StrokeShape="RoundRectangle 40" HeightRequest="40" BackgroundColor="#f2f2f2"
+                        WidthRequest="40" Padding="10">
+                                <Image Source="next_icon.png" />
+                            </Border>
+                        </StackLayout>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=ExchangeRatesCommand}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <!--<Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="25" Margin="10, 20, 10, 0">
+                <StackLayout Orientation="Horizontal">
+                    <Label VerticalOptions="Center" Text="Выйти" FontSize="20" FontAttributes="Bold" FontFamily="RegularFont"/>
+
+                    <Border HorizontalOptions="EndAndExpand" StrokeThickness="0" BackgroundColor="#f2f2f2" StrokeShape="RoundRectangle 40" HeightRequest="40"
+                        WidthRequest="40" Padding="10">
+                        <Image Source="next_icon.png" />
+                    </Border>
+                </StackLayout>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:AccountViewModel}}, Path=ExitCommand}"/>
+                </Border.GestureRecognizers>
+            </Border>-->
+
+                    <Label Text="Версия " Margin="0, 20, 0, 0" FontFamily="MontserratBold" FontSize="16" x:Name="versionText" TextColor="#999999"
+                HorizontalOptions="Center"/>
+
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
 </ContentPage>

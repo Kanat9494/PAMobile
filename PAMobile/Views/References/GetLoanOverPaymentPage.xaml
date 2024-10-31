@@ -4,31 +4,34 @@
              x:Class="PAMobile.Views.References.GetLoanOverPaymentPage"
              xmlns:customControls="clr-namespace:PAMobile.Views.CustomControls"
              Title="">
-    <ScrollView>
-        <StackLayout>
-            <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-                Color="{x:StaticResource Red35}"/>
-            <Label Text="Заявление на выплату переплаты" FontSize="17" FontFamily="MontserratSemiBold" Margin="10"/>
-            <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
-                ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
+        <ScrollView>
+            <StackLayout>
+                <ActivityIndicator Margin="10, 20, 10, 10" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+            Color="{x:StaticResource Red35}"/>
+                <Label Text="Заявление на выплату переплаты" FontSize="17" FontFamily="MontserratSemiBold" Margin="10"/>
+                <Picker Title="Выберите кредит" ItemsSource="{Binding Loans}" SelectedItem="{Binding SelectedLoan}"
+            ItemDisplayBinding="{Binding DG_NOM}" Margin="10, 15, 10, 0" FontFamily="MontserratRegular"/>
 
-            <Picker Title="Выберите вид платежа" Margin="10" IsVisible="{Binding IsWallet}" ItemsSource="{Binding Wallets}"
-                SelectedItem="{Binding SelectedWallet}" FontFamily="MontserratRegular"/>
+                <Picker Title="Выберите вид платежа" Margin="10" IsVisible="{Binding IsWallet}" ItemsSource="{Binding Wallets}"
+            SelectedItem="{Binding SelectedWallet}" FontFamily="MontserratRegular"/>
 
-            <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="0" Margin="10, 10, 10, 0" HeightRequest="50"
-                IsVisible="{Binding IsSum}">
-                <customControls:CustomEntry Margin="10, 0, 0, 0" Placeholder="Введите номер кошелька" Text="{Binding WalletNumber}" FontFamily="MontserratRegular"/>
-            </Border>
-            <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextLoanOverPaymentCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"
+                <Border StrokeShape="RoundRectangle 10" StrokeThickness="0" Padding="0" Margin="10, 10, 10, 0" HeightRequest="50"
+            IsVisible="{Binding IsSum}">
+                    <customControls:CustomEntry Margin="10, 0, 0, 0" Placeholder="Введите номер кошелька" Text="{Binding WalletNumber}" FontFamily="MontserratRegular"/>
+                </Border>
+                <Button Text="Далее" BackgroundColor="#CF3241" Command="{Binding NextLoanOverPaymentCommand}" VerticalOptions="Center" Margin="20, 20, 20, 0"
+            FontFamily="MontserratRegular"/>
+
+                <StackLayout IsVisible="{Binding IsReference}">
+                    <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0" FontFamily="MontserratRegular"/>
+
+                    <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12" FontFamily="MontserratRegular"/>
+                    <Button Text="Отправить" Command="{Binding CustomSendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"
                 FontFamily="MontserratRegular"/>
-
-            <StackLayout IsVisible="{Binding IsReference}">
-                <Label Text="Заявление" FontSize="17" HorizontalOptions="Center" Margin="0, 25, 0, 0" FontFamily="MontserratRegular"/>
-
-                <Label Text="{Binding ReferenceText}" FontSize="17" Margin="12" FontFamily="MontserratRegular"/>
-                <Button Text="Отправить" Command="{Binding CustomSendReferenceCommand}" BackgroundColor="#CF3241" Margin="20, 20, 20, 0"
-                    FontFamily="MontserratRegular"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-    </ScrollView>
+        </ScrollView>
+    </Grid>
 </ContentPage>

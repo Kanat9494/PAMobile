@@ -8,6 +8,7 @@ internal class LoansViewModel : BaseViewModel
         Loans = new ObservableCollection<LoanResponse>();
         LoanCommand = new AsyncRelayCommand<int>(OnLoan);
         TestCommand = new AsyncRelayCommand(OnTest);
+        DeclarationCommand = new AsyncRelayCommand(OnDeclaration);
 
         Task.Run(async () =>
         {
@@ -26,6 +27,7 @@ internal class LoansViewModel : BaseViewModel
 
     public ICommand LoanCommand { get; }
     public ICommand TestCommand { get; }
+    public ICommand DeclarationCommand { get; }
 
 
     private bool _isBusy;
@@ -61,4 +63,7 @@ internal class LoansViewModel : BaseViewModel
 
     private async Task OnTest()
         => await Shell.Current.DisplayAlert("", "", "");
+
+    async Task OnDeclaration()
+        => await Shell.Current.GoToAsync($"{nameof(DeclarationPage)}?{nameof(DeclarationViewModel.Type)}=1");
 }
