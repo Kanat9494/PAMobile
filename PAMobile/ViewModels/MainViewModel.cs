@@ -184,7 +184,11 @@ internal class MainViewModel : BaseViewModel
 
     private async Task OnAd(int id)
     {
-        await Shell.Current.GoToAsync($"{nameof(AdDetailsPage)}?{nameof(AdDetailsViewModel.AdId)}={id}");
+        if (id == 1)
+        {
+            await Shell.Current.GoToAsync(nameof(MortgageDetailsPage));
+        }
+        //await Shell.Current.GoToAsync($"{nameof(AdDetailsPage)}?{nameof(AdDetailsViewModel.AdId)}={id}");
     }
 
     async Task OnDeclaration()

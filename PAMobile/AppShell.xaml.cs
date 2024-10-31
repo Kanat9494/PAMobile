@@ -51,5 +51,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(DepositOriginOFPage), typeof(DepositOriginOFPage));
         Routing.RegisterRoute(nameof(LoanDigitalDocsPage), typeof(LoanDigitalDocsPage));
         Routing.RegisterRoute(nameof(DepositElectronicDocumentsPage), typeof(DepositElectronicDocumentsPage));
+        Routing.RegisterRoute(nameof(MortgageDetailsPage), typeof(MortgageDetailsPage));
     }
 }
