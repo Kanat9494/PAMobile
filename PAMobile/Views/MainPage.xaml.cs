@@ -7,7 +7,9 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 
-		BindingContext = new MainViewModel();
+        var DisplayMaxWidth = DeviceDisplay.Current.MainDisplayInfo.Width / DeviceDisplay.Current.MainDisplayInfo.Density;
+        var c = DeviceDisplay.Current.MainDisplayInfo.Width;
+        BindingContext = new MainViewModel();
         //imgLogo.Source = "salym_logo_l.png";
 	}
 

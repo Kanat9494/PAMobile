@@ -153,7 +153,7 @@ internal class PinCodeViewModel : BaseViewModel
                 bool answer = false;
                 if (!isUsingBiometrics)
                 {
-                    answer = await Shell.Current.DisplayAlert("Биометрика", "Вы хотите установить вход с помощью Face Id по умолчанию?",
+                    answer = await Shell.Current.DisplayAlert("", "Вы хотите установить вход с помощью Face ID? Пожалуйста, подтвердите",
                         "Да", "Нет");
                 }
 

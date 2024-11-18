@@ -112,14 +112,15 @@ internal class DepositElectronicDocViewModel : BaseViewModel
                 {
                     try
                     {
+                        await Shell.Current.GoToAsync($"{nameof(PdfPage)}?{nameof(PdfViewModel.FilePath)}={filePath}");
+
+                    }
+                    catch
+                    {
                         await Launcher.OpenAsync(new OpenFileRequest
                         {
                             File = new ReadOnlyFile(filePath)
                         });
-                    }
-                    catch
-                    {
-
                     }
                 }
                 else

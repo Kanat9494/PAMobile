@@ -188,6 +188,22 @@ internal class MainViewModel : BaseViewModel
         {
             await Shell.Current.GoToAsync(nameof(MortgageDetailsPage));
         }
+        else if (id == 3)
+        {
+            await Shell.Current.GoToAsync(nameof(EducationDetailsPage));
+        }
+        else if (id == 4)
+        {
+            await Shell.Current.GoToAsync(nameof(ComfortDetailsPage));
+        }
+        else if (id == 8)
+        {
+            await Shell.Current.GoToAsync(nameof(BusinessDetailsPage));
+        }
+        else if (id == 10)
+        {
+            await Shell.Current.GoToAsync(nameof(DepositProductDetailsPage));
+        }
         //await Shell.Current.GoToAsync($"{nameof(AdDetailsPage)}?{nameof(AdDetailsViewModel.AdId)}={id}");
     }
 

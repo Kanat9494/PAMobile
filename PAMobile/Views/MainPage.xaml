@@ -17,7 +17,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="17*"/>
             <RowDefinition Height="11*"/>
             <RowDefinition Height="11*"/>
             <RowDefinition Height="13*"/>
@@ -26,15 +26,22 @@
         </Grid.RowDefinitions>
         <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="7"/>
 
-        <Grid >
+        <Grid HorizontalOptions="Fill">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="10, 18, 0, 10"  x:Name="imgLogo" HorizontalOptions="Start" Source="{AppThemeBinding Light=white_theme_logo.png, Dark=dark_theme_logo.png}"
-        />
+            <Image Grid.Column="0" x:Name="imgLogo" HorizontalOptions="StartAndExpand" Source="{AppThemeBinding Light=white_theme_logo.png, Dark=dark_theme_logo.png}"
+>
+                <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS" Value="-10, 18, 0, 10"/>
+                        <On Platform="Android" Value="10, 18, 0, 10"/>
+                    </OnPlatform>
+                </Image.Margin>
+            </Image>
 
-            <Image Source="r_bell_icon" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand" Grid.Column="1" VerticalOptions="Center"
+            <Image Source="r_bell_icon" HeightRequest="40" WidthRequest="40" HorizontalOptions="End" Grid.Column="1" VerticalOptions="Center"
                 Margin="0, 0, 10, 0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NotificationsCommand}"/>
@@ -42,7 +49,7 @@
             </Image>
         </Grid>
 
-        <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 10, 10, 0" HeightRequest="170" HorizontalScrollBarVisibility="Never"
+        <CollectionView ItemsSource="{Binding Stories}" IsVisible="{Binding StoriesExist}" Margin="10, 0, 10, 0" HeightRequest="200" HorizontalScrollBarVisibility="Never"
             x:Name="storiesCV" Grid.Row="1">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" />
@@ -50,10 +57,10 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Story">
-                    <Grid>
+                    <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="130"/>
-                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="140"/>
+                            <RowDefinition Height="140"/>
                         </Grid.RowDefinitions>
                         <Border StrokeThickness="2" StrokeShape="RoundRectangle 15, 15, 15, 15" WidthRequest="100" HeightRequest="130" 
                             HorizontalOptions="Start" Padding="3">
@@ -69,8 +76,8 @@
                             </Border>
                         </Border>
 
-                        <Label Text="{Binding Title}"  WidthRequest="110" HorizontalOptions="Start" Grid.Row="1" FontFamily="MontserratBold" Margin="0, 0, 5, 0"
-                            FontSize="13"/>
+                        <Label Text="{Binding Title}"  WidthRequest="100" HorizontalOptions="End" Grid.Row="1" FontFamily="MontserratBold" Margin="0, 0, 10, 0"
+                            FontSize="13" HorizontalTextAlignment="Center"/>
 
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=StoriesCommand}" CommandParameter="{Binding StoryId}"/>
@@ -81,7 +88,7 @@
         </CollectionView>
 
 
-        <Grid Margin="10" Grid.Row="2">
+        <Grid Margin="10" Grid.Row="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="50*"/>
@@ -90,7 +97,7 @@
 
             <!--<Button   
                 />-->
-            <Border  StrokeThickness="1" StrokeShape="RoundRectangle 10"
+            <Border Padding="0, 10, 0, 0" StrokeThickness="1" StrokeShape="RoundRectangle 10"
                 Margin="0, 0, 5, 0" BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}">
                 <Border.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
@@ -101,17 +108,17 @@
                         </GradientStopCollection>
                     </LinearGradientBrush>
                 </Border.Stroke>
-                <Grid>
+                <Grid >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="55*"/>
                         <RowDefinition Height="50*"/>
                     </Grid.RowDefinitions>
                     <Image Source="loans.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
-                        HorizontalOptions="Center"/>
+                        HorizontalOptions="Center" WidthRequest="45" HeightRequest="45"/>
 
                     <Label Text="Кредиты" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
                         TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
-                        VerticalOptions="Start"/>
+                        VerticalOptions="Start" />
 
                 </Grid>
 
@@ -122,7 +129,7 @@
             </Border>
 
             <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" StrokeThickness="1" StrokeShape="RoundRectangle 10"
-                Grid.Column="1" Margin="5, 0, 0, 0">
+                Grid.Column="1" Padding="0, 10, 0, 0" Margin="5, 0, 0, 0">
                 <Border.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
                         <GradientStopCollection>
@@ -134,11 +141,11 @@
                 </Border.Stroke>
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="55*"/>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="60*"/>
                     </Grid.RowDefinitions>
                     <Image Source="deposit.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
-                        HorizontalOptions="Center"/>
+                        HorizontalOptions="Center" WidthRequest="45" HeightRequest="45"/>
 
                     <Label Text="Депозиты" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
                         TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
@@ -166,7 +173,7 @@
             </Grid.ColumnDefinitions>
 
             <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" Grid.Column="0" Margin="0, 0, 5, 0"
-                StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="0, 10, 0, 0">
                 <Border.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
                         <GradientStopCollection>
@@ -183,11 +190,11 @@
                     HorizontalOptions="Center"/>-->
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="55*"/>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="60*"/>
                     </Grid.RowDefinitions>
                     <Image Source="declaration.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
-                        HorizontalOptions="Center"/>
+                        HorizontalOptions="Center" WidthRequest="45" HeightRequest="45"/>
 
                     <Label Text="Заявления" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
                         TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
@@ -203,7 +210,7 @@
             </Border>
 
             <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#262626}" Grid.Column="1" Margin="5, 0, 0, 0"
-                StrokeThickness="1" StrokeShape="RoundRectangle 10">
+                StrokeThickness="1" StrokeShape="RoundRectangle 10" Padding="0, 10, 0, 0">
                 <Border.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0, 1">
                         <GradientStopCollection>
@@ -215,11 +222,11 @@
                 </Border.Stroke>
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="55*"/>
                         <RowDefinition Height="50*"/>
-                        <RowDefinition Height="60*"/>
                     </Grid.RowDefinitions>
                     <Image Source="document.png" Grid.Row="0" VerticalOptions="End" Margin="10, 10, 10, 0"
-                        HorizontalOptions="Center"/>
+                        HorizontalOptions="Center" WidthRequest="45" HeightRequest="45"/>
 
                     <Label Text="Электронные документы" Grid.Column="0" FontSize="15" FontFamily="MontserratSemiBold" Margin="10, 0, 5, 0" 
                         TextColor="{AppThemeBinding Light=Black, Dark=White}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1"
@@ -252,39 +259,38 @@
             </Border.GestureRecognizers>
         </Border>-->
 
-        <CollectionView ItemsSource="{Binding Ads}" Margin="0, 20, 0, 20" Grid.Row="4" >
+        <CollectionView ItemsSource="{Binding Ads}" Grid.Row="4" Margin="1, 0, 1, 0" HorizontalScrollBarVisibility="Never">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="dtos:Ad">
-                    <!--<Grid >
-                        --><!--<Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="85*" />
-                            <ColumnDefinition Width="15*" />
-                        </Grid.ColumnDefinitions>--><!--
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="140" />
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0"  StrokeThickness="0" 
+                            StrokeShape="RoundRectangle 12" WidthRequest="320" HeightRequest="120" Margin="10, 0, 0, 0">
+                            <Image Source="{Binding Banner}" Aspect="Fill" WidthRequest="320"
+                                HeightRequest="120" />
 
-                    
-                    </Grid>-->
+                        </Border>
 
-                    <Border Grid.Column="0" Margin="10, 0, 0, 0" StrokeThickness="0" 
-                        StrokeShape="RoundRectangle 12" >
-                        <Image Source="{Binding Banner}" Aspect="AspectFill"/>
+                        <Label Text="" Margin="10, 0, 0, 0" WidthRequest="300"/>
 
-                        <Border.GestureRecognizers>
+                        <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=AdCommand}"
-                                CommandParameter="{Binding AdId}"/>
-                        </Border.GestureRecognizers>
-                    </Border>
+    CommandParameter="{Binding AdId}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
 
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </Grid>
 
     <!--<ScrollView VerticalScrollBarVisibility="Never">

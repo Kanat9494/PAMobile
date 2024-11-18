@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PAMobile.Views.Products.DepositProductDetailsPage"
+             Title="Депозит">
+    <Grid>
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="2"/>
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*" />
+                <RowDefinition Height="70*" />
+            </Grid.RowDefinitions>
+
+            <Image Source="https://ib.salymfinance.kg/Images/banners/deposit1.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="FillAndExpand" />
+
+            <Grid Grid.Row="1" Padding="20" RowSpacing="10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1.5*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" >
+                    <Label Text="Высокая доходность до 15%" FontSize="19" HorizontalOptions="Center" FontFamily="MontserratRegular"/>
+                    <Label Text="годовых" FontSize="19" HorizontalOptions="Center" FontFamily="MontserratRegular"/>
+                </StackLayout>
+                <Label Text="Условия" FontAttributes="Bold" FontSize="19" HorizontalOptions="Center" FontFamily="MontserratRegular" Grid.Row="1"/>
+
+                <VerticalStackLayout Spacing="5" Grid.Row="2">
+                    <Label Text=" · Возможность частично - досрочного изъятия" FontFamily="MontserratRegular"
+                        FontSize="18" />
+                </VerticalStackLayout>
+
+                <Label Text=" · Ежеквартальная капитализация" FontSize="17" FontFamily="MontserratRegular" Grid.Row="3"/>
+
+                <Label Text=" · Ежемесячная выплата процентов" FontFamily="MontserratRegular" FontSize="17" Grid.Row="4"/>
+                <VerticalStackLayout Spacing="5" Grid.Row="5">
+                    <Label Text="· Возможность полного досрочного изъятия" FontFamily="MontserratRegular"
+                        FontSize="17" />
+                </VerticalStackLayout>
+
+                <Button Text="Получить консультацию"  BackgroundColor="#ff0000" TextColor="White" FontSize="16" CornerRadius="5" HorizontalOptions="Fill" 
+                    Clicked="Button_Clicked" FontFamily="MontserratRegular" Grid.Row="6"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -5,14 +5,52 @@
              Title="Ипотека">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*" />
+            <RowDefinition Height="35*" />
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
+
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="2"/>
 
         <Image Source="https://ib.salymfinance.kg/Images/banners/mortgage1.jpg"
             Aspect="AspectFill"
             HorizontalOptions="FillAndExpand" 
             VerticalOptions="FillAndExpand" />
-        
+
+        <Grid Grid.Row="1" Padding="20" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="Финансирование до 100% стоимости жилья" FontSize="Large" HorizontalOptions="Center" FontFamily="MontserratRegular"
+                HorizontalTextAlignment="Center" Grid.Row="0"/>
+
+
+            <Grid ColumnDefinitions="Auto, *" Padding="10" Grid.Row="1">
+                <Label Text="Сумма:" FontAttributes="Bold" VerticalOptions="Center" FontSize="18" FontFamily="MontserratRegular"/>
+                <Label Text="до 30 млн.сомов" VerticalOptions="Center" Grid.Column="1" FontSize="17" Margin="15,0,0,0"
+                    FontFamily="MontserratRegular"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, *" Padding="10" Grid.Row="2">
+                <Label Text="Срок:" FontAttributes="Bold" VerticalOptions="Center" FontSize="18" FontFamily="MontserratRegular"/>
+                <Label Text="до 15 лет" VerticalOptions="Center" Grid.Column="1" FontSize="17" Margin="15,0,0,0" FontFamily="MontserratRegular"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, *" Padding="10" Grid.Row="3">
+                <Label Text="% ставка:" FontAttributes="Bold" FontSize="18" FontFamily="MontserratRegular"/>
+                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                    <Label Text="в сомах 23,5%" VerticalOptions="Center" Grid.Column="1" FontFamily="MontserratRegular" FontSize="17" Margin="15,0,0,0"/>
+                    <Label Text="в долларах США 12,9%" VerticalOptions="Center" FontFamily="MontserratRegular" Grid.Column="1" Grid.Row="4" FontSize="17" Margin="15,0,0,0"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <Button Text="Получить консультацию"  BackgroundColor="#ff0000" TextColor="White" FontSize="16" CornerRadius="5"
+                Clicked="Button_Clicked" FontFamily="MontserratRegular" Grid.Row="4" />
+        </Grid>
     </Grid>
 </ContentPage>

@@ -1,8 +1,8 @@
 namespace PAMobile.Views.Products;
 
-public partial class MortgageDetailsPage : ContentPage
+public partial class ComfortDetailsPage : ContentPage
 {
-	public MortgageDetailsPage()
+	public ComfortDetailsPage()
 	{
 		InitializeComponent();
 	}
@@ -19,7 +19,7 @@ public partial class MortgageDetailsPage : ContentPage
 
                 await Launcher.OpenAsync(uri);
             }
-            
+
         }
         catch (Exception ex)
         {

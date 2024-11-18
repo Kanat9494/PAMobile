@@ -7,21 +7,24 @@
              >
     <Grid>
         <Image Source="bg_transparent.png" Aspect="AspectFill"/>
-        <CollectionView ItemsSource="{Binding ClientNotifications}">
+        <CollectionView ItemsSource="{Binding ClientNotifications}" Margin="10, 0, 10, 0">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Notification">
-                    <Border Margin="10, 10, 10, 0" StrokeShape="RoundRectangle 10" StrokeThickness="0">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="35"/>
-                            </Grid.RowDefinitions>
+                    <VerticalStackLayout>
+                        <Border StrokeShape="RoundRectangle 10" StrokeThickness="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="35"/>
+                                </Grid.RowDefinitions>
 
-                            <Label Text="{Binding Text}" FontSize="18" Margin="10, 15, 10, 0" FontAttributes="Bold"/>
-                            <Label Text="{Binding SentDate, StringFormat='{0:dd.MM.yyyy}'}" HorizontalOptions="End" Grid.Row="1"
-                        Margin="10, 0, 10, 5" VerticalOptions="End"/>
-                        </Grid>
-                    </Border>
+                                <Label Text="{Binding Text}" FontSize="18" Margin="10, 15, 10, 0" FontAttributes="Bold"/>
+                                <Label Text="{Binding SentDate, StringFormat='{0:dd.MM.yyyy}'}" HorizontalOptions="End" Grid.Row="1"
+    Margin="10, 0, 10, 5" VerticalOptions="End"/>
+                            </Grid>
+                        </Border>
+                        <Label Text="" HeightRequest="10"/>
+                    </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             <CollectionView.Footer>

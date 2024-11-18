@@ -31,11 +31,35 @@ internal class GuideViewModel : BaseViewModel
         get => _isLoanTutor;
         set => SetProperty(ref _isLoanTutor, value);
     }
+    private bool _isLoanPodr;
+    public bool IsLoanPodr
+    {
+        get => _isLoanPodr;
+        set => SetProperty(ref _isLoanPodr, value);
+    }
     private bool _isDepositTutor;
     public bool IsDepositTutor
     {
         get => _isDepositTutor;
         set => SetProperty(ref _isDepositTutor, value);
+    }
+    private bool _isDepositPodr;
+    public bool IsDepositPodr
+    {
+        get => _isDepositPodr;
+        set => SetProperty(ref _isDepositPodr, value);
+    }
+    private bool _isDepositName;
+    public bool IsDepositName
+    {
+        get => _isDepositName;
+        set => SetProperty(ref _isDepositName, value);
+    }
+    private bool _isLoanName;
+    public bool IsLoanName
+    {
+        get => _isLoanName;
+        set => SetProperty(ref _isLoanName, value);
     }
 
     private async Task InitializeTutors()
@@ -46,5 +70,22 @@ internal class GuideViewModel : BaseViewModel
             IsLoanTutor = true;
         if (CurrentTutor.Fio3 != null && CurrentTutor.Fio4 != null)
             IsDepositTutor = true;
+        if (CurrentTutor.DepositDepartment != null)
+        {
+            IsDepositPodr = true;
+        }
+        if (CurrentTutor.LoanDepartment != null)
+        {
+            IsLoanPodr = true;
+        }
+
+        if (IsDepositPodr == true || IsDepositTutor == true)
+        {
+            IsDepositName = true;
+        }
+        if (IsLoanPodr == true || IsLoanTutor == true)
+        {
+            IsLoanName = true;
+        }
     }
 }

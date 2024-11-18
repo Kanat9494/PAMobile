@@ -14,6 +14,8 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
 
+        <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="4"/>
+
         <Label Text="Введите пин" HorizontalOptions="Center" VerticalOptions="End" TextColor="#1d8348" FontSize="16" FontFamily="MontserratSemiBold"
             />
 

@@ -10,4 +10,8 @@ internal class Tutor
     public string Tel3 { get; set; }
     public string Fio4 { get; set; }
     public string Tel4 { get; set; }
+    public string LoanDepartment { get; set; }
+    public string LDTel { get; set; }
+    public string DepositDepartment { get; set; }
+    public string DDTel { get; set; }
 }

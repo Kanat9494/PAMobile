@@ -7,18 +7,18 @@
              xmlns:models="clr-namespace:PAMobile.Models.DTOs.Responses"
              
              Shell.TabBarIsVisible="True"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True">
     <Grid>
         <Image Source="bg_transparent.png" Aspect="AspectFill" Grid.RowSpan="2"/>
         <ScrollView VerticalScrollBarVisibility="Never" >
             <StackLayout >
-                <Border Background="{x:StaticResource Red45}" StrokeThickness="0" Margin="0, -5, 0, 0">
+                <!--<Border Background="{x:StaticResource Red45}" StrokeThickness="0" Margin="0, -5, 0, 0">
                     <Image HeightRequest="30" WidthRequest="30" Source="white_back_icon.png" HorizontalOptions="Start" Margin="5, 20, 0, 20">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding BackCommand}"/>
                         </Image.GestureRecognizers>
                     </Image>
-                </Border>
+                </Border>-->
 
                 <Border Margin="14, 10, 14, 10" Padding="10" StrokeShape="RoundRectangle 10"
                 VerticalOptions="Fill" StrokeThickness="0" >
