@@ -15,4 +15,6 @@ public class DepositDetail
     public decimal? VK_STAVVKL { get; set; }
     public string VK_NAME { get; set; }
     public int? DV_KODKL { get; set; }
+    public decimal? ChangedPercent { get; set; }
+
 }

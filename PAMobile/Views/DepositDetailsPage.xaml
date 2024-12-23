@@ -20,52 +20,55 @@
                     </Image>
                 </Border>-->
 
-                <Border Margin="14, 10, 14, 10" Padding="10" StrokeShape="RoundRectangle 10"
-                VerticalOptions="Fill" StrokeThickness="0" >
-                    <VerticalStackLayout>
-                        <Label Text="Информация по депозиту" FontSize="17" FontFamily="MontserratSemiBold"
-                        Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
+                <Border Margin="14, 10, 14, 10" Padding="10" BackgroundColor="{x:StaticResource Gray100}" StrokeShape="RoundRectangle 10"
+    VerticalOptions="Fill" StrokeThickness="0">
+                    <StackLayout>
+                        <Label Text="Информация по депозиту" TextColor="{x:StaticResource Black}" FontSize="17" FontAttributes="Bold" FontFamily="OpenSansRegular"
+            Margin="5, 25, 10, 10" HorizontalOptions="Start"/>
 
-                        <Label Text="Код депозита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.DV_POZN}"/>
+                        <Label Text="Код депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.DV_POZN}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="Вид депозита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.VK_NAME}"/>
+                        <Label Text="Вид депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.VK_NAME}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="№ договора" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.DV_NOM}"/>
+                        <Label Text="№ договора" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.DV_NOM}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="Валюта депозита" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.V_SIMV}"/>
+                        <Label Text="Валюта депозита" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.V_SIMV}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="Дата открытия" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.DepositDate, StringFormat='{0:d}'}"/>
+                        <Label Text="Дата открытия" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.DepositDate, StringFormat='{0:d}'}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="Дата окончания" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.Date2, StringFormat='{0:d}'}"/>
+                        <Label Text="Дата окончания" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.Date2, StringFormat='{0:d}'}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="Срок" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.DV_SROK}"/>
+                        <Label Text="Срок" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.DV_SROK}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
 
-                        <Label Text="% ставка (за год)" FontSize="12" Margin="5, 15, 10, 5" FontFamily="MontserratRegular"/>
-                        <Label FontSize="15" FontFamily="MontserratSemiBold" Margin="5, 0, 10, 0"
-                        Text="{Binding DepositInfo.VK_STAVVKL, StringFormat='{0:F2} %'}"/>
+                        <Label Text="Первоначальная процентная ставка по договору" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.VK_STAVVKL, StringFormat='{0:F2} %'}"/>
                         <BoxView Color="#999999" HeightRequest="1" HorizontalOptions="Fill" Margin="5, 5, 5, 0"/>
-                    </VerticalStackLayout>
+                        <Label Text="Текущая процентная ставка" FontSize="12" TextColor="#212121" Margin="5, 15, 10, 5"/>
+                        <Label FontSize="15" FontAttributes="Bold" FontFamily="OpenSansRegular" TextColor="{x:StaticResource Black}" Margin="5, 0, 10, 0"
+            Text="{Binding DepositInfo.ChangedPercent, StringFormat='{0:F2} %'}"/>
+                    </StackLayout>
                 </Border>
 
                 <VerticalStackLayout>
